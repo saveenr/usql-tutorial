@@ -35,8 +35,6 @@ It's worth noticing a few things about this error.
 * First, the error code contains the id `CSC` : this refers to the U-SQL compiler. 
 * Second, the error code contains the id `USER`: this means that the user \(you\) are the source of the problem. If it says `SYSTEM` it means something is wrong with the U-SQL compiler itself or perhaps the service. These system errors are not very common to experience - but it will be valuable later on to always understand the distinction between **user errors** \(also called **user code errors**\) and system errors.
 
-
-
 ## Inputs and Outputs
 
 All U-SQL scripts transform inputs to outputs. There are different kinds of inputs and outputs but ultimately they resolve to one of two things:
@@ -60,12 +58,53 @@ Copy that location and open it in Windows Explorer.
 
 Download the SearchLog.tsv file into the Local Data Root from here:
 
-https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv
+[https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv)
 
 Take a look at the TSV file. Some things to point out
 
 * there is no header row
 * it is a tsv - tab-separated-values
 
-Although this file is very simple, it will
+Now paste the following script in to the Script.usql
+
+```
+@searchlog = 
+    EXTRACT UserId          int, 
+            Start           DateTime, 
+            Region          string, 
+            Query           string, 
+            Duration        int, 
+            Urls            string, 
+            ClickedUrls     string
+    FROM @"/SearchLog.tsv"
+    USING Extractors.Tsv();
+
+OUTPUT @searchlog 
+    TO @"/SearchLog_output.tsv"
+    USING Outputters.Tsv();
+```
+
+Click **Submit**.The script should run successfully.
+
+Look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
+
+This script is very simple, but there are many things to notice about it
+
+**Reading and Writing Files**
+
+The `EXTRACT` statement reads from files. The built-in extractor called `Extractors.Tsv` handles Tab-Separated-Value files.
+
+The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
+
+Notice that by default files are expected to have no header row.
+
+From the U-SQL perspective files are "blobs" - they don't contain any usable schema information. So U-SQL supports a concept called "schema on read" - this means the developer specified the schema that is expected in the file. As you can see the names of the columns and the datatypes are specified in the `EXTRACT` statement.
+
+We'll cover reading and writing to U-SQL tables in later chapters.
+
+**RowSets**
+
+The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
+
+Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
 
