@@ -1,39 +1,42 @@
-# Preparing for the Tutorial
+# Preparing for the tutorial
 
-## Prerequisites
+### Developer Workstation and Operating System
 
-Azure Requirements
+* A workstation running Windows 7, 8, or 10 \(x64\)
 
-An Azure Data Lake Account
+  * Windows 10 is recommended
 
-## A PC running Windows 7, 8, or 10 \(x64\)
+  * You MUST use an x64 version of Windows.
 
-For this tutorial you MUST use an x64 version of Windows.
+### Visual Studio
 
-## Install Visual Studio
+* You can use VS 2013 or VS 2015
 
-* You can use VS 2013 or VS2015
+* VS 2015 is recommended
+
 * You can use VS Community editions
-* The recommend VS version is VS 2015
+
 * The tutorial was written using VS 2015 Community Edition
 
-## Install Azure Data Lake Tools for Visual Studio
+## Azure Data Lake Tools for Visual Studio \(ADLToolsForVS\)
 
-Install from [here](http://aka.ms/ADLToolsVS).
+You must install ADLToolsForVS. Install from [here](http://aka.ms/ADLToolsVS).
 
-## Verify That it Was Installed
 
-Go to **Tools &gt; Extensions and Updates** you should see it installed as shown below.
 
-## The DATA LAKE menu item
+**Verify That it Was Installed**
 
-Even though ADL Tools for VS is installed, you will not see the DATA LAKE menu item. It will appear only if you use a Data Lake feature.
+Go to **Tools menu. **If you see an item in that menu called **Data Lake **then you have it installed.
 
-The simplest way of quickly bringing up the menu item, is to navigate to Tools &gt; Options and then simply click Azure Data Lake.
 
-You may notice that you see the following Yellow region in the Server Explorer window. Ignore it.
 
-## 
+**Check for Updates**
+
+ADLToolsForVS ships on a very frequent schedule so please check for new versions often.
+
+Go to **Tools &gt; Data Lake &gt; Check for updates**.
+
+
 
 
 
