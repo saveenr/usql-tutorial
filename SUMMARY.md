@@ -8,4 +8,5 @@
   * [Your First U-SQL Script](chapter1/your-first-usql-script.md)
   * [The SearchLog sample data](chapter1/the-searchlog-sample-data.md)
   * [Common Errors](chapter1/common-errors.md)
+  * [Transforming Rowsets](chapter1/transforming-rowsets.md)
 
