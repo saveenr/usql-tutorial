@@ -88,7 +88,15 @@ Click **Submit**.The script should run successfully.
 
 Look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
 
-This script is very simple, but there are many things to notice about it
+This script is very simple - all it does is copy a file, but there are many things it introduces that we should discuss.
+
+**Case-Sensitive Keywords**
+
+The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT`, `USING`.
+
+U-SQL keywords are case sensitive. Keep this in mind - it's one of the most common errors people run into.
+
+
 
 **Reading and Writing Files**
 
@@ -96,15 +104,21 @@ The `EXTRACT` statement reads from files. The built-in extractor called `Extract
 
 The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
 
-Notice that by default files are expected to have no header row.
+We'll cover reading and writing to U-SQL tables in later chapters.
+
+
+
+**Schema for files and Header Rows**
 
 From the U-SQL perspective files are "blobs" - they don't contain any usable schema information. So U-SQL supports a concept called "schema on read" - this means the developer specified the schema that is expected in the file. As you can see the names of the columns and the datatypes are specified in the `EXTRACT` statement.
 
-We'll cover reading and writing to U-SQL tables in later chapters.
+The default Extractors and Outputters cannot infer the schema from the header row - in fact by default they assume that there is no header row \(this behavior can overriden\)
 
 **RowSets**
 
 The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
 
 Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
+
+
 
