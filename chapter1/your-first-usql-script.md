@@ -76,11 +76,11 @@ Now paste the following script in to the Script.usql
             Duration        int, 
             Urls            string, 
             ClickedUrls     string
-    FROM @"/SearchLog.tsv"
+    FROM "/SearchLog.tsv"
     USING Extractors.Tsv();
 
 OUTPUT @searchlog 
-    TO @"/SearchLog_output.tsv"
+    TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
 
@@ -115,8 +115,4 @@ The default Extractors and Outputters cannot infer the schema from the header ro
 The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
 
 Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
-
-
-
-
 

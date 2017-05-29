@@ -23,11 +23,7 @@ OUTPUT @searchlog
     USING Outputters.Tsv();
 ```
 
-
-
 ## Input does not exist
-
-
 
 ```
 @searchlog = 
@@ -38,15 +34,13 @@ OUTPUT @searchlog
             Duration        int, 
             Urls            string, 
             ClickedUrls     string
-    FROM @"/SearchLog_does_not_exist.tsv"
+    FROM "/SearchLog_does_not_exist.tsv"
     USING Extractors.Tsv();
 
 OUTPUT @searchlog 
-    TO @"/SearchLog_output.tsv"
+    TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
-
-
 
 ## Invalid C\# Expression
 
@@ -59,17 +53,13 @@ OUTPUT @searchlog
             Duration        int, 
             Urls            string, 
             ClickedUrls     string
-    FROM @"/SearchLog.tsv"
+    FROM "/SearchLog.tsv"
     USING Extractors.Tsv_xyz();
 
 OUTPUT @searchlog 
-    TO @"/SearchLog_output.tsv"
+    TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
-
-
-
-
 
 
 
