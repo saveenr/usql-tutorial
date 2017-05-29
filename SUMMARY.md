@@ -3,4 +3,6 @@
 * [Introduction](README.md)
 * [Chapter 1: The Basics](chapter1.md)
   * [U-SQL is not SQL](chapter1/u-sql-is-not-sql.md)
+  * [Preparing for the tutorial](chapter1/preparing-for-the-tutorial.md)
+  * [Your First U-SQL Script](chapter1/your-first-usql-script.md)
 
