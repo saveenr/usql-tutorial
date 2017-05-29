@@ -96,17 +96,13 @@ The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT
 
 U-SQL keywords are case sensitive. Keep this in mind - it's one of the most common errors people run into.
 
-
-
 **Reading and Writing Files**
 
 The `EXTRACT` statement reads from files. The built-in extractor called `Extractors.Tsv` handles Tab-Separated-Value files.
 
 The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
 
-We'll cover reading and writing to U-SQL tables in later chapters.
-
-
+We'll cover reading and writing to U-SQL tables in later chapters. Later, we'll also learn how to make custom extractors.
 
 **Schema for files and Header Rows**
 
@@ -119,6 +115,8 @@ The default Extractors and Outputters cannot infer the schema from the header ro
 The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
 
 Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
+
+
 
 
 
