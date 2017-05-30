@@ -1,4 +1,4 @@
-@rows =  
+﻿@rows =  
  EXTRACT
 
  Name string,
@@ -14,4 +14,28 @@ OUTPUT @rows
  TO "/output/output.csv"
 
  USINGOutputters.Csv\(outputHeader:true\);
+
+
+# Multiple inputs for EXTRACT
+
+@rows =
+
+ EXTRACT name string, idint
+
+ FROM
+
+“/file1.tsv”,
+
+ “/file2.tsv”,
+
+ “/file3.tsv”
+
+ USINGExtractors.Csv\( \);
+
+
+
+
+
+
+
 
