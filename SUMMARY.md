@@ -25,5 +25,5 @@
     * [All RowSets must lead to an output](chapter1/all-rowsets-must-lead-to-an-output.md)
     * [Escaping Identifiers](chapter1/escaping-identifiers.md)
     * [Constant rowsets](chapter1/constant-rowsets.md)
-  * DECLARE parameters
+  * [DECLARE parameters](chapter1/declare-parameters.md)
 
