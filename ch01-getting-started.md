@@ -1,3 +1,48 @@
+# U-SQL is not SQL
+
+If you come from a SQL background, you’ll notice that U-SQL queries look a lot of SQL queries. Many fundamental concepts and syntactic expressions will be very familiar to those with a background in SQL.
+
+But U-SQL, however, is a distinct language and some of the expectations you might have from the SQL world do not carry over into U-SQL.
+
+
+# Running U-SQL scripts
+
+There are two ways to run U-SQL scripts:
+
+* You can run U-SQL scripts on your own machine. The data read and written by this script will be on you own machine. You aren't using Azure resources to do this so there is no additional cost. This method of running U-SQL scripts is called **"U-SQL Local Execution"**
+* You can run U-SQL scripts in Azure in the context of a Data Lake Analytics account. The data read or written by the script will also be in Azure - typically in an Azure Data Lake Store account. You pay for any compute and storage used by the script. This is called **"U-SQL Cloud Execution"**
+
+For most of the tutorial we will work with **U-SQL Local Execution** because we want you to learn the language first. Later on we can explore the very rich topic that is **U-SQL Cloud Execution**.
+
+# Preparing for the tutorial
+
+### Operating System
+
+* Windows 7, 8, or 10 \(x64\)
+
+* Windows 10 is recommended
+
+* You MUST use an x64 version of Windows
+
+### Visual Studio
+
+* You can use Visual Studio 2015 or Visual Studio 2013
+
+* Visual Studio 2015 is recommended
+
+* You can use Visual Studio Community editions
+
+* The tutorial was written using VS 2015 Community Edition
+
+### Azure Data Lake Tools for Visual Studio \(ADLToolsForVS\)
+
+You must install ADLToolsForVS. Install from [**here**](http://aka.ms/ADLToolsVS).
+
+* **Verify That it Was Installed. **Go to **Tools menu. **If you see an item in that menu called **Data Lake **then you have it installed.
+* **Check for Updates. **ADLToolsForVS ships on a very frequent schedule so please check for new versions often. Go to **Tools &gt; Data Lake &gt; Check for updates**.
+
+
+
 Launch Visual Studio. Go to **File &gt; New &gt; Project &gt; Installed &gt; Templates &gt; Azure Data Lake &gt; U-SQL \(ADLA\)**
 
 At this point you should notice that an empty U-SQL script has been created called "Script.usql".
@@ -59,6 +104,97 @@ Copy that location and open it in Windows Explorer.
 Download the SearchLog.tsv file into the Local Data Root from here:
 
 [https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv)
+
+
+
+# The SearchLog sample datset
+
+You previously downloaded the SearchLog data set from this location:
+
+[https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://www.gitbook.com/book/saveenr/usql-tutorial/edit#)
+
+The SearchLog is a small dataset that represents "sessions" that a user has when performing a search on a web search engine. Each row represents a session for a specific search query,
+
+The `SearchLog.tsv` file doesn't contain a header row so we'll have to document the columns below:
+
+* **UserId** – this is an integer representing an anonymized user
+* **Start** – when started a session with the search engine
+* **Region** – What geographical region the user is searching from
+* **Query** – What the user searched for
+* **Duration** – How long their search session lasted
+* **Urls** – A semicolon-separated list All the URLs that were shown to the user in the session
+* **ClickedUrls** – A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
+
+
+
+
+
+# Common errors
+
+Of the many ways in which a U-SQL script is not compilable, there are only a few that account for the vast majority of issues. It WILL save you time to be familiar with the issues and how they manifest themselves in error messages and in the tools.
+
+Try running each of the sample scripts below.
+
+## Incorrect casing on U-SQL identifiers
+
+The script below uses `from` instead of `FROM`.
+
+```
+@searchlog = 
+    EXTRACT UserId          int, 
+            Start           DateTime, 
+            Region          string, 
+            Query           string, 
+            Duration        int, 
+            Urls            string, 
+            ClickedUrls     string
+    from @"/SearchLog.tsv"
+    USING Extractors.Tsv();
+
+OUTPUT @searchlog 
+    TO @"/SearchLog_output.tsv"
+    USING Outputters.Tsv();
+```
+
+## Input does not exist
+
+```
+@searchlog = 
+    EXTRACT UserId          int, 
+            Start           DateTime, 
+            Region          string, 
+            Query           string, 
+            Duration        int, 
+            Urls            string, 
+            ClickedUrls     string
+    FROM "/SearchLog_does_not_exist.tsv"
+    USING Extractors.Tsv();
+
+OUTPUT @searchlog 
+    TO "/SearchLog_output.tsv"
+    USING Outputters.Tsv();
+```
+
+## Invalid C\# Expression
+
+```
+@searchlog = 
+    EXTRACT UserId          int, 
+            Start           DateTime, 
+            Region          string, 
+            Query           string, 
+            Duration        int, 
+            Urls            string, 
+            ClickedUrls     string
+    FROM "/SearchLog.tsv"
+    USING Extractors.Tsv_xyz();
+
+OUTPUT @searchlog 
+    TO "/SearchLog_output.tsv"
+    USING Outputters.Tsv();
+```
+
+
 
 Take a look at the TSV file. Some things to point out
 
