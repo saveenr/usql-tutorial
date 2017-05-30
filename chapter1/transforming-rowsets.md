@@ -1,3 +1,5 @@
+# Transforming rowsets
+
 We are going to start with the first script you encountered change it over-and-over to discover the basics of how U-SQL can be used to transform data.
 
 Here is the starting script
@@ -21,8 +23,6 @@ OUTPUT @searchlog
 
 ## Creating a new rowset from another rowset
 
-
-
 ```
 @searchlog = 
     EXTRACT UserId          int, 
@@ -38,13 +38,13 @@ OUTPUT @searchlog
 @output = 
     SELECT *
     FROM @searchlog;
-    
+
 OUTPUT @output 
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
 
-This script doesn't change the output of the script at all. But it does introduce the basic mechanism of how a rowset is defined from another rowset. 
+This script doesn't change the output of the script at all. But it does introduce the basic mechanism of how a rowset is defined from another rowset.
 
 ## Filtering records with WHERE
 
@@ -66,13 +66,13 @@ Now let's transform the data by filtering out records with the WHERE clause
     SELECT *
     FROM @searchlog
     WHERE Region == "en-gb";
-    
+
 OUTPUT @output 
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
 
-## Adding new columns with SELECT 
+## Adding new columns with SELECT
 
 We can create new Columns with the SELECT clause. Simply use a C\# expression and give it a column name with AS.
 
@@ -93,13 +93,11 @@ We can create new Columns with the SELECT clause. Simply use a C\# expression an
         *, 
         Query+Query AS Query2
     FROM @searchlog;
-    
+
 OUTPUT @output 
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
-
-
 
 In the example above, we added a column without having to explicitly list out all the other columns. Below you can see how we can add just specific columns.
 
@@ -161,8 +159,6 @@ OUTPUT @output
 
 It can be done in two steps in the script
 
-
-
 ```
 @searchlog = 
     EXTRACT UserId          int, 
@@ -191,8 +187,6 @@ OUTPUT @output
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
-
-
 
 
 

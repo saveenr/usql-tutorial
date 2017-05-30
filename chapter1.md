@@ -1,3 +1,6 @@
-# First Chapter
+# Chapter 1: The Basics
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+In this chapter you'll learn fundamental U-SQL concepts. Of all the chapters of this tutorial - this is the one you MUST read.
+
+
+

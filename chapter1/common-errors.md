@@ -1,3 +1,5 @@
+# Common errors
+
 Of the many ways in which a U-SQL script is not compilable, there are only a few that account for the vast majority of issues. It WILL save you time to be familiar with the issues and how they manifest themselves in error messages and in the tools.
 
 Try running each of the sample scripts below.

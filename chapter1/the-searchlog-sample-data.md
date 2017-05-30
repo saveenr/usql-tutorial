@@ -1,3 +1,5 @@
+# The SearchLog sample datset
+
 You previously downloaded the SearchLog data set from this location:
 
 [https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://www.gitbook.com/book/saveenr/usql-tutorial/edit#)
