@@ -1,8 +1,6 @@
-# Transforming rowsets
+## Filtering records with WHERE
 
-We are going to start with the first script you encountered change it over-and-over to discover the basics of how U-SQL can be used to transform data.
-
-Here is the starting script
+Now let's transform the data by filtering out records with the WHERE clause
 
 ```
 @searchlog = 
@@ -16,7 +14,12 @@ Here is the starting script
     FROM "/SearchLog.tsv"
     USING Extractors.Tsv();
 
-OUTPUT @searchlog 
+@output = 
+    SELECT *
+    FROM @searchlog
+    WHERE Region == "en-gb";
+
+OUTPUT @output 
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```

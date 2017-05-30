@@ -10,4 +10,7 @@
   * [Common errors](chapter1/common-errors.md)
   * [Transforming rowsets](chapter1/transforming-rowsets.md)
     * [Creating a RowSet from a RowSet](chapter1/transforming-rowsets/creating-a-rowset-from-a-rowset.md)
+    * [Filtering rows with WHERE](chapter1/transforming-rowsets/filtering-rows-with-where.md)
+    * [Choosing and creating columns with SELECT](chapter1/transforming-rowsets/choosing-and-creating-columns-with-select.md)
+    * [RowSet Refinement](chapter1/transforming-rowsets/rowset-refinement.md)
 
