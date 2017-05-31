@@ -7,5 +7,5 @@
 * [Chapter 4: Data types](ch04-data-types.md)
 * [Chapter 5: Expressions](ch05-expressions.md)
 * [Chapter 6: Reading and writing files](ch06-reading-and-writing-files.md)
-* [Chapter 7: Grouping and aggregation](ch06-grouping-and-aggregation.md)
+* [Chapter 7: Grouping and aggregation](ch07-grouping-and-aggregation.md)
 
