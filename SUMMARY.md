@@ -4,4 +4,6 @@
 * [Chapter 1: Getting started](ch01-getting-started.md)
 * [Chapter 2: Transforming RowSets](ch02-transforming-rowsets.md)
 * [Chapter 3: Parameters](ch03-declare-parameters.md)
+* [Chapter 4: Data Types](ch04-data-types)
+* [Chapter 4: Expressions](ch04-expressions.md)
 * [Chapter 4: Reading and Writing Files](ch04-reading-and-writing-files.md)
