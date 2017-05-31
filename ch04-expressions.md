@@ -6,7 +6,7 @@ Clauses such as SELECT, WHERE, and HAVING \(and others\) allow you to enter expr
 An expression in a programming language is a combination of explicit values, constants, variables, operators, and functions that are interpreted according to the particular rules of precedence and of association for a particular programming language, which computes and then produces another value.  
 
 
-The simplest way of thinking of a U-SQL expression is that it is a merely C\# expression with some U-SQL extensions such as the AND, OR, NOT operators.
+The simplest way of thinking of a U-SQL expression is that it is a merely C# expression with some U-SQL extensions such as the AND, OR, NOT operators.
 
 ## A Tip for SQL Developers
 
