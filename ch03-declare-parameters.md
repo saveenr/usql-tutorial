@@ -4,12 +4,9 @@ For example, let's start this snippet
 
 ```
 @rows = 
-
   EXTRACT name string, 
            id int
-
   FROM “/data.csv”
-
   USING Extractors.Csv();
 ```
 
@@ -17,16 +14,10 @@ DECLARE lets us assign constant values to a name. In this case we can assign the
 
 ```
 DECLARE @inputfile string = “/data.csv”
-
-
-
 @rows = 
-
   EXTRACT name string, 
           id int
-
   FROM @inputfile
-
   USING Extractors.Csv();
 ```
 
