@@ -247,26 +247,20 @@ GROUP BY Region;
 
 You might try WHERE here.
 
-<span id="OLE_LINK3" class="anchor"><span id="OLE_LINK2"
-class="anchor"><span id="OLE_LINK1"
-class="anchor"></span></span></span>@output =
 
+
+```
 SELECT
-
-Region,
-
-SUM(Duration) AS TotalDuration
-
+  Region,
+  SUM(Duration) AS TotalDuration
 FROM @searchlog
-
 WHERE TotalDuration &gt; 200
-
 GROUP BY Region;
+```
 
 Which will cause an error. Because WHERE can only work on the input
 columns to the statement, not the output columns
 
-<img src="media/image1.png" width="730" height="231" />
 
 We could of course, use multiple U-SQL Statements to accomplish this
 
@@ -327,10 +321,9 @@ GROUP BY Region
 
 HAVING TotalDuration &gt; 200;
 
-<img src="media/image2.png" width="821" height="285" />
+Breaking Rows Apart with CROSS APPLY
 
-<span id="_Toc401976646" class="anchor"><span id="_Toc395513268" class="anchor"><span id="_Toc395359241" class="anchor"><span id="_Toc395275226" class="anchor"><span id="_Toc395513280" class="anchor"><span id="_Toc395359253" class="anchor"><span id="_Toc395275238" class="anchor"></span></span></span></span></span></span></span>Breaking Rows Apart with CROSS APPLY
-=============================================================================================================================================================================================================================================================================================================================================================================
+
 
 Let's examine the search log again.
 
@@ -399,12 +392,8 @@ FROM @output
 
 CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
 
-<span id="_Toc401976647" class="anchor"><span id="_Toc395513269"
-class="anchor"><span id="_Toc395359242" class="anchor"><span
-id="_Toc395275227" class="anchor"></span></span></span></span>
+# Putting Rows Together with ARRAY\_AGG
 
-<span id="_Toc401976648" class="anchor"><span id="_Toc395513270" class="anchor"><span id="_Toc395359243" class="anchor"><span id="_Toc395275228" class="anchor"></span></span></span></span>Putting Rows Together with ARRAY\_AGG
-=================================================================================================================================================================================================================================
 
 The **LIST** aggregate operator performs the opposite of **CROSS
 APPLY**.
@@ -489,8 +478,9 @@ GROUP BY Region;
 | en-us  | A;B;C |
 | en-gb  | D;E;F |
 
-<span id="_Toc404523754" class="anchor"><span id="_Toc395513255" class="anchor"><span id="_Toc395359228" class="anchor"><span id="_Toc395275213" class="anchor"></span></span></span></span>System-Defined Aggregates
-=====================================================================================================================================================================================================================
+# System-Defined Aggregates
+
+
 
 U-SQL contains several common aggregation functions:
 
@@ -537,7 +527,7 @@ FROM @searchlog
 
 GROUP BY Region;
 
-FIRST\_VALUE
+##FIRST\_VALUE
 ------------
 
 As you can expect FIRST\_VALUE will return the first value. However, if
