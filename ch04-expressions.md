@@ -2,7 +2,8 @@
 
 ## Overview
 
-Clauses such as SELECT, WHERE, and HAVING \(and others\) allow you to enter expressions - in particular U-SQL Expressions.  
+Clauses such as SELECT, WHERE, and HAVING (and others) allow you to enter expressions - in particular U-SQL Expressions.  
+
 An expression in a programming language is a combination of explicit values, constants, variables, operators, and functions that are interpreted according to the particular rules of precedence and of association for a particular programming language, which computes and then produces another value.  
 
 
@@ -117,8 +118,7 @@ Of course, then you'll be tempted to write your script by splitting apart the ex
     WHERE Name.StartsWith("bing");
 ```
 
-The assumption here is "  
-First I'll get the non-null objects and then I can avoid the null reference issue."
+The assumption here is that the first statement executes, before the second. This assumption is wrong.
 
 This won't work either. U-SQL is declarative language not an imperative one. Just because rs1 is defined earlier than rs2 in the script above it does NOT imply that the WHERE condition in rs1 is evaluated before the WHERE in rs2. U-SQL reserves the right to combine multiple statements together and perform optimizations. You MUST use the && operator if you want to perform short-circuiting.
 
