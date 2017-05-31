@@ -23,32 +23,20 @@ OUTPUT @output
 
 This script doesn't change the output of the script at all. But it does introduce the basic mechanism of how a rowset is defined from another rowset.
 
-
 ## Creating constant rowsets
 
 
 
+```
 @departments =
-
- SELECT \* FROM
-
- \(VALUES
-
- \(31, "Sales"\),
-
- \(33, "Engineering"\),
-
- \(34, "Clerical"\),
-
- \(35, "Marketing"\)
-
- \) AS
-
- D\(DepID,DepName\);
-
-
-
-
+  SELECT * 
+  FROM (VALUES
+    (31, "Sales"),
+    (33, "Engineering"),
+    (34, "Clerical"),
+    (35, "Marketing")
+    ) AS D(DepID,DepName);
+```
 
 ## Filtering records with WHERE
 
@@ -130,7 +118,6 @@ OUTPUT @output
     USING Outputters.Tsv();
 ```
 
-
 ## RowSet Refinement
 
 Rowsets can be defined from other rowsets. In fact rowsets can be defined from themselves. This is called RowSet refinement and can be a powerful way to make your code easier to read.
@@ -193,11 +180,6 @@ OUTPUT @output
     USING Outputters.Tsv();
 ```
 
-
-
-
-
-
 ## The SQL Logical Operators
 
 The **AND**/**OR**/**NOT** operators can be combined with parentheses for more complex expressions
@@ -224,9 +206,7 @@ U-SQL also supports the C\# logical operators
 
 Answer: Use the SQL-style logical unless you have to use the C\# versions.
 
-That answer clearly suggests there is a difference - and it is an important one. A part of standard U-SQL optimization predicates in the WHERE clause may be reordered when the script is executed. Specifically, they DO NOT perform short-circuiting behavior. The C\# logical operators DO provide short circuiting. 
-
-
+That answer clearly suggests there is a difference - and it is an important one. A part of standard U-SQL optimization predicates in the WHERE clause may be reordered when the script is executed. Specifically, they DO NOT perform short-circuiting behavior. The C\# logical operators DO provide short circuiting.
 
 # Find all the sessions occurring between two dates
 
@@ -236,10 +216,6 @@ That answer clearly suggests there is a difference - and it is an important one.
  FROM @searchlog
  WHERE Start <= DateTime.Parse("2012/02/17");
 ```
-
-
-
-
 
 // Find all the sessions occurring between two dates
 
@@ -252,11 +228,6 @@ That answer clearly suggests there is a difference - and it is an important one.
    AND Start <= DateTime.Parse("2012/02/17");
 ```
 
-
-
-
-
-
 ## Testing for Membership with the IN Operator
 
 You can use the **IN** operator as shown below to test for membership in a set of values.
@@ -268,91 +239,75 @@ You can use the **IN** operator as shown below to test for membership in a set o
  WHERE JobTitle IN ("Design Engineer", "Tool Designer", "Marketing Assistant");
 ```
 
-
-
 Keep in mind that the U-SQL **IN** operator does not offer all the features of the SQL **IN** operator.
 
+## Filtering on calculated columns
+
+Consider this case where SELECT is used to define a new column called `DurationInMinutes`
+
+```
+@output =
+  SELECT Start, Region,Duration/60.0 AS DurationInMinutes
+  FROM @searchlog;
+```
+
+There are a couple of approaches for filtering rows based on the `DurationInMinutes` value
+
+The first option is to use RowSet refinement
+
+```
+@output =
+  SELECT Start,
+    Region,
+    Duration/60.0 ASDurationInMinutes
+  FROM @searchlog;
+
+@output =
+  SELECT *
+  FROM @output
+  WHERE DurationInMinutes>= 20;
+```
+
+ The second option is to repeat the expression in the WHERE clause
+
+```
+@output =
+  SELECT 
+    Start,
+    Region,
+    Duration/60.0 AS DurationInMinutes
+  FROM @searchlog
+    WHERE Duration/60.0>= 20;
+```
 
 
 
+However, you might wonder why the expression is repeated. You might ask why not simply use DurationInMinutes in the WHERE clause below the SELECT that defined it. The short answer is that will not compile.
+
+```
 // SYNTAX ERROR
-
 @output =
+  SELECT Start, Region,Duration/60.0 AS DurationInMinutes
+  FROM @searchlog
+  WHERE DurationInMinutes>= 20;
+```
 
- SELECT Start, Region,Duration/60.0 ASDurationInMinutes
+Let's understand why. WHERE filters rows coming to the statement. The DurationInMinutes column doesn't exist in the input. Therefore WHERE cannot operate on it.
 
- FROM @searchlog
+You might be tempted to use the HAVING clause \(which we haven't covered yet in this tutorial\). But although HAVING does filter outgoing rows from a statement, it also requires a GROUP BY clause. So it can't help in this scenario.
 
- WHEREDurationInMinutes&gt;= 20;
-
-
-
+```
 // SYNTAX ERROR
-
-output =
-
- SELECT Start, Region,Duration/60.0 ASDurationInMinutes
-
- FROM @searchlog
-
-HAVINGDurationInMinutes&gt;= 20;
-
-
-
-
-
-
-
-// THIS WORKS: Refine the rowset
-
-
-
 @output =
+  SELECT Start, Region,Duration/60.0 AS DurationInMinutes
+  FROM @searchlog
+  HAVING DurationInMinutes>= 20;
 
- SELECT Start,
+```
 
- Region,
+## Numbering rows
 
-Duration/60.0 ASDurationInMinutes
-
- FROM @searchlog;
-
-
-
-@output =
-
- SELECT \*
-
- FROM @output
-
- WHEREDurationInMinutes&gt;= 20;
-
-
-
-
-
-// THIS WORKS: Repeat the full expression
-
-
-
-@output =
-
- SELECT Start,
-
- Region,
-
-Duration/60.0 ASDurationInMinutes
-
- FROM @searchlog
-
- WHEREDuration/60.0&gt;= 20;
-
-
-
-
-## Numbering Rows
-
-Using the **ROW\_NUMBER** windowing function aggregate is how to assign row numbers. ROW\_NUMBER is part of Windowing Functions and that topic too complex for this tutorial – See the Windowing Functions documentation for details. However, for now we do want to show you the proper way to number rows in U-SQL using ROW\_NUMBER because it is a popular topic.
+Using the **ROW\_NUMBER** windowing function aggregate is how to assign row numbers. ROW\_NUMBER is part of Windowing Functions and that topic too complex for this tutorial.  See the Windowing Functions documentation for details. However, for now we do want to show you the proper way to number rows in U-SQL using ROW\_NUMBER because it is a popular topic.
 
 ```
 @rs1 =
@@ -363,77 +318,37 @@ Using the **ROW\_NUMBER** windowing function aggregate is how to assign row numb
  FROM @searchlog;
 ```
 
+There's no syntax error here. But compilation will fail. The reason is that all rowsets must eventually contribute to data being written to a file or table. And so the following script fail will to compile the `@smallrows`does not eventually result in an output to a file or table
 
-There’s no syntax error here. But compilation will fail.
-
-
-
-All rowsets must eventually contribute to data being written to a file or table.
-
-
-
-@smallrowsdoes not meet that criteria.
-
-
-
-@rows =  
+```
+@rows =
  EXTRACT
+   Name string,
+   Amountint,
+   FROM "/input.csv"
+ USING Extractors.Csv();
 
- Name string,
-
- Amountint,  
- FROM “/input.csv”  
- USINGExtractors.Csv\(\);
-
-
-
-@smallrows=
-
- SELECT Name, Amount
-
- FROM @rows
-
- WHERE Amount &lt; 1000;
-
-
+// THIS WILL CAUSE A SYNTAX ERROR
+@smallrows =
+  SELECT Name, Amount
+  FROM @rows
+  WHERE Amount < 1000;
 
 OUTPUT @rows
+  TO "/output/output.csv"
+  USING Outputters.Csv();
+```
 
- TO "/output/output.csv"
-
- USINGOutputters.Csv\(\);
+# Escaping Column names
 
 
-# Escaping COlumn names
 
+```
 @b =
+SELECT[Order Number], Part
+FROM @a;
 
- SELECT\[Order Number\], Part
-
- FROM @a;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 
 

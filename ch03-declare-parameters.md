@@ -89,5 +89,22 @@ DECLARE @b string = string.Format("BEGIN{0}END", @text1);
 DECLARE @c string = MyHelper.GetMyName();
 ```
 
+## Parameter values cannot be assigned directly from a RowSet.
+
+Values cannot be assigned from a RowSet
+
+You will be tempted to write something like this.
+
+This is explicitly NOT supported.
+
+```
+//
+// This does *NOT* work
+
+DECLARE @maxval int = SELECT MAX(value) FROM data;
+```
+
+An alternative is to get a single-row rowset with a single column and then JOIN that tiny rowset other rowset to get what you need.
+
 
 
