@@ -15,8 +15,8 @@ We can witness this behavior by building up to it in stages.
 
 This creates a simple list of integers.
 
-|Duration|
-|-----|
+| Duration |
+| --- |
 | 73 |
 | 614 |
 | 74 |
@@ -41,7 +41,6 @@ This creates a simple list of integers.
 | 183 |
 | 630 |
 
-
 Now, let's add all the numbers together. This yields a rowset with  
 exactly one row and one column.
 
@@ -49,15 +48,13 @@ exactly one row and one column.
 // Find the total duration for all sessions combined
 @output =  
   SELECT  
-   SUM\(Duration\) AS TotalDuration  
-   FROM @searchlog;
+    SUM\(Duration\) AS TotalDuration  
+  FROM @searchlog;
 ```
-
 
 | Duration |
 | --- |
 | 9981 |
-
 
 Now let's use the **GROUP BY** operator to break apart the totals by  
 Region.
@@ -73,7 +70,6 @@ Region.
 ```
 
 This returns:
-
 
 | en\_ca | 24 |
 | --- | --- |
@@ -93,12 +89,12 @@ some value.
 ```
 // find all the Regions where the total dwell time is &gt; 200
 @output =
-SELECT
-Region,
-SUM\(Duration\) AS TotalDuration
-FROM @searchlog
-GROUP BY Region
-HAVING TotalDuration &gt; 200;
+  SELECT
+    Region,
+    SUM\(Duration\) AS TotalDuration
+  FROM @searchlog
+  GROUP BY Region
+  HAVING TotalDuration &gt; 200;
 ```
 
 | en-fr | 241 |
@@ -124,11 +120,11 @@ Count the number of total sessions by Region.
 
 ```
 @output =
-SELECT
-COUNT\(\) AS NumSessions,
-Region
-FROM @searchlog
-GROUP BY Region;
+  SELECT
+    COUNT\(\) AS NumSessions,
+    Region
+  FROM @searchlog
+  GROUP BY Region;
 ```
 
 | 1 | en\_ca |
@@ -145,15 +141,15 @@ for that language.
 
 ```
 @output =
-SELECT
-COUNT\(\) AS NumSessions,
-Region,
-SUM\(Duration\) AS TotalDuration,
-AVG\(Duration\) AS AvgDwellTtime,
-MAX\(Duration\) AS MaxDuration,
-MIN\(Duration\) AS MinDuration
-FROM @searchlog
-GROUP BY Region;
+  SELECT
+    COUNT\(\) AS NumSessions,
+    Region,
+    SUM\(Duration\) AS TotalDuration,
+    AVG\(Duration\) AS AvgDwellTtime,
+    MAX\(Duration\) AS MaxDuration,
+    MIN\(Duration\) AS MinDuration
+    FROM @searchlog
+  GROUP BY Region;
 ```
 
 | NumSessions | Region | TotalDuration | AvgDuration | MaxDuration | MinDuration |
@@ -191,23 +187,23 @@ Every aggregate function can take a **DISTINCT** qualifier.
 
 For example
 
-COUNT\(DISTINCT x\)
+`COUNT(DISTINCT x)`
 
 **DISTINCT** also works for user-defined aggregates.
 
 MyAggregator\(DISTINCT x,y,z\)
 
-Filtering on Aggregated Values
+## Filtering on Aggregated Values
 
 We’ll start again with a simply **GROUP BY**
 
 ```
 @output =
-SELECT
-Region,
-SUM\(Duration\) AS TotalDuration
-FROM searchlog
-GROUP BY Region;
+  SELECT
+    Region,
+    SUM\(Duration\) AS TotalDuration
+  FROM searchlog
+  GROUP BY Region;
 ```
 
 | en\_ca | 24 |
@@ -222,12 +218,13 @@ GROUP BY Region;
 You might try WHERE here.
 
 ```
-SELECT  
-  Region,  
-  SUM\(Duration\) AS TotalDuration  
-FROM @searchlog  
-WHERE TotalDuration &gt; 200  
-GROUP BY Region;  
+@output =
+  SELECT  
+    Region,  
+    SUM\(Duration\) AS TotalDuration  
+  FROM @searchlog  
+  WHERE TotalDuration &gt; 200  
+  GROUP BY Region;
 ```
 
 Which will cause an error. Because WHERE can only work on the input  
@@ -251,12 +248,12 @@ columns when a GROUP BY is used..
 
 ```
 @output =  
-SELECT  
-Region,  
-SUM\(Duration\) AS TotalDuration  
-FROM @searchlog  
-GROUP BY Region  
-HAVING SUM\(Duration\) &gt; 200;
+  SELECT  
+    Region,  
+    SUM\(Duration\) AS TotalDuration  
+  FROM @searchlog  
+  GROUP BY Region  
+  HAVING SUM\(Duration\) &gt; 200;
 ```
 
 You may have noticed that “SUM\(Duration\)” was repeated in the HAVING  
@@ -267,12 +264,12 @@ If you try the code below, it will be a compilation error.
 
 ```
 @output =  
-SELECT  
-Region,  
-SUM\(Duration\) AS TotalDuration  
-FROM @searchlog  
-GROUP BY Region  
-HAVING TotalDuration &gt; 200;
+  SELECT  
+    Region,  
+    SUM\(Duration\) AS TotalDuration  
+  FROM @searchlog  
+  GROUP BY Region  
+  HAVING TotalDuration &gt; 200;
 ```
 
 Breaking Rows Apart with CROSS APPLY
@@ -327,8 +324,8 @@ This is a perfect job for the **CROSS APPLY** operator.
   SELECT  
     Region,  
     Token AS Url  
-FROM @output  
-CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
+ FROM @output  
+  CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
 ```
 
 # Putting Rows Together with ARRAY\_AGG
@@ -362,24 +359,24 @@ reconstructed via the **ARRAY\_AGG** operator.
 @a = SELECT Region, Urls FROM @searchlog;  
 
 @b =  
-SELECT  
-Region,  
-SqlArray.Create\(Urls.Split\(';'\)\) AS UrlTokens  
-FROM @a;
+  SELECT  
+    Region,  
+    SqlArray.Create\(Urls.Split\(';'\)\) AS UrlTokens  
+  FROM @a;
 
 @c =  
-SELECT  
-  Region,  
-  Token AS Url  
-FROM @b  
-CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
+  SELECT  
+    Region,  
+    Token AS Url  
+  FROM @b   
+   CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
 
 @d =  
-  SELECT Region,  
-  string.Join\(";", ARRAY\_AGG&lt;string&gt;\(Url\).ToArray\(\)\) AS Urls  
+  SELECT 
+    Region,  
+    string.Join\(";", ARRAY\_AGG&lt;string&gt;\(Url\).ToArray\(\)\) AS Urls  
   FROM @a
-
-GROUP BY Region;
+  GROUP BY Region;
 ```
 
 | Region | Urls |
@@ -428,15 +425,15 @@ U-SQL contains several common aggregation functions:
 the where inside that rowset the value came from. It could be the first  
 value, the last value, are on value in between. It is useful because in  
 some scenarios \(for example when using Window Functions\) where you don't  
-care which value you receive as long as you get one.
+care which value you receive as long as you get one. ...
 
 ```
 @output =
-SELECT
-ANY\_VALUE\(Start\) AS FirstStart,
-Region
-FROM @searchlog
-GROUP BY Region;
+  SELECT
+    ANY\_VALUE\(Start\) AS FirstStart,
+    Region
+  FROM @searchlog
+  GROUP BY Region;
 ```
 
 ## FIRST\_VALUE
@@ -449,11 +446,11 @@ clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
 
 ```
 @output =
-SELECT
-FIRST\_VALUE\(Start\) AS FirstStart,
-Region
-FROM @searchlog
-GROUP BY Region;
+  SELECT
+    FIRST\_VALUE\(Start\) AS FirstStart,
+    Region
+  FROM @searchlog
+  GROUP BY Region;
 ```
 
 ## LAST\_VALUE
