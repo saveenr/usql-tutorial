@@ -48,7 +48,7 @@ exactly one row and one column.
 // Find the total duration for all sessions combined
 @output =  
   SELECT  
-    SUM\(Duration\) AS TotalDuration  
+    SUM(Duration) AS TotalDuration  
   FROM @searchlog;
 ```
 
@@ -71,14 +71,14 @@ Region.
 
 This returns:
 
-| en\_ca | 24 |
+| en_ca | 24 |
 | --- | --- |
-| en\_ch | 10 |
-| en\_fr | 241 |
-| en\_gb | 688 |
-| en\_gr | 305 |
-| en\_mx | 422 |
-| en\_us | 8291 |
+| en_ch | 10 |
+| en_fr | 241 |
+| en_gb | 688 |
+| en_gr | 305 |
+| en_mx | 422 |
+| en_us | 8291 |
 
 This is a good opportunity to explore a common use of the **HAVING**  
 operator. We can use **HAVING** to restrict the output rowset to those  
@@ -91,7 +91,7 @@ some value.
 @output =
   SELECT
     Region,
-    SUM\(Duration\) AS TotalDuration
+    SUM(Duration) AS TotalDuration
   FROM @searchlog
   GROUP BY Region
   HAVING TotalDuration &gt; 200;
@@ -108,7 +108,7 @@ some value.
 // Count the number of total sessions.
 @output =
 SELECT
-COUNT\(\) AS NumSessions
+COUNT() AS NumSessions
 FROM @searchlog;
 ```
 
@@ -127,14 +127,14 @@ Count the number of total sessions by Region.
   GROUP BY Region;
 ```
 
-| 1 | en\_ca |
+| 1 | en_ca |
 | --- | --- |
-| 1 | en\_ch |
-| 1 | en\_fr |
-| 2 | en\_gb |
-| 1 | en\_gr |
-| 1 | en\_mx |
-| 16 | en\_us |
+| 1 | en_ch |
+| 1 | en_fr |
+| 2 | en_gb |
+| 1 | en_gr |
+| 1 | en_mx |
+| 16 | en_us |
 
 Count the number of total sessions by Region and include total duration  
 for that language.
@@ -142,25 +142,25 @@ for that language.
 ```
 @output =
   SELECT
-    COUNT\(\) AS NumSessions,
+    COUNT() AS NumSessions,
     Region,
-    SUM\(Duration\) AS TotalDuration,
-    AVG\(Duration\) AS AvgDwellTtime,
-    MAX\(Duration\) AS MaxDuration,
-    MIN\(Duration\) AS MinDuration
+    SUM(Duration) AS TotalDuration,
+    AVG(Duration) AS AvgDwellTtime,
+    MAX(Duration) AS MaxDuration,
+    MIN(Duration) AS MinDuration
     FROM @searchlog
   GROUP BY Region;
 ```
 
 | NumSessions | Region | TotalDuration | AvgDuration | MaxDuration | MinDuration |
 | --- | --- | --- | --- | --- | --- |
-| 1 | en\_ca | 24 | 24 | 24 | 24 |
-| 1 | en\_ch | 10 | 10 | 10 | 10 |
-| 1 | en\_fr | 241 | 241 | 241 | 241 |
-| 2 | en\_gb | 688 | 344 | 614 | 74 |
-| 1 | en\_gr | 305 | 305 | 305 | 305 |
-| 1 | en\_mx | 422 | 422 | 422 | 422 |
-| 16 | en\_us | 8291 | 518.1875 | 1270 | 30 |
+| 1 | en_ca | 24 | 24 | 24 | 24 |
+| 1 | en_ch | 10 | 10 | 10 | 10 |
+| 1 | en_fr | 241 | 241 | 241 | 241 |
+| 2 | en_gb | 688 | 344 | 614 | 74 |
+| 1 | en_gr | 305 | 305 | 305 | 305 |
+| 1 | en_mx | 422 | 422 | 422 | 422 |
+| 16 | en_us | 8291 | 518.1875 | 1270 | 30 |
 
 ## A Note: Data types Coming from Aggregations
 
@@ -169,13 +169,13 @@ types.
 
 For example, the input data type is double:
 
-* SUM\(double\) -&gt; double
-* COUNT\(double\) -&gt; long\(int64\)
+* SUM(double) -&gt; double
+* COUNT(double) -&gt; long(int64)
 
-But if the input data type is numeric \(long/int/short/byte, etc.\):
+But if the input data type is numeric (long/int/short/byte, etc.):
 
-* SUM\(type\) -&gt; long\(int64\)
-* COUNT\(type\) -&gt; long\(int64\)
+* SUM\(type) -&gt; long(int64)
+* COUNT(type) -&gt; long(int64)
 
 ## Where You Can Use Aggregates in a Query
 
@@ -191,7 +191,7 @@ For example
 
 **DISTINCT** also works for user-defined aggregates.
 
-MyAggregator\(DISTINCT x,y,z\)
+MyAggregator(DISTINCT x,y,z)
 
 ## Filtering on Aggregated Values
 
@@ -201,19 +201,19 @@ We’ll start again with a simply **GROUP BY**
 @output =
   SELECT
     Region,
-    SUM\(Duration\) AS TotalDuration
+    SUM(Duration) AS TotalDuration
   FROM searchlog
   GROUP BY Region;
 ```
 
-| en\_ca | 24 |
+| en_ca | 24 |
 | --- | --- |
-| en\_ch | 10 |
-| en\_fr | 241 |
-| en\_gb | 688 |
-| en\_gr | 305 |
-| en\_mx | 422 |
-| en\_us | 8291 |
+| en_ch | 10 |
+| en_fr | 241 |
+| en_gb | 688 |
+| en_gr | 305 |
+| en_mx | 422 |
+| en_us | 8291 |
 
 You might try WHERE here.
 
@@ -232,16 +232,19 @@ columns to the statement, not the output columns
 
 We could of course, use multiple U-SQL Statements to accomplish this
 
+```
 @output =  
-SELECT  
-Region,  
-SUM\(Duration\) AS TotalDuration  
-FROM @searchlog  
-GROUP BY Region;  
+  SELECT  
+    Region,  
+    SUM(Duration) AS TotalDuration  
+  FROM @searchlog  
+  GROUP BY Region;  
+
 @output2 =  
-SELECT \*  
-FROM @output  
-WHERE TotalDuration &gt; 200;
+  SELECT *  
+  FROM @output  
+  WHERE TotalDuration &gt; 200;
+```
 
 Alternatively , we can use the HAVING clause which is designed to filter  
 columns when a GROUP BY is used..
@@ -250,10 +253,10 @@ columns when a GROUP BY is used..
 @output =  
   SELECT  
     Region,  
-    SUM\(Duration\) AS TotalDuration  
+    SUM(Duration) AS TotalDuration  
   FROM @searchlog  
   GROUP BY Region  
-  HAVING SUM\(Duration\) &gt; 200;
+  HAVING SUM(Duration) &gt; 200;
 ```
 
 You may have noticed that “SUM\(Duration\)” was repeated in the HAVING  
@@ -266,7 +269,7 @@ If you try the code below, it will be a compilation error.
 @output =  
   SELECT  
     Region,  
-    SUM\(Duration\) AS TotalDuration  
+    SUM(Duration) AS TotalDuration  
   FROM @searchlog  
   GROUP BY Region  
   HAVING TotalDuration &gt; 200;
@@ -317,7 +320,7 @@ This is a perfect job for the **CROSS APPLY** operator.
 @output =  
   SELECT  
     Region,  
-    SqlArray.Create\(Urls.Split\(';'\)\) AS UrlTokens  
+    SqlArray.Create(Urls.Split(';')) AS UrlTokens  
   FROM @output;
 
 @output =  
@@ -325,7 +328,7 @@ This is a perfect job for the **CROSS APPLY** operator.
     Region,  
     Token AS Url  
  FROM @output  
-  CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
+  CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
 ```
 
 # Putting Rows Together with ARRAY\_AGG
@@ -361,7 +364,7 @@ reconstructed via the **ARRAY\_AGG** operator.
 @b =  
   SELECT  
     Region,  
-    SqlArray.Create\(Urls.Split\(';'\)\) AS UrlTokens  
+    SqlArray.Create(Urls.Split(';')) AS UrlTokens  
   FROM @a;
 
 @c =  
@@ -369,12 +372,12 @@ reconstructed via the **ARRAY\_AGG** operator.
     Region,  
     Token AS Url  
   FROM @b   
-   CROSS APPLY EXPLODE \(UrlTokens\) AS r\(Token\);
+   CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
 
 @d =  
   SELECT 
     Region,  
-    string.Join\(";", ARRAY\_AGG&lt;string&gt;\(Url\).ToArray\(\)\) AS Urls  
+    string.Join(";", ARRAY_AGG&lt;string&gt;(Url).ToArray()) AS Urls  
   FROM @a
   GROUP BY Region;
 ```
@@ -416,8 +419,8 @@ U-SQL contains several common aggregation functions:
 * MAX
 * MIN
 * SUM
-* VAR \*
-* STDEV \*
+* VAR *
+* STDEV *
 
 ## ANY\_VALUE
 
@@ -430,7 +433,7 @@ care which value you receive as long as you get one. ...
 ```
 @output =
   SELECT
-    ANY\_VALUE\(Start\) AS FirstStart,
+    ANY_VALUE(Start) AS FirstStart,
     Region
   FROM @searchlog
   GROUP BY Region;
@@ -447,7 +450,7 @@ clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
 ```
 @output =
   SELECT
-    FIRST\_VALUE\(Start\) AS FirstStart,
+    FIRST_VALUE(Start) AS FirstStart,
     Region
   FROM @searchlog
   GROUP BY Region;
@@ -462,7 +465,7 @@ clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
 ```
 @output =
   SELECT
-    LAST\_VALUE\(Start\) AS FirstStart,
+    LAST_VALUE(Start) AS FirstStart,
     Region
   FROM @searchlog
   GROUP BY Region;
@@ -475,12 +478,12 @@ These do what you expect them to do
 ```
 @output =
   SELECT
-    MAX\(Duration\) AS DurationMax,
-    MIN\(Duration\) AS DurationMin,
-    AVG\(Duration\) AS DurationAvg,
-    SUM\(Duration\) AS DurationSum,
-    VAR\(Duration\) AS DurationVariance,
-    STDEV\(Duration\) AS DurationStDev,
+    MAX(Duration) AS DurationMax,
+    MIN(Duration) AS DurationMin,
+    AVG(Duration) AS DurationAvg,
+    SUM(Duration) AS DurationSum,
+    VAR(Duration) AS DurationVariance,
+    STDEV(Duration) AS DurationStDev,
   FROM @searchlog
   GROUP BY Region;
 ```
