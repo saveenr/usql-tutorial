@@ -1,6 +1,6 @@
-# DECLARE Parameters
+# Parameters
 
-The DECLARE statement allows us to define parameters to store values for things that aren't RowSets.
+The `DECLARE` statement allows us to define parameters to store values for things that aren't RowSets.
 
 We'll start with this snippet
 
@@ -96,6 +96,8 @@ DECLARE @d = 2L; // long
 DECLARE @d = 4.0f; // float
 DECLARE @e = 5.0; // double
 ```
+
+## Using Expressions
 
 DECLARE parameters can be expressions
 

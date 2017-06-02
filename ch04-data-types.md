@@ -1,10 +1,10 @@
-Native Data types
+## Native Data types
+
 U-SQL has many built-in Native U-SQL datatypes in that U-SQL has special support for them so that using them will be more performant. In general use the U-SQL's native data types wherever possible.
 
-Most of the datatypes below will be familiar to a C#/.NET programmer. Indeed except for MAP and ARRAY, these *ARE* the normal .NET datatypes you are used to.
-		
-Miscellaneous	
+Most of the datatypes below will be familiar to a C\#/.NET programmer. Indeed except for MAP and ARRAY, these _ARE_ the normal .NET datatypes you are used to.
 
+**Miscellaneous**
 
 ```
 bool
@@ -13,57 +13,61 @@ DateTime
 byte[]
 ```
 
-
-
-
-Numeric	
-
-
+**Numeric signed**
 
 ```
-byte
 sbyte
 int
-uint
 long
-ulong
 float
 double
 decimal
 short
-ushort
-
 ```
 
+**Numeric unsigned**
 
+```
+byte
+uint
+ulong
+ushort
+```
 
-
-Text	
+**Text**
 
 ```
 char
 string
 ```
 
-char?
-
-		
-Complex	
-
-
+**Complex**
 
 ```
 MAP<k,v>
-ARRAY<v>	
+ARRAY<v>
 ```
 
+## Nullable Data Types
 
-##Nullable Data Types
+In .NET types that cannot be null such as `int` are called **value types**. Types that can have a null value such as string are called **reference** types. Sometimes it is convenient though to value that is an value type but that that can also have a null value. These types are called **nullable types**.
 
-For those of you wondering what the question marks mean (int?) please read this article on nullable types.
+So if this is how we would use an int
 
+```
+int i = 100;
+i = 200;
+```
 
+This is how we would use a nullable int.
 
+```
+int? i = 100;
+i = 200;
+i = null;
+```
+
+U-SQL supports the following nullable types
 
 ```
 byte?
@@ -83,13 +87,7 @@ DateTime?
 char?
 ```
 
-
-
-## String size limitations
-
-A string in a rowset can only be 128K in size.
-If you need to store something larger than that, use byte [].
-NOTE: In the future this size limitation may change
+## 
 
 
 
