@@ -71,14 +71,14 @@ Region.
 
 This returns:
 
-| en_ca | 24 |
+| en\_ca | 24 |
 | --- | --- |
-| en_ch | 10 |
-| en_fr | 241 |
-| en_gb | 688 |
-| en_gr | 305 |
-| en_mx | 422 |
-| en_us | 8291 |
+| en\_ch | 10 |
+| en\_fr | 241 |
+| en\_gb | 688 |
+| en\_gr | 305 |
+| en\_mx | 422 |
+| en\_us | 8291 |
 
 This is a good opportunity to explore a common use of the **HAVING**  
 operator. We can use **HAVING** to restrict the output rowset to those  
@@ -127,14 +127,14 @@ Count the number of total sessions by Region.
   GROUP BY Region;
 ```
 
-| 1 | en_ca |
+| 1 | en\_ca |
 | --- | --- |
-| 1 | en_ch |
-| 1 | en_fr |
-| 2 | en_gb |
-| 1 | en_gr |
-| 1 | en_mx |
-| 16 | en_us |
+| 1 | en\_ch |
+| 1 | en\_fr |
+| 2 | en\_gb |
+| 1 | en\_gr |
+| 1 | en\_mx |
+| 16 | en\_us |
 
 Count the number of total sessions by Region and include total duration  
 for that language.
@@ -154,13 +154,13 @@ for that language.
 
 | NumSessions | Region | TotalDuration | AvgDuration | MaxDuration | MinDuration |
 | --- | --- | --- | --- | --- | --- |
-| 1 | en_ca | 24 | 24 | 24 | 24 |
-| 1 | en_ch | 10 | 10 | 10 | 10 |
-| 1 | en_fr | 241 | 241 | 241 | 241 |
-| 2 | en_gb | 688 | 344 | 614 | 74 |
-| 1 | en_gr | 305 | 305 | 305 | 305 |
-| 1 | en_mx | 422 | 422 | 422 | 422 |
-| 16 | en_us | 8291 | 518.1875 | 1270 | 30 |
+| 1 | en\_ca | 24 | 24 | 24 | 24 |
+| 1 | en\_ch | 10 | 10 | 10 | 10 |
+| 1 | en\_fr | 241 | 241 | 241 | 241 |
+| 2 | en\_gb | 688 | 344 | 614 | 74 |
+| 1 | en\_gr | 305 | 305 | 305 | 305 |
+| 1 | en\_mx | 422 | 422 | 422 | 422 |
+| 16 | en\_us | 8291 | 518.1875 | 1270 | 30 |
 
 ## A Note: Data types Coming from Aggregations
 
@@ -169,13 +169,13 @@ types.
 
 For example, the input data type is double:
 
-* SUM(double) -&gt; double
-* COUNT(double) -&gt; long(int64)
+* SUM\(double\) -&gt; double
+* COUNT\(double\) -&gt; long\(int64\)
 
-But if the input data type is numeric (long/int/short/byte, etc.):
+But if the input data type is numeric \(long/int/short/byte, etc.\):
 
-* SUM\(type) -&gt; long(int64)
-* COUNT(type) -&gt; long(int64)
+* SUM\(type\) -&gt; long\(int64\)
+* COUNT\(type\) -&gt; long\(int64\)
 
 ## Where You Can Use Aggregates in a Query
 
@@ -191,7 +191,7 @@ For example
 
 **DISTINCT** also works for user-defined aggregates.
 
-MyAggregator(DISTINCT x,y,z)
+MyAggregator\(DISTINCT x,y,z\)
 
 ## Filtering on Aggregated Values
 
@@ -206,14 +206,14 @@ We’ll start again with a simply **GROUP BY**
   GROUP BY Region;
 ```
 
-| en_ca | 24 |
+| en\_ca | 24 |
 | --- | --- |
-| en_ch | 10 |
-| en_fr | 241 |
-| en_gb | 688 |
-| en_gr | 305 |
-| en_mx | 422 |
-| en_us | 8291 |
+| en\_ch | 10 |
+| en\_fr | 241 |
+| en\_gb | 688 |
+| en\_gr | 305 |
+| en\_mx | 422 |
+| en\_us | 8291 |
 
 You might try WHERE here.
 
@@ -275,138 +275,9 @@ If you try the code below, it will be a compilation error.
   HAVING TotalDuration &gt; 200;
 ```
 
-Breaking Rows Apart with CROSS APPLY
+## 
 
-Let's examine the search log again.
-
-```
-@output =  
-  SELECT  
-    Region,  
-    Urls  
-  FROM @searchlog;
-```
-
-The query above returns something like this:
-
-| Region | Urls |
-| --- | --- |
-| en-us | A;B;C |
-| en-gb | D;E;F |
-
-The **Urls** column contains strings, but each string is a  
-semicolon-separated list of URLs. What happens if we want to break apart  
-the **Urls** field so that only a URL is present on every row? For  
-example, below is what we want to see:
-
-| Region | Urls |
-| --- | --- |
-| en-us | A |
-| en-us | B |
-| en-us | C |
-| en-gb | D |
-| en-gb | E |
-| en-gb | F |
-
-This is a perfect job for the **CROSS APPLY** operator.
-
-```
-@output =  
-  SELECT  
-    Region,  
-    Urls  
-  FROM @searchlog;
-
-@output =  
-  SELECT  
-    Region,  
-    SqlArray.Create(Urls.Split(';')) AS UrlTokens  
-  FROM @output;
-
-@output =  
-  SELECT  
-    Region,  
-    Token AS Url  
- FROM @output  
-  CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
-```
-
-# Putting Rows Together with ARRAY\_AGG
-
-The **LIST** aggregate operator performs the opposite of **CROSS  
-APPLY**.
-
-For example, if we start with this:
-
-| Region | Result |
-| --- | --- |
-| en-us | A |
-| en-us | B |
-| en-us | C |
-| en-gb | D |
-| en-gb | E |
-| en-gb | F |
-
-But we want this as the output:
-
-| Region | Urls |
-| --- | --- |
-| en-us | A;B;C |
-| en-gb | D;E;F |
-
-This is exactly what the **ARRAY\_AGG** operator does. In the example  
-below you will see rowset taken apart by **CROSS APPLY** and then  
-reconstructed via the **ARRAY\_AGG** operator.
-
-```
-@a = SELECT Region, Urls FROM @searchlog;  
-
-@b =  
-  SELECT  
-    Region,  
-    SqlArray.Create(Urls.Split(';')) AS UrlTokens  
-  FROM @a;
-
-@c =  
-  SELECT  
-    Region,  
-    Token AS Url  
-  FROM @b   
-   CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
-
-@d =  
-  SELECT 
-    Region,  
-    string.Join(";", ARRAY_AGG&lt;string&gt;(Url).ToArray()) AS Urls  
-  FROM @a
-  GROUP BY Region;
-```
-
-| Region | Urls |
-| --- | --- |
-| en-us | A;B;C |
-| en-gb | D;E;F |
-
-| Region | Urls |
-| --- | --- |
-| en-us | SqlArray&lt;string&gt;{“A”,”B”,”C”} |
-| en-gb | SqlArray&lt;string&gt;{“D”,”E”,”F”} |
-
-| Region | Result |
-| --- | --- |
-| en-us | A |
-| en-us | B |
-| en-us | C |
-| en-gb | D |
-| en-gb | E |
-| en-gb | F |
-
-| Region | Urls |
-| --- | --- |
-| en-us | A;B;C |
-| en-gb | D;E;F |
-
-# System-Defined Aggregates
+## System-Defined Aggregates
 
 U-SQL contains several common aggregation functions:
 
@@ -419,8 +290,8 @@ U-SQL contains several common aggregation functions:
 * MAX
 * MIN
 * SUM
-* VAR *
-* STDEV *
+* VAR \*
+* STDEV \*
 
 ## ANY\_VALUE
 
