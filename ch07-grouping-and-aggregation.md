@@ -1,3 +1,5 @@
+# Grouping and Aggregation
+
 Grouping, in essence, collapses multiple rows into single rows based on  
 some criteria. Hand-in-hand with performing a grouping operation, some  
 fields in the output rowset must be aggregated into some meaningful  
