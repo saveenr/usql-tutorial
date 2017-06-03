@@ -6,6 +6,7 @@
 * [Chapter 3: Parameters](ch03-declare-parameters.md)
 * [Chapter 4: Data types](ch04-data-types.md)
 * [Chapter 5: Expressions](ch05-expressions.md)
+* [Chapter 5: Order of evaluation in expressions](ch05-order-of-evaluation-in-expressions.md)
 * [Chapter 6: Reading and writing files](ch06-reading-and-writing-files.md)
 * [Chapter 6: FileSets](ch06-filesets.md)
 * [Chapter 7: Grouping and aggregation](ch07-grouping-and-aggregation.md)
