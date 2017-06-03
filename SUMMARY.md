@@ -7,9 +7,10 @@
 * [Chapter 4: Data types](ch04-data-types.md)
 * [Chapter 5: Expressions](ch05-expressions.md)
 * [Chapter 6: Reading and writing files](ch06-reading-and-writing-files.md)
+* [Chapter 6: FileSets](ch06-filesets.md)
 * [Chapter 7: Grouping and aggregation](ch07-grouping-and-aggregation.md)
-* [Chapter 8: Aggregate functions](ch08-aggregate-functions.md)
-* [Chapter 9: CROSS APPLY and ARRAY\_AGG](ch09-cross-apply-and-array_agg.md)
+* [Chapter 7: Aggregate functions](ch07-aggregate-functions.md)
+* [Chapter 7: CROSS APPLY and ARRAY\_AGG](ch07-cross-apply-and-array_agg.md)
 
 
 
