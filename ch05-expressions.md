@@ -57,7 +57,7 @@ Rowset columns are strongly typed. U-SQL allows you to call methods defined on t
     FROM @searchlog;
 ```
 
-### 
+
 
 
 
