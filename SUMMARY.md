@@ -10,6 +10,7 @@
 * [Chapter 6: Reading and writing files](ch06-reading-and-writing-files.md)
 * [Chapter 6: FileSets](ch06-filesets.md)
 * [Chapter 7: Grouping and aggregation](ch07-grouping-and-aggregation.md)
+* [Chapter 7: Filtering aggregated rows](ch07-filtering-aggregated-rows.md)
 * [Chapter 7: Aggregate functions](ch07-aggregate-functions.md)
 * [Chapter 7: CROSS APPLY and ARRAY\_AGG](ch07-cross-apply-and-array_agg.md)
 
