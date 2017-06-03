@@ -1,27 +1,23 @@
+# CROSS APPLY and ARRAY_AGG
+
+CROSS APPLY and ARRAY_AGG support two very common scenarios in transforming text
+
+* CROSS APPLY can break a row apart into multiple rows
+* ARRAY_AGG joins rows into a single row
+
+What we will how is how to move back and forth between the following two RowSets
 
 
-## Breaking Rows Apart with CROSS APPLY
-
-Let's examine the search log again.
-
-```
-@output =  
-  SELECT  
-    Region,  
-    Urls  
-  FROM @searchlog;
-```
-
-The query above returns something like this:
+The first rowset has a column called Urls we want to split
 
 | Region | Urls |
 | :--- | :--- |
 | en-us | A;B;C |
 | en-gb | D;E;F |
 
-The**Urls**column contains strings, but each string is a semicolon-separated list of URLs. What happens if we want to break apart the**Urls**field so that only a URL is present on every row? For example, below is what we want to see:
+The second rowset has a column called Url we want to merge
 
-| Region | Urls |
+| Region | Url |
 | :--- | :--- |
 | en-us | A |
 | en-us | B |
@@ -30,97 +26,57 @@ The**Urls**column contains strings, but each string is a semicolon-separated lis
 | en-gb | E |
 | en-gb | F |
 
-This is a perfect job for the**CROSS APPLY**operator.
+
+
+## Breaking apart rows with CROSS APPLY
+
+Let's examine the searchlog again and extract the `Region` and `Urls` columns.
 
 ```
-@output =  
-  SELECT  
-    Region,  
-    Urls  
-  FROM @searchlog;
-
-
-@output =  
-  SELECT  
-    Region,  
-    SqlArray.Create(Urls.Split(';')) AS UrlTokens  
-  FROM @output;
-
-
-@output =  
-  SELECT  
-    Region,  
-    Token AS Url  
- FROM @output  
-  CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
+@a = 
+  SELECT 
+    Region, 
+    Urls
+  FROM @searchlog;  
 ```
-
-# Putting Rows Together with ARRAY\_AGG
-
-The**LIST**aggregate operator performs the opposite of**CROSS APPLY**.
-
-For example, if we start with this:
-
-| Region | Result |
-| :--- | :--- |
-| en-us | A |
-| en-us | B |
-| en-us | C |
-| en-gb | D |
-| en-gb | E |
-| en-gb | F |
-
-But we want this as the output:
+@a looks like this:
 
 | Region | Urls |
 | :--- | :--- |
 | en-us | A;B;C |
 | en-gb | D;E;F |
 
-This is exactly what the**ARRAY\_AGG**operator does. In the example below you will see rowset taken apart by**CROSS APPLY**and then reconstructed via the**ARRAY\_AGG**operator.
+The **Urls**column contains strings, but each string is a semicolon-separated list of URLs.
+We will eventually use CROSS APPLY to break that column apart. But first we must transform the string into an array that CROSS APPLY can work with.
 
 ```
-@a = SELECT Region, Urls FROM @searchlog;  
-
-
 @b =  
-  SELECT  
-    Region,  
+  SELECT 
+    Region, 
     SqlArray.Create(Urls.Split(';')) AS UrlTokens  
   FROM @a;
+```
+@b looks like this
 
+| Region | Urls |
+| :--- | :--- |
+| en-us | SqlArray<string>{"A","B","C"} |
+| en-gb | SqlArray<string>{"D","E","F"} |
 
+Now we can use CROSS APPLY to break the rows apart.
+
+```
 @c =  
-  SELECT  
-    Region,  
+  SELECT 
+    Region, 
     Token AS Url  
   FROM @b   
    CROSS APPLY EXPLODE (UrlTokens) AS r(Token);
-
-
-@d =  
-  SELECT 
-    Region,  
-    string.Join(";", ARRAY_AGG
-&
-lt;string
-&
-gt;(Url).ToArray()) AS Urls  
-  FROM @a
-  GROUP BY Region;
 ```
 
-| Region | Urls |
-| :--- | :--- |
-| en-us | A;B;C |
-| en-gb | D;E;F |
+@c looks like this
 
-| Region | Urls |
-| :--- | :--- |
-| en-us | SqlArray&lt;string&gt;{“A”,”B”,”C”} |
-| en-gb | SqlArray&lt;string&gt;{“D”,”E”,”F”} |
-
-| Region | Result |
+| Region | Url |
 | :--- | :--- |
 | en-us | A |
 | en-us | B |
@@ -129,12 +85,46 @@ gt;(Url).ToArray()) AS Urls
 | en-gb | E |
 | en-gb | F |
 
+
+## Merging rows with ARRAY_AGG
+
+Now, let's reverse the scenario and merge the Url column for each region with ARRAY_AGG
+
+First, we'll merge the Urls together into an array with ARRAY_AGG
+
+```
+@d =  
+  SELECT 
+    Region, 
+    ARRAY_AGG<string>(Url) AS UrlsArray  
+  FROM @c
+  GROUP BY Region;
+```
+
+@d looks like this
+
+| Region | UrlsArray |
+| :--- | :--- |
+| en-us | SqlArray<string>{"A","B","C"} |
+| en-gb | SqlArray<string>{"D","E","F"} |
+
+Now that we have arrays of strings, we will collapse the each array into a string using `string.Join`.
+
+```
+@e =  
+  SELECT 
+    Region, 
+    string.Join(";", UrlsArray) AS Urls  
+  FROM @d
+  GROUP BY Region;
+```
+
+Finally @e looks like this. We are back to where we started.
+
+
 | Region | Urls |
 | :--- | :--- |
 | en-us | A;B;C |
 | en-gb | D;E;F |
-
-# 
-
 
 
