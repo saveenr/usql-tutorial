@@ -118,9 +118,26 @@ Image we have files that are named in this pattern "data-YEAR-MONTH-DAY.csv". Th
         date < System.DateTime.Parse("2016/2/1");
 ```
 
-Now what if the files are also placed in a folder hierarchy with one folder for year, one for month, and one for day.
+Image we have files that are named in this pattern "data-YEAR-MONTH-DAY.csv". The following query reads all the files where with that pattern and filters them to filenames matching a date range
 
-A file path would look like "/input/2017/03/31/data-2017-03-31.csv"
+```
+@rs = 
+  EXTRACT 
+      user    string,
+      id      string,
+      __date  DateTime
+  FROM 
+    "/input/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
+  USING Extractors.Csv();
+
+@rs = 
+  SELECT * FROM @rs
+  WHERE date >= System.DateTime.Parse("2016/1/1") AND
+        date < System.DateTime.Parse("2016/2/1");
+```
+
+
+In the above example we used all three parts of the date in the file path. However, you can use any parts you need and don't need to use them all. The following example shows a file path that only uses the year and month.
 
 ```
 @rs =
@@ -129,7 +146,7 @@ A file path would look like "/input/2017/03/31/data-2017-03-31.csv"
       id      string,
       __date  DateTime
   FROM 
-    "/input/{__date:yyyy}/{__date:MM}/{__date:dd}/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
+    "/input/data-{__date:yyyy}-{__date:MM}.csv"
   USING Extractors.Csv();
 
 @rs = 

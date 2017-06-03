@@ -83,7 +83,7 @@ DECLARE @inputfile= "/data.csv"
 @rows =
   EXTRACT name string, idint
   FROM @inputfile
-  USINGExtractors.Csv();
+  USING Extractors.Csv();
 ```
 
 Examples of type inference.

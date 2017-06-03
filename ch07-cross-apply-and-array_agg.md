@@ -46,7 +46,7 @@ Let's examine the searchlog again and extract the `Region` and `Urls` columns.
 | en-us | A;B;C |
 | en-gb | D;E;F |
 
-The **Urls**column contains strings, but each string is a semicolon-separated list of URLs.
+The **Urls** column contains strings, but each string is a semicolon-separated list of URLs.
 We will eventually use CROSS APPLY to break that column apart. But first we must transform the string into an array that CROSS APPLY can work with.
 
 ```

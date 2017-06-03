@@ -76,7 +76,7 @@ EXTRACT works with a comma-separated list of file paths. Keep in mind that the f
   USING Extractors.Csv( );
 ```
 
-## Getting the first N rows of a file
+## Getting the first N rows with EXTRACT
 
 
 ```

@@ -1,6 +1,6 @@
 # Grouping and Aggregation
 
-Grouping, in essence, collapses multiple rows into single rows based on some criteria. Hand-in-hand with performing a grouping operation, some fields in the output rowset must be aggregated into some meaningful value \(or discarded if no possible or meaningful aggregation can be done\).
+Grouping, in essence, collapses multiple rows into single rows based on some criteria. Hand-in-hand with performing a grouping operation, some fields in the output rowset must be aggregated into some meaningful value (or discarded if no possible or meaningful aggregation can be done).
 
 We can witness this behavior by building up to it in stages.
 
@@ -78,7 +78,7 @@ This returns:
 | en\_mx | 422 |
 | en\_us | 8291 |
 
-This is a good opportunity to explore a common use of the **HAVING **operator. We can use **HAVING** to restrict the output RowSet to those rows that have aggregate values we are interested in. For example, perhaps we want to find all the Regions where total dwell time is above some value.
+This is a good opportunity to explore a common use of the **HAVING** operator. We can use **HAVING** to restrict the output RowSet to those rows that have aggregate values we are interested in. For example, perhaps we want to find all the Regions where total dwell time is above some value.
 
 ```
 // find all the Regions where the total dwell time is &gt; 200
@@ -88,7 +88,7 @@ This is a good opportunity to explore a common use of the **HAVING **operator. W
     SUM(Duration) AS TotalDuration
   FROM @searchlog
   GROUP BY Region
-  HAVING TotalDuration &gt; 200;
+  HAVING TotalDuration > 200;
 ```
 
 | en-fr | 241 |
@@ -121,14 +121,14 @@ Count the number of total sessions by Region.
   GROUP BY Region;
 ```
 
-| 1 | en\_ca |
+| 1 | en_ca |
 | --- | --- |
-| 1 | en\_ch |
-| 1 | en\_fr |
-| 2 | en\_gb |
-| 1 | en\_gr |
-| 1 | en\_mx |
-| 16 | en\_us |
+| 1 | en_ch |
+| 1 | en_fr |
+| 2 | en_gb |
+| 1 | en_gr |
+| 1 | en_mx |
+| 16 | en_us |
 
 Count the number of total sessions by Region and include total duration for that language.
 
@@ -161,31 +161,27 @@ You should be aware of how some aggregation operators deal with data types. Some
 
 For example, if the input data type is double:
 
-* `SUM(double)` -&gt; double
-* `COUNT(double)` -&gt; long \(a.k.a int64\)
+* `SUM(double)` -> double
+* `COUNT(double)` -> long (a.k.a int64)
 
 If the input data type is any numeric \(long/int/short/byte, etc.\):
 
-* `SUM(byte)` -&gt; long \(a.k.a int64\)
-* `COUNT(int)` -&gt; long \(a.k.a int64\)
+* `SUM(byte)` -> long (a.k.a int64)
+* `COUNT(int)` -> long (a.k.a int64)
 
 ## Notes
 
-Aggregates can ONLY appear in a `SELECT` clause.
+Aggregates can ONLY appear in a SELECT clause.
 
 ## DISTINCT with Aggregates
 
-Every aggregate function can take a `DISTINCT` qualifier.
+Every aggregate function can take a DISTINCT qualifier.
 
 For example
 
 `COUNT(DISTINCT x)`
 
-**DISTINCT** also works for user-defined aggregates.
 
-`MyAggregator(DISTINCT x,y,z)`
-
-## 
 
 
 

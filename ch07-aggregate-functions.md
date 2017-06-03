@@ -4,23 +4,20 @@ U-SQL contains several common aggregation functions:
 
 * AVG
 * COUNT
-* ANY\_VALUE
-* FIRST\_VALUE
-* LAST\_VALUE
-* LIST
+* ANY_VALUE
+* FIRST_VALUE
+* LAST_VALUE
 * MAX
 * MIN
 * SUM
-* VAR \*
-* STDEV \*
+* VAR 
+* STDEV
+* ARRAY_AGG
+* MAP_AGG 
 
-## ANY\_VALUE
+## ANY_VALUE
 
-**ANY\_VALUE** gets a value for that column with no implications about  
-the where inside that rowset the value came from. It could be the first  
-value, the last value, are on value in between. It is useful because in  
-some scenarios \(for example when using Window Functions\) where you don't  
-care which value you receive as long as you get one. ...
+**ANY_VALUE** gets a value for that column with no implications about the where inside that rowset the value came from. It could be the first value, the last value, are on value in between. It is useful because in some scenarios (for example when using Window Functions) where you don't care which value you receive as long as you get one.
 
 ```
 @output =
@@ -31,15 +28,13 @@ care which value you receive as long as you get one. ...
   GROUP BY Region;
 ```
 
-## FIRST\_VALUE
+## FIRST_VALUE
 
----
-
-As you can expect FIRST\_VALUE will return the first value. However, if  
+As you can expect FIRST_VALUE will return the first value. However, if  
 you want to be specific about what qualifies as “First” use an ORDER BY  
-clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
-
+clause. Otherwise, this aggregate will behave the same as ANY_VALUE.
 ```
+
 @output =
   SELECT
     FIRST_VALUE(Start) AS FirstStart,
@@ -48,11 +43,11 @@ clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
   GROUP BY Region;
 ```
 
-## LAST\_VALUE
+## LAST_VALUE
 
-As you can expect LAST\_VALUE will return the last value. However, if  
+As you can expect LAST_VALUE will return the last value. However, if  
 you want to be specific about what qualifies as “First” use an ORDER BY  
-clause. Otherwise, this aggregate will behave the same as ANY\_VALUE.
+clause. Otherwise, this aggregate will behave the same as ANY_VALUE.
 
 ```
 @output =
@@ -80,8 +75,6 @@ These do what you expect them to do
   GROUP BY Region;
 ```
 
-### For the Statisticians: An Important Fact about VAR and STDEV
+### Notes for Statisticians
 
-**VAR** & **STDEV** are the **sample version** with Bessel's correction,  
-**not** the better-known **population version**.
-
+**VAR** & **STDEV** are the **sample version** with Bessel's correction,**not** the better-known **population version**.
