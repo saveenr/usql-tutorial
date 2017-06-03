@@ -208,7 +208,7 @@ Answer: Use the SQL-style logical unless you have to use the C\# versions.
 
 That answer clearly suggests there is a difference - and it is an important one. A part of standard U-SQL optimization predicates in the WHERE clause may be reordered when the script is executed. Specifically, they DO NOT perform short-circuiting behavior. The C\# logical operators DO provide short circuiting.
 
-# Find all the sessions occurring between two dates
+Find all the sessions occurring between two dates
 
 ```
 @output =
@@ -217,7 +217,7 @@ That answer clearly suggests there is a difference - and it is an important one.
  WHERE Start <= DateTime.Parse("2012/02/17");
 ```
 
-// Find all the sessions occurring between two dates
+Find all the sessions occurring between two dates
 
 ```
 @output = 
@@ -268,7 +268,7 @@ The first option is to use RowSet refinement
   WHERE DurationInMinutes>= 20;
 ```
 
- The second option is to repeat the expression in the WHERE clause
+The second option is to repeat the expression in the WHERE clause
 
 ```
 @output =
@@ -279,10 +279,7 @@ The first option is to use RowSet refinement
   FROM @searchlog
     WHERE Duration/60.0>= 20;
 ```
-
-
-
-However, you might wonder why the expression is repeated. You might ask why not simply use DurationInMinutes in the WHERE clause below the SELECT that defined it. The short answer is that will not compile.
+However, you might wonder why the expression is repeated. You might ask why not simply use `DurationInMinutes` in the `WHERE` clause below the `SELECT` that defined it. The short answer is that will not compile.
 
 ```
 // SYNTAX ERROR
@@ -292,9 +289,9 @@ However, you might wonder why the expression is repeated. You might ask why not 
   WHERE DurationInMinutes>= 20;
 ```
 
-Let's understand why. WHERE filters rows coming to the statement. The DurationInMinutes column doesn't exist in the input. Therefore WHERE cannot operate on it.
+Let's understand why. `WHERE` filters rows coming to the statement. The DurationInMinutes column doesn't exist in the input. Therefore WHERE cannot operate on it.
 
-You might be tempted to use the HAVING clause \(which we haven't covered yet in this tutorial\). But although HAVING does filter outgoing rows from a statement, it also requires a GROUP BY clause. So it can't help in this scenario.
+You might be tempted to use the `HAVING` clause \(which we haven't covered yet in this tutorial\). But although `HAVING` does filter outgoing rows from a statement, it also requires a GROUP BY clause. So it can't help in this scenario.
 
 ```
 // SYNTAX ERROR
@@ -307,7 +304,7 @@ You might be tempted to use the HAVING clause \(which we haven't covered yet in 
 
 ## Numbering rows
 
-Using the **ROW\_NUMBER** windowing function aggregate is how to assign row numbers. ROW\_NUMBER is part of Windowing Functions and that topic too complex for this tutorial.  See the Windowing Functions documentation for details. However, for now we do want to show you the proper way to number rows in U-SQL using ROW\_NUMBER because it is a popular topic.
+Using the `ROW_NUMBER` windowing function aggregate is how to assign row numbers. `ROW_NUMBER` is part of Windowing Functions and that topic too complex for this tutorial.  See the Windowing Functions documentation for details. However, for now we do want to show you the proper way to number rows in U-SQL using `ROW_NUMBER` because it is a popular topic.
 
 ```
 @rs1 =
