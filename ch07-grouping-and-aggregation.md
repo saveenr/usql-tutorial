@@ -1,10 +1,6 @@
 # Grouping and Aggregation
 
-Grouping, in essence, collapses multiple rows into single rows based on  
-some criteria. Hand-in-hand with performing a grouping operation, some  
-fields in the output rowset must be aggregated into some meaningful  
-value \(or discarded if no possible or meaningful aggregation can be  
-done\).
+Grouping, in essence, collapses multiple rows into single rows based on some criteria. Hand-in-hand with performing a grouping operation, some fields in the output rowset must be aggregated into some meaningful value \(or discarded if no possible or meaningful aggregation can be done\).
 
 We can witness this behavior by building up to it in stages.
 
@@ -43,7 +39,7 @@ This creates a simple list of integers.
 | 183 |
 | 630 |
 
-Now, let's add all the numbers together. This yields a rowset with  
+Now, let's add all the numbers together. This yields a RowSet with  
 exactly one row and one column.
 
 ```
@@ -59,7 +55,7 @@ exactly one row and one column.
 | 9981 |
 
 Now let's use the **GROUP BY** operator to break apart the totals by  
-Region.
+`Region`.
 
 ```
 // find the total Duration by Region
@@ -82,11 +78,7 @@ This returns:
 | en\_mx | 422 |
 | en\_us | 8291 |
 
-This is a good opportunity to explore a common use of the **HAVING**  
-operator. We can use **HAVING** to restrict the output rowset to those  
-rows that have aggregate values we are interested in. For example,  
-perhaps we want to find all the Regions where total dwell time is above  
-some value.
+This is a good opportunity to explore a common use of the **HAVING **operator. We can use **HAVING** to restrict the output RowSet to those rows that have aggregate values we are interested in. For example, perhaps we want to find all the Regions where total dwell time is above some value.
 
 ```
 // find all the Regions where the total dwell time is &gt; 200
@@ -109,9 +101,9 @@ some value.
 ```
 // Count the number of total sessions.
 @output =
-SELECT
-COUNT() AS NumSessions
-FROM @searchlog;
+  SELECT
+    COUNT() AS NumSessions
+  FROM @searchlog;
 ```
 
 | 23 |
@@ -123,7 +115,7 @@ Count the number of total sessions by Region.
 ```
 @output =
   SELECT
-    COUNT\(\) AS NumSessions,
+    COUNT() AS NumSessions,
     Region
   FROM @searchlog
   GROUP BY Region;
@@ -138,8 +130,7 @@ Count the number of total sessions by Region.
 | 1 | en\_mx |
 | 16 | en\_us |
 
-Count the number of total sessions by Region and include total duration  
-for that language.
+Count the number of total sessions by Region and include total duration for that language.
 
 ```
 @output =
@@ -164,28 +155,27 @@ for that language.
 | 1 | en\_mx | 422 | 422 | 422 | 422 |
 | 16 | en\_us | 8291 | 518.1875 | 1270 | 30 |
 
-## A Note: Data types Coming from Aggregations
+## Data types coming from aggregate functions
 
-You should be aware of how some aggregation operators deal with data  
-types.
+You should be aware of how some aggregation operators deal with data types. Some aggregations will promote a numeric type to a "larger" type. Other aggregations may switch types entirely.
 
-For example, the input data type is double:
+For example, if the input data type is double:
 
-* SUM\(double\) -&gt; double
-* COUNT\(double\) -&gt; long\(int64\)
+* `SUM(double)` -&gt; double
+* `COUNT(double)` -&gt; long \(a.k.a int64\)
 
-But if the input data type is numeric \(long/int/short/byte, etc.\):
+If the input data type is any numeric \(long/int/short/byte, etc.\):
 
-* SUM\(type\) -&gt; long\(int64\)
-* COUNT\(type\) -&gt; long\(int64\)
+* `SUM(byte)` -&gt; long \(a.k.a int64\)
+* `COUNT(int)` -&gt; long \(a.k.a int64\)
 
-## Where You Can Use Aggregates in a Query
+## Notes
 
-Aggregates can ONLY appear in a SELECT clause.
+Aggregates can ONLY appear in a `SELECT` clause.
 
 ## DISTINCT with Aggregates
 
-Every aggregate function can take a **DISTINCT** qualifier.
+Every aggregate function can take a `DISTINCT` qualifier.
 
 For example
 
@@ -193,11 +183,11 @@ For example
 
 **DISTINCT** also works for user-defined aggregates.
 
-MyAggregator\(DISTINCT x,y,z\)
+`MyAggregator(DISTINCT x,y,z)`
 
 ## Filtering on Aggregated Values
 
-We’ll start again with a simply **GROUP BY**
+We’ll start again with a simple `GROUP BY`
 
 ```
 @output =
@@ -217,22 +207,21 @@ We’ll start again with a simply **GROUP BY**
 | en\_mx | 422 |
 | en\_us | 8291 |
 
-You might try WHERE here.
+You might try `WHERE` here.
 
 ```
 @output =
   SELECT  
     Region,  
-    SUM\(Duration\) AS TotalDuration  
+    SUM(Duration) AS TotalDuration  
   FROM @searchlog  
   WHERE TotalDuration &gt; 200  
   GROUP BY Region;
 ```
 
-Which will cause an error. Because WHERE can only work on the input  
-columns to the statement, not the output columns
+Which will cause an error. Because `WHERE` can only work on the input columns to the statement, not the output columns
 
-We could of course, use multiple U-SQL Statements to accomplish this
+We could use multiple U-SQL Statements to accomplish this
 
 ```
 @output =  
@@ -248,8 +237,7 @@ We could of course, use multiple U-SQL Statements to accomplish this
   WHERE TotalDuration &gt; 200;
 ```
 
-Alternatively , we can use the HAVING clause which is designed to filter  
-columns when a GROUP BY is used..
+Alternatively , we can use the HAVING clause which is designed to filter columns when a GROUP BY is used..
 
 ```
 @output =  
@@ -261,9 +249,7 @@ columns when a GROUP BY is used..
   HAVING SUM(Duration) &gt; 200;
 ```
 
-You may have noticed that “SUM\(Duration\)” was repeated in the HAVING  
-clause. That’s because HAVING \(like WHERE\) cannot use columns created in  
-the SELECT clause.
+You may have noticed that `SUM(Duration)` was repeated in the `HAVING` clause. That’s because `HAVING` \(like `WHERE`\) cannot use columns created in the `SELECT` clause.
 
 If you try the code below, it will be a compilation error.
 
