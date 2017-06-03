@@ -1,3 +1,48 @@
+# Reading and Writing Files
+
+## File paths with EXTRACT and OUTPUT
+
+EXTRACT and OUTPUT naturally have to identify the paths to the files they read or write. U-SQL supports three forms of file paths.
+
+**Relative paths**
+
+Example:
+
+`"/somefile.txt"`
+
+Paths that begin with "/" is interpreted as:
+
+* Relative the the root of the Local Data Root **during U-SQL Local Execution**
+* Relative the the root of the default store of the ADLA account **during U-SQL Cloud Execution** 
+
+**Absolute Data Lake Store paths**
+
+`"adl://myadlsaccount.azuredatalakestore.net/somefile.txt"`
+
+**Absolute Windows Blob storage paths**
+
+`"wasb://container@storageaccount.blob.core.windows.net/somefile.txt"`
+
+
+
+## Built-in Extractors
+
+U-SQL has built-in Extractors to deal with CSV and TSV file.
+
+* `Extractors.Csv` - for comma-separated-value files
+* `Extractors.Tsv` - for tab-separated-value files
+
+
+
+## Built-in Outputters
+
+U-SQL has built-in Extractors to deal with CSV and TSV file.
+
+* `Outputters.Csv` - for comma-separated-value files
+* `Outputters.Tsv` - for tab-separated-value files
+
+
+
 ## Skipping Header Rows in Text Files
 
 With `Extractors.Csv` and `Extractors.Tsv` you can use the `skipFirstNRows` parameter to skip a number of lines at the beginning on a file.
@@ -36,6 +81,8 @@ EXTRACT works with a comma-separated list of file paths. Keep in mind that the f
     "/file3.tsv"
   USING Extractors.Csv( );
 ```
+
+## FileSets
 
 
 
