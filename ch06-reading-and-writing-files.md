@@ -76,7 +76,28 @@ EXTRACT works with a comma-separated list of file paths. Keep in mind that the f
   USING Extractors.Csv( );
 ```
 
-## 
+## Getting the first N rows of a file
+
+
+```
+@a =
+  EXTRACT 
+    Name string, 
+    Id int
+  FROM
+    "/file1.csv"
+  USING Extractors.Csv( );
+
+@a = 
+  SELECT * 
+  FROM @a
+  ORDER BY 1
+  FETCH FIRST 100 ROWS;	
+```
+
+This syntax may look misleading. The `FETCH FIRST` part should be obvious. The `ORDER BY 1 ASC` is the part we need to understand. You should read this as "order the rows on the constant value 1'. It DOES NOT mean "order the rows on the first column". 
+
+We are going to cover `ORDER BY` in much greater detail on other chapters.
 
 
 
