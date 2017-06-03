@@ -117,17 +117,13 @@ The SearchLog is a small dataset that represents "sessions" that a user has when
 
 The `SearchLog.tsv` file doesn't contain a header row so we'll have to document the columns below:
 
-* **UserId** � this is an integer representing an anonymized user
-* **Start** � when started a session with the search engine
-* **Region** � What geographical region the user is searching from
-* **Query** � What the user searched for
-* **Duration** � How long their search session lasted
-* **Urls** � A semicolon-separated list All the URLs that were shown to the user in the session
-* **ClickedUrls** � A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
-
-
-
-
+* **UserId** - this is an integer representing an anonymized user
+* **Start** - when started a session with the search engine
+* **Region** - What geographical region the user is searching from
+* **Query** - What the user searched for
+* **Duration** - How long their search session lasted
+* **Urls** - A semicolon-separated list All the URLs that were shown to the user in the session
+* **ClickedUrls** - A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
 
 # Common errors
 
@@ -175,7 +171,7 @@ OUTPUT @searchlog
     USING Outputters.Tsv();
 ```
 
-## Invalid C\# Expression
+## Invalid C# Expression
 
 ```
 @searchlog = 
@@ -193,8 +189,6 @@ OUTPUT @searchlog
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```
-
-
 
 Take a look at the TSV file. Some things to point out
 

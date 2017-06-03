@@ -15,6 +15,11 @@
 * [Chapter 7: Filtering aggregated rows](ch07-filtering-aggregated-rows.md)
 * [Chapter 7: Aggregate functions](ch07-aggregate-functions.md)
 * [Chapter 7: CROSS APPLY and ARRAY\_AGG](ch07-cross-apply-and-array_agg.md)
+* [Chapter 8: The U-SQL catalog.md](ch08-usql-catalog.md)
+
+
+
+
 
 
 
