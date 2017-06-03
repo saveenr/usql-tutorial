@@ -1,6 +1,6 @@
 # U-SQL is not SQL
 
-If you come from a SQL background, you’ll notice that U-SQL queries look a lot of SQL queries. Many fundamental concepts and syntactic expressions will be very familiar to those with a background in SQL.
+If you come from a SQL background, you'll notice that U-SQL queries look a lot of SQL queries. Many fundamental concepts and syntactic expressions will be very familiar to those with a background in SQL.
 
 But U-SQL, however, is a distinct language and some of the expectations you might have from the SQL world do not carry over into U-SQL.
 
@@ -117,13 +117,13 @@ The SearchLog is a small dataset that represents "sessions" that a user has when
 
 The `SearchLog.tsv` file doesn't contain a header row so we'll have to document the columns below:
 
-* **UserId** – this is an integer representing an anonymized user
-* **Start** – when started a session with the search engine
-* **Region** – What geographical region the user is searching from
-* **Query** – What the user searched for
-* **Duration** – How long their search session lasted
-* **Urls** – A semicolon-separated list All the URLs that were shown to the user in the session
-* **ClickedUrls** – A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
+* **UserId** ï¿½ this is an integer representing an anonymized user
+* **Start** ï¿½ when started a session with the search engine
+* **Region** ï¿½ What geographical region the user is searching from
+* **Query** ï¿½ What the user searched for
+* **Duration** ï¿½ How long their search session lasted
+* **Urls** ï¿½ A semicolon-separated list All the URLs that were shown to the user in the session
+* **ClickedUrls** ï¿½ A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
 
 
 
