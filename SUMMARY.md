@@ -8,4 +8,7 @@
 * [Chapter 5: Expressions](ch05-expressions.md)
 * [Chapter 6: Reading and writing files](ch06-reading-and-writing-files.md)
 * [Chapter 7: Grouping and aggregation](ch07-grouping-and-aggregation.md)
+* [Chapter 8: Aggregate functions](ch08-aggregate-functions.md)
+* [Chapter 9: Aggregate functions](ch09-cross-apply-and-array_agg.md)
+
 
