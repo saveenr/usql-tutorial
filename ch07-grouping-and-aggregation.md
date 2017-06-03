@@ -207,6 +207,8 @@ We’ll start again with a simple `GROUP BY`
 | en\_mx | 422 |
 | en\_us | 8291 |
 
+## Filtering with WHERE
+
 You might try `WHERE` here.
 
 ```
@@ -215,7 +217,7 @@ You might try `WHERE` here.
     Region,  
     SUM(Duration) AS TotalDuration  
   FROM @searchlog  
-  WHERE TotalDuration &gt; 200  
+  WHERE TotalDuration > 200  
   GROUP BY Region;
 ```
 
@@ -234,8 +236,10 @@ We could use multiple U-SQL Statements to accomplish this
 @output2 =  
   SELECT *  
   FROM @output  
-  WHERE TotalDuration &gt; 200;
+  WHERE TotalDuration > 200;
 ```
+
+## Filtering with HAVING
 
 Alternatively , we can use the HAVING clause which is designed to filter columns when a GROUP BY is used..
 
@@ -246,24 +250,10 @@ Alternatively , we can use the HAVING clause which is designed to filter columns
     SUM(Duration) AS TotalDuration  
   FROM @searchlog  
   GROUP BY Region  
-  HAVING SUM(Duration) &gt; 200;
+  HAVING SUM(Duration) > 200;
 ```
 
-You may have noticed that `SUM(Duration)` was repeated in the `HAVING` clause. That’s because `HAVING` \(like `WHERE`\) cannot use columns created in the `SELECT` clause.
+You may have noticed that `SUM(Duration)` was repeated in the `HAVING` clause. That’s because `HAVING` \(like `WHERE`\) cannot use columns created in the `SELECT` clause. 
 
-If you try the code below, it will be a compilation error.
-
-```
-@output =  
-  SELECT  
-    Region,  
-    SUM(Duration) AS TotalDuration  
-  FROM @searchlog  
-  GROUP BY Region  
-  HAVING TotalDuration &gt; 200;
-```
-
-## 
-
-
+I
 
