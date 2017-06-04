@@ -19,6 +19,8 @@
 * [The U-SQL catalog](ch08-usql-catalog.md)
    * [Databases](ch08-usql-databases.md)
    * [Table-valued functions (TVFs)](ch08-usql-table-valued-functions.md)
+   * [Tables](ch08-usql-tables.md)
+   * [Assemblies](ch08-assemblies.md)
 
 
 

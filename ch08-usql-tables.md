@@ -38,7 +38,6 @@ CREATE TABLE MyDB.dbo.MyTable
         CLUSTERED(Customer ASC)
         DISTRIBUTED BY HASH(Customer) 
 );
-
 ```
 
 Then separately, you can fill the table.
@@ -55,3 +54,13 @@ INSERT INTO MyDB.dbo.MyTable
     SELECT * FROM @a;
 ```
 
+# Reading from a table
+
+This is very easy
+
+```
+// Read from a Table
+@rs = 
+  SELECT * 
+  FROM MyDB.dbo.Customers;
+```
