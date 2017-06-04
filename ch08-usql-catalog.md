@@ -58,12 +58,10 @@ Many of the scripts in the tutorial have required reading from the searchlog and
 
 Now instead of writing this code over and over in every script we will store the code as a TVF in a database. The name of this function is going to be `MyDB.dbo.ExtractSearchLog`. The "dbo" part of that name is the "schema".
 
-
-
 ```
 CREATE FUNCTION MyDB.dbo.ExtractSearchLog()
-RETURNS @rows 
-AS BEGIN  
+RETURNS @rows 
+AS BEGIN
   @rows = 
     EXTRACT UserId          int, 
             Start           DateTime, 
