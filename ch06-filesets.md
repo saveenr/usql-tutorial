@@ -30,8 +30,7 @@ This is very simple modification syntax. The example uses will extract all the f
     USING Extractors.Csv();
 ```
 
-
-### Getting information about the filenames into the RowSet
+### Getting filenames as a column in the RowSet
 
 Because we are reading rows from multiple files. it is convenient to for the rows to have some information about the filename it came from. We can adjust the query slightly to make this possible.
 
@@ -48,82 +47,24 @@ Because we are reading rows from multiple files. it is convenient to for the row
 
 You are probably wondering about the `__` in the column `__filename`. It isn't necessary at all, however it is useful as a way of marking that this information came from the process of extracting the file, not from the data in the file itself.
 
-## Using WHERE to filter the files.
+### Getting parts of a filename as a column in the RowSet
 
-Suppose you have a folder with 5000 files that are named as follows:
-
-```
-data1.csv
-data2.csv
-data3.csv
-...
-data4998.csv
-data4999.csv
-data5000.csv. 
-```
-
-FileSets also let us filter the inputs so that the EXTRACT only chooses some of those files. For example all the files between "data7.csv" and "data21.csv".
-
-Often you want the only a certain range of those files for example only that match  7 to 21.
-
-First, lets see how to match the basic pattern of "data + num + .csv"
-
-```
-@rs =
-    EXTRACT 
-        user       string,
-        id         string
-    FROM 
-        "/input/data{*}.csv"
-    USING Extractors.Csv();
-```
-
-
-
-## Using WHERE to filter the files.
-
-Suppose you have a folder with 5000 files that are named as follows:
-
-```
-data1.csv
-data2.csv
-data3.csv
-...
-data4998.csv
-data4999.csv
-data5000.csv. 
-```
-
-FileSets also let us filter the inputs so that the EXTRACT only chooses some of those files. For example all the files between "data7.csv" and "data21.csv".
-
-Often you want the only a certain range of those files for example only that match  7 to 21.
-
-First, lets see how to match the basic pattern of "data + num + .csv"
-
-```
-@rs =
-    EXTRACT 
-        user       string,
-        id         string
-    FROM 
-        "/input/data{*}.csv"
-    USING Extractors.Csv();
-```
-
-Now to get the file number into the RowSet.
+Instead of the full filename, we can also get part of the filename. The sample below shows how to get just the number part.
 
 ```
 @rs =
     EXTRACT 
         user       string,
         id         string,
-        __filenum  int,
+        __filenum  int
     FROM 
         "/input/data{__filenum}.csv"
     USING Extractors.Csv();
 ```
 
-Right now the script will still attempt to read all 5000 files. But because we have added the `__filenum` column from the extraction creating future rowsets can use that information to avoid reading uneccessary files.
+## Using WHERE to filter the files
+
+FileSets also let us filter the inputs so that the EXTRACT only chooses some of those files. For example all the files between "data7.csv" and "data21.csv". This is done by using WHERE with the columns coming from the FileSet.
 
 ```
 @rs =
@@ -143,61 +84,7 @@ Right now the script will still attempt to read all 5000 files. But because we h
         ( __filenum <= 21 );
 ```
 
-## FileSets with dates and date ranges
+## 
 
-File names or paths often include information about dates and times. This is often the case for log files. FileSets make it easy to handle these cases.
 
-Image we have files that are named in this pattern `"data-YEAR-MONTH-DAY.csv"`. The following query reads all the files where with that pattern.
-
-```
-@rs = 
-  EXTRACT 
-      user    string,
-      id      string,
-      __date  DateTime
-  FROM 
-    "/input/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
-  USING Extractors.Csv();
-
-```
-
-Many times you'll have to restrict the files to a specific time range. This can be done by refining the rowset with a WHERE clause.
-
-```
-@rs = 
-  EXTRACT 
-      user    string,
-      id      string,
-      __date  DateTime
-  FROM 
-    "/input/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
-  USING Extractors.Csv();
-
-@rs = 
-  SELECT * 
-  FROM @rs
-  WHERE 
-    date >= System.DateTime.Parse("2016/1/1") AND
-    date < System.DateTime.Parse("2016/2/1");
-```
-
-In the above example we used all three parts of the date in the file path. However, you can use any parts you need and don't need to use them all. The following example shows a file path that only uses the year and month.
-
-```
-@rs =
-    EXTRACT 
-      user    string,
-      id      string,
-      __date  DateTime
-  FROM 
-    "/input/data-{__date:yyyy}-{__date:MM}.csv"
-  USING Extractors.Csv();
-
-@rs = 
-  SELECT * 
-  FROM @rs
-  WHERE
-    date >= System.DateTime.Parse("2016/1/1") AND
-    date < System.DateTime.Parse("2016/2/1");
-```
 
