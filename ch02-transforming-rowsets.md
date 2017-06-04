@@ -25,8 +25,6 @@ This script doesn't change the output of the script at all. But it does introduc
 
 ## Creating constant rowsets
 
-
-
 ```
 @departments =
   SELECT * 
@@ -279,6 +277,7 @@ The second option is to repeat the expression in the WHERE clause
   FROM @searchlog
     WHERE Duration/60.0>= 20;
 ```
+
 However, you might wonder why the expression is repeated. You might ask why not simply use `DurationInMinutes` in the `WHERE` clause below the `SELECT` that defined it. The short answer is that will not compile.
 
 ```
@@ -299,7 +298,6 @@ You might be tempted to use the `HAVING` clause \(which we haven't covered yet i
   SELECT Start, Region,Duration/60.0 AS DurationInMinutes
   FROM @searchlog
   HAVING DurationInMinutes>= 20;
-
 ```
 
 ## Numbering rows
@@ -338,13 +336,10 @@ OUTPUT @rows
 
 # Escaping Column names
 
-
-
 ```
 @b =
 SELECT[Order Number], Part
 FROM @a;
-
 ```
 
 
