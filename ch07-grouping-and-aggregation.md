@@ -157,7 +157,7 @@ Count the number of total sessions by Region and include total duration for that
 
 ## Data types coming from aggregate functions
 
-You should be aware of how some aggregation operators deal with data types. Some aggregations will promote a numeric type to a "larger" type. Other aggregations may switch types entirely.
+You should be aware of how some aggregation operators deal with data types. Some aggregations will promote a numeric type to a "larger" type. 
 
 For example:
 
