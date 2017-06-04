@@ -5,6 +5,7 @@
 * [Transforming RowSets](ch02/transforming-rowsets.md)
   * [Creating RowSets](ch02/creating-rowsets.md)
   * [Modifying columns with SELECT](ch02/modifying-columns-with-select.md)
+  * [Refining RowSets](ch02/refining-rowsets.md)
 * [Parameters](ch03-declare-parameters.md)
 * [Data types](ch04-data-types.md)
   * [Nullable types](ch04-nullable-types.md)
