@@ -16,13 +16,13 @@
   * [Filtering aggregated rows](ch07-filtering-aggregated-rows.md)
   * [Aggregate functions](ch07-aggregate-functions.md)
   * [CROSS APPLY and ARRAY\_AGG](ch07-cross-apply-and-array_agg.md)
-* [The U-SQL catalog](ch08-usql-catalog.md)
-   * [Databases](ch08-usql-databases.md)
-   * [Table-valued functions (TVFs)](ch08-usql-table-valued-functions.md)
-   * [Tables](ch08-usql-tables.md)
-   * [Assemblies](ch08-assemblies.md)
-* [Extending U-SQL](ch09-extending-usql.md)
-  * [User-Defined Functions (UDFs)](ch09-user-defined-functions.md)
+* [The U-SQL catalog](ch08/usql-catalog.md)
+   * [Databases](ch08/usql-databases.md)
+   * [Table-valued functions (TVFs)](ch08/usql-table-valued-functions.md)
+   * [Tables](ch08/usql-tables.md)
+   * [Assemblies](ch08/assemblies.md)
+* [Extending U-SQL](ch09/extending-usql.md)
+  * [User-Defined Functions (UDFs)](ch09/user-defined-functions.md)
 
 
 
