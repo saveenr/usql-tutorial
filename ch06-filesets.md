@@ -16,6 +16,21 @@ In the simplest case let's get all the files in a folder.
     USING Extractors.Csv();
 ```
 
+### Specifying a list of files that have an extension
+
+This is very simple modification syntax. The example uses will extract all the files that end with ".csv".
+
+```
+@rs =
+    EXTRACT 
+        user   string,
+        id     string,
+    FROM 
+        "/input/{*}.csv"
+    USING Extractors.Csv();
+```
+
+
 ### Getting information about the filenames into the RowSet
 
 Because we are reading rows from multiple files. it is convenient to for the rows to have some information about the filename it came from. We can adjust the query slightly to make this possible.
@@ -33,23 +48,55 @@ Because we are reading rows from multiple files. it is convenient to for the row
 
 You are probably wondering about the `__` in the column `__filename`. It isn't necessary at all, however it is useful as a way of marking that this information came from the process of extracting the file, not from the data in the file itself.
 
-### Specifying a list of files that have an extension
+## Using WHERE to filter the files.
 
-This is very simple modification syntax. The example uses will extract all the files that end with ".csv".
+Suppose you have a folder with 5000 files that are named as follows:
+
+```
+data1.csv
+data2.csv
+data3.csv
+...
+data4998.csv
+data4999.csv
+data5000.csv. 
+```
+
+FileSets also let us filter the inputs so that the EXTRACT only chooses some of those files. For example all the files between "data7.csv" and "data21.csv".
+
+Often you want the only a certain range of those files for example only that match  7 to 21.
+
+First, lets see how to match the basic pattern of "data + num + .csv"
 
 ```
 @rs =
     EXTRACT 
-        user   string,
-        id     string,
+        user       string,
+        id         string
     FROM 
-        "/input/{*}.csv"
+        "/input/data{*}.csv"
     USING Extractors.Csv();
 ```
 
+
+
 ## Using WHERE to filter the files.
 
-Suppose you have a folder with 5000 files that are names as "data1".csv, "data2.csv", ..., "data4999.csv", "data5000.csv". Often you want the only a certain range of those files for example only that match  7 to 21.
+Suppose you have a folder with 5000 files that are named as follows:
+
+```
+data1.csv
+data2.csv
+data3.csv
+...
+data4998.csv
+data4999.csv
+data5000.csv. 
+```
+
+FileSets also let us filter the inputs so that the EXTRACT only chooses some of those files. For example all the files between "data7.csv" and "data21.csv".
+
+Often you want the only a certain range of those files for example only that match  7 to 21.
 
 First, lets see how to match the basic pattern of "data + num + .csv"
 
