@@ -11,9 +11,7 @@ namespace OrdersLib
   public static class Helpers
   {
     public static string Normalize(string s)
-    {
-      return s.ToLower();
-    }
+    { return s.ToLower(); }
   }
 }
 ```
