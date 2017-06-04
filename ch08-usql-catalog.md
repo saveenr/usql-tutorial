@@ -84,8 +84,6 @@ Now that the TVF is created, we can call it this way.
 @searchlog = MyDB.dbo.ExtractSearchLog();
 ```
 
-## 
-
 ## Deleting a Database
 
 DROP DATABASE MyDB;
