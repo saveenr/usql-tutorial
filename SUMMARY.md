@@ -21,7 +21,7 @@
    * [Table-valued functions (TVFs)](ch08-usql-table-valued-functions.md)
    * [Tables](ch08-usql-tables.md)
    * [Assemblies](ch08-assemblies.md)
-
+* [Extending U-SQL](ch09-extending-usql.md)
 
 
 
