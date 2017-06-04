@@ -147,27 +147,24 @@ Count the number of total sessions by Region and include total duration for that
 
 | NumSessions | Region | TotalDuration | AvgDuration | MaxDuration | MinDuration |
 | --- | --- | --- | --- | --- | --- |
-| 1 | en\_ca | 24 | 24 | 24 | 24 |
-| 1 | en\_ch | 10 | 10 | 10 | 10 |
-| 1 | en\_fr | 241 | 241 | 241 | 241 |
-| 2 | en\_gb | 688 | 344 | 614 | 74 |
-| 1 | en\_gr | 305 | 305 | 305 | 305 |
-| 1 | en\_mx | 422 | 422 | 422 | 422 |
-| 16 | en\_us | 8291 | 518.1875 | 1270 | 30 |
+| 1 | en_ca | 24 | 24 | 24 | 24 |
+| 1 | en_ch | 10 | 10 | 10 | 10 |
+| 1 | en_fr | 241 | 241 | 241 | 241 |
+| 2 | en_gb | 688 | 344 | 614 | 74 |
+| 1 | en_gr | 305 | 305 | 305 | 305 |
+| 1 | en_mx | 422 | 422 | 422 | 422 |
+| 16 | en_us | 8291 | 518.1875 | 1270 | 30 |
 
 ## Data types coming from aggregate functions
 
 You should be aware of how some aggregation operators deal with data types. Some aggregations will promote a numeric type to a "larger" type. Other aggregations may switch types entirely.
 
-For example, if the input data type is double:
+For example:
 
-* `SUM(double)` -> double
-* `COUNT(double)` -> long (a.k.a int64)
-
-If the input data type is any numeric \(long/int/short/byte, etc.\):
-
-* `SUM(byte)` -> long (a.k.a int64)
-* `COUNT(int)` -> long (a.k.a int64)
+* `SUM(floatexpr)` -> double
+* `SUM(doubleexpr)` -> double
+* `SUM(intexpr)` -> long
+* `SUM(byteexpr)` -> long
 
 ## Notes
 
@@ -180,8 +177,5 @@ Every aggregate function can take a DISTINCT qualifier.
 For example
 
 `COUNT(DISTINCT x)`
-
-
-
 
 
