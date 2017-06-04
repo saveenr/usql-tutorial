@@ -76,7 +76,7 @@ Now to get the file number into the RowSet.
     USING Extractors.Csv();
 ```
 
-Right now the script will still attempt to read all 5000 files. But because we have added the \_\_filenum column from the extraction creating future rowsets can use that information to avoid reading uneccessary files.
+Right now the script will still attempt to read all 5000 files. But because we have added the `__filenum` column from the extraction creating future rowsets can use that information to avoid reading uneccessary files.
 
 ```
 @rs =
@@ -92,15 +92,29 @@ Right now the script will still attempt to read all 5000 files. But because we h
     SELECT *
     FROM @rs
     WHERE 
-        ( __filenum >= 7 ) 
-        AND (__filenum <= 21);
+        ( __filenum >= 7  ) AND 
+        ( __filenum <= 21 );
 ```
 
 ## FileSets with dates and date ranges
 
 File names or paths often include information about dates and times. This is often the case for log files. FileSets make it easy to handle these cases.
 
-Image we have files that are named in this pattern "data-YEAR-MONTH-DAY.csv". The following query reads all the files where with that pattern and filters them to filenames matching a date range
+Image we have files that are named in this pattern `"data-YEAR-MONTH-DAY.csv"`. The following query reads all the files where with that pattern.
+
+```
+@rs = 
+  EXTRACT 
+      user    string,
+      id      string,
+      __date  DateTime
+  FROM 
+    "/input/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
+  USING Extractors.Csv();
+
+```
+
+Many times you'll have to restrict the files to a specific time range. This can be done by refining the rowset with a WHERE clause.
 
 ```
 @rs = 
@@ -113,29 +127,12 @@ Image we have files that are named in this pattern "data-YEAR-MONTH-DAY.csv". Th
   USING Extractors.Csv();
 
 @rs = 
-  SELECT * FROM @rs
-  WHERE date >= System.DateTime.Parse("2016/1/1") AND
-        date < System.DateTime.Parse("2016/2/1");
+  SELECT * 
+  FROM @rs
+  WHERE 
+    date >= System.DateTime.Parse("2016/1/1") AND
+    date < System.DateTime.Parse("2016/2/1");
 ```
-
-Image we have files that are named in this pattern "data-YEAR-MONTH-DAY.csv". The following query reads all the files where with that pattern and filters them to filenames matching a date range
-
-```
-@rs = 
-  EXTRACT 
-      user    string,
-      id      string,
-      __date  DateTime
-  FROM 
-    "/input/data-{__date:yyyy}-{__date:MM}-{__date:dd}.csv"
-  USING Extractors.Csv();
-
-@rs = 
-  SELECT * FROM @rs
-  WHERE date >= System.DateTime.Parse("2016/1/1") AND
-        date < System.DateTime.Parse("2016/2/1");
-```
-
 
 In the above example we used all three parts of the date in the file path. However, you can use any parts you need and don't need to use them all. The following example shows a file path that only uses the year and month.
 
@@ -150,10 +147,10 @@ In the above example we used all three parts of the date in the file path. Howev
   USING Extractors.Csv();
 
 @rs = 
-  SELECT * FROM @rs
-  WHERE date >= System.DateTime.Parse("2016/1/1") AND
-        date < System.DateTime.Parse("2016/2/1");
+  SELECT * 
+  FROM @rs
+  WHERE
+    date >= System.DateTime.Parse("2016/1/1") AND
+    date < System.DateTime.Parse("2016/2/1");
 ```
-
-
 
