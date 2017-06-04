@@ -5,7 +5,7 @@
 * [Chapter 2: Transforming RowSets](ch02-transforming-rowsets.md)
 * [Chapter 3: Parameters](ch03-declare-parameters.md)
 * [Chapter 4: Data types](ch04-data-types.md)
-* [Chapter 4: Nullable types](ch04-nullable-types.md)
+  * [Nullable types](ch04-nullable-types.md)
 * [Chapter 5: Expressions](ch05-expressions.md)
   * [Order of evaluation in expressions](ch05-order-of-evaluation-in-expressions.md)
   * [Tips for SQL developers](ch05-tips-for-sql-developers.md)
