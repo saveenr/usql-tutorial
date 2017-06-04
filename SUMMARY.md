@@ -11,7 +11,7 @@
   * [Tips for SQL developers](ch05-tips-for-sql-developers.md)
 * [Reading and writing files](ch06-reading-and-writing-files.md)
   * [FileSets](ch06-filesets.md)
-  * [FileSets](ch06-filesets-with-dates.md)
+  * [FileSets with dates](ch06-filesets-with-dates.md)
 * [Grouping and aggregation](ch07-grouping-and-aggregation.md)
   * [Filtering aggregated rows](ch07-filtering-aggregated-rows.md)
   * [Aggregate functions](ch07-aggregate-functions.md)
