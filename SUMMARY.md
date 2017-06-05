@@ -3,7 +3,9 @@
 * [Introduction](README.md)
 * [Getting started](ch01/getting-started.md)
   * [USQL is not SQL](ch02/usql-is-not-sql.md) 
-  * [Running U-SQL scripts](ch02/running-usql-scripts.md) 
+  * [Running U-SQL scripts](ch02/running-usql-scripts.md)  
+  * [Preparing for the tutorial](ch02/preparing-for-the-tutorial.md) \  
+  * [Your first U-SQL script](ch02/your-first-usql-script.md)  
 * [Transforming RowSets](ch02/transforming-rowsets.md)
   * [Creating RowSets](ch02/creating-rowsets.md)
   * [Modifying columns with SELECT](ch02/modifying-columns-with-select.md)
