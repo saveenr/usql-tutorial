@@ -15,6 +15,7 @@
   * [Filtering RowSets with WHERE](ch02/filtering-rowsets-with-where.md)    
   * [Numbering rows](ch02/numbering-rows.md)    
 * [CH3: Parameters](ch03/declare-parameters.md)
+  * [Parameter type inference](ch03/parameter-type-inference.md)
 * [CH4: Data types](ch04/data-types.md)
   * [Nullable types](ch04/nullable-types.md)
 * [CH5: Expressions](ch05/expressions.md)

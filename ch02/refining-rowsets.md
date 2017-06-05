@@ -17,7 +17,7 @@ FROM @searchlog;
         UrlLength
     FROM @output1;
 
-OUTPUT @output2 
+OUTPUT @output 
     TO "/SearchLog_output.tsv"
     USING Outputters.Tsv();
 ```

@@ -73,29 +73,7 @@ DECLARE @misc2 Guid = System.Guid.Parse("BEF7A4E8-F583-4804-9711-7E608215EBA6");
 DECLARE @misc4 byte [] = new byte[] { 0, 1, 2, 3, 4};
 ```
 
-## Type Inference
 
-DECLARE can infer the type as shown below.
-
-```
-DECLARE @inputfile= "/data.csv"
-
-@rows =
-  EXTRACT name string, idint
-  FROM @inputfile
-  USING Extractors.Csv();
-```
-
-Examples of type inference.
-
-```
-DECLARE @a = "Hello World"; // string
-DECLARE @b = 'a'; // char
-DECLARE @c = 2; // int
-DECLARE @d = 2L; // long
-DECLARE @d = 4.0f; // float
-DECLARE @e = 5.0; // double
-```
 
 ## Using Expressions
 
