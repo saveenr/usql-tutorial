@@ -23,6 +23,7 @@
   * [Tips for SQL developers](ch05/tips-for-sql-developers.md)
 * [CH6: Reading and writing files](ch06/reading-and-writing-files.md)
   * [FileSets](ch06/filesets.md)
+  * [FileSets](ch06/filtering-files-with-WHERE.md)
   * [FileSets with dates](ch06/filesets-with-dates.md)
 * [CH7: Grouping and aggregation](ch07/grouping-and-aggregation.md)
   * [Filtering aggregated rows](ch07/filtering-aggregated-rows.md)
