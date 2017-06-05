@@ -47,74 +47,84 @@ public class BitFormatter : Microsoft.Analytics.Interfaces.IFormatter<Bits>
 # Full code for the UDT 
 
 ```
-[SqlUserDefinedType(typeof(BitFormatter))]
-public struct Bits
-{
-    System.Collections.BitArray bitarray;
 
-    public Bits(string s)
+namespace MyUDTExamples
+{
+
+
+    [SqlUserDefinedType(typeof(BitFormatter))]
+    public struct Bits
     {
-        this.bitarray = new System.Collections.BitArray(s.Length);
-        for (int i = 0; i<s.Length; i++)
+        System.Collections.BitArray bitarray;
+    
+        public Bits(string s)
         {
-            this.bitarray[i] = (s[s.Length-i-1] == '1' ? true : false);
+            this.bitarray = new System.Collections.BitArray(s.Length);
+            for (int i = 0; i<s.Length; i++)
+            {
+                this.bitarray[i] = (s[s.Length-i-1] == '1' ? true : false);
+            }
+        }
+    
+        public int ToInteger()
+        {
+            int value = 0;
+            for (int i = 0; i < this.bitarray.Length; i++)
+                { if (bitarray[i]) { value += (int)System.Math.Pow(2, i); } }
+            return value;
+        }
+    
+        public override string ToString()
+        {
+            var sb = new System.Text.StringBuilder(this.bitarray.Length);
+            for (int i = 0; i < this.bitarray.Length; i++)
+            { sb.Append(this.bitarray[i] ? "1" : "0"); }
+            return sb.ToString();
         }
     }
 
-    public int ToInteger()
-    {
-        int value = 0;
-        for (int i = 0; i < this.bitarray.Length; i++)
-            { if (bitarray[i]) { value += (int)System.Math.Pow(2, i); } }
-        return value;
-    }
-
-    public override string ToString()
-    {
-        var sb = new System.Text.StringBuilder(this.bitarray.Length);
-        for (int i = 0; i < this.bitarray.Length; i++)
-        { sb.Append(this.bitarray[i] ? "1" : "0"); }
-        return sb.ToString();
-    }
 }
 ```
 
 # Full code for the UDT's formatter
 
 ```
-
-public class BitFormatter : Microsoft.Analytics.Interfaces.IFormatter<Bits>
+namespace MyUDTExamples
 {
-    public BitFormatter()
-    {
-    }
 
-    public void Serialize(
-        Bits instance,
-        IColumnWriter writer,
-        ISerializationContext context)
+    public class BitFormatter : Microsoft.Analytics.Interfaces.IFormatter<Bits>
     {
-        using (var w = new System.IO.StreamWriter(writer.BaseStream))
+        public BitFormatter()
         {
-            var bitstring = instance.ToString();
-            w.Write(bitstring);
-            w.Flush();
+        }
+    
+        public void Serialize(
+            Bits instance,
+            IColumnWriter writer,
+            ISerializationContext context)
+        {
+            using (var w = new System.IO.StreamWriter(writer.BaseStream))
+            {
+                var bitstring = instance.ToString();
+                w.Write(bitstring);
+                w.Flush();
+            }
+        }
+    
+        public Bits Deserialize(
+            IColumnReader reader,
+            ISerializationContext context)
+        {
+            using (var w = new System.IO.StreamReader(reader.BaseStream))
+            {
+                string bitstring = w.ReadToEnd();
+                var bits = new Bits(bitstring);
+                return bits;
+            }
         }
     }
 
-    public Bits Deserialize(
-        IColumnReader reader,
-        ISerializationContext context)
-    {
-        using (var w = new System.IO.StreamReader(reader.BaseStream))
-        {
-            string bitstring = w.ReadToEnd();
-            var bits = new Bits(bitstring);
-            return bits;
-        }
-    }
 }
-
 ```
 
 # Using the UDT
