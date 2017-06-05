@@ -29,6 +29,7 @@
 * [Extending U-SQL](ch09/extending-usql.md)
   * [User-Defined Functions (UDFs)](ch09/user-defined-functions.md)
   * [User-Defined Types (UDTs)](ch09/user-defined-types.md)
+  * [User-Defined Aggregators (UDAggs)](ch09/user-defined-aggregators.md)
 
 
 
