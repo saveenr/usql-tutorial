@@ -60,93 +60,11 @@ Download the SearchLog.tsv file into the Local Data Root from here:
 
 [https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv)
 
-# The SearchLog sample datset
-
-You previously downloaded the SearchLog data set from this location:
-
-[https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://www.gitbook.com/book/saveenr/usql-tutorial/edit#)
-
-The SearchLog is a small dataset that represents "sessions" that a user has when performing a search on a web search engine. Each row represents a session for a specific search query,
-
-The `SearchLog.tsv` file doesn't contain a header row so we'll have to document the columns below:
-
-* **UserId** - this is an integer representing an anonymized user
-* **Start** - when started a session with the search engine
-* **Region** - What geographical region the user is searching from
-* **Query** - What the user searched for
-* **Duration** - How long their search session lasted
-* **Urls** - A semicolon-separated list All the URLs that were shown to the user in the session
-* **ClickedUrls** - A subset of **Urls** that the user actually clicked on \(also a semicolon-separated list\)
-
-# Common errors
-
-Of the many ways in which a U-SQL script is not compilable, there are only a few that account for the vast majority of issues. It WILL save you time to be familiar with the issues and how they manifest themselves in error messages and in the tools.
-
-Try running each of the sample scripts below.
-
-## Incorrect casing on U-SQL identifiers
-
-The script below uses `from` instead of `FROM`.
-
-```
-@searchlog = 
-    EXTRACT UserId          int, 
-            Start           DateTime, 
-            Region          string, 
-            Query           string, 
-            Duration        int, 
-            Urls            string, 
-            ClickedUrls     string
-    from @"/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog 
-    TO @"/SearchLog_output.tsv"
-    USING Outputters.Tsv();
-```
-
-## Input does not exist
-
-```
-@searchlog = 
-    EXTRACT UserId          int, 
-            Start           DateTime, 
-            Region          string, 
-            Query           string, 
-            Duration        int, 
-            Urls            string, 
-            ClickedUrls     string
-    FROM "/SearchLog_does_not_exist.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog 
-    TO "/SearchLog_output.tsv"
-    USING Outputters.Tsv();
-```
-
-## Invalid C\# Expression
-
-```
-@searchlog = 
-    EXTRACT UserId          int, 
-            Start           DateTime, 
-            Region          string, 
-            Query           string, 
-            Duration        int, 
-            Urls            string, 
-            ClickedUrls     string
-    FROM "/SearchLog.tsv"
-    USING Extractors.Tsv_xyz();
-
-OUTPUT @searchlog 
-    TO "/SearchLog_output.tsv"
-    USING Outputters.Tsv();
-```
-
 Take a look at the TSV file. Some things to point out
 
-* there is no header row
-* it is a tsv - tab-separated-values
+* It is a tsv - tab-separated-value
+* It has no header row
+* Each row has the same number of columns
 
 Now paste the following script in to the Script.usql
 
@@ -167,35 +85,34 @@ OUTPUT @searchlog
     USING Outputters.Tsv();
 ```
 
-Click **Submit**.The script should run successfully.
+This script we've just run is very simple - all it does is copy a file. However, there it introduces many interesting topics we will discuss.
 
-Look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
+Click **Submit**.The script should run successfully. Then Look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
 
-This script is very simple - all it does is copy a file, but there are many things it introduces that we should discuss.
+Congratulations, you've run your first U-SQL script.
 
-**Case-Sensitive Keywords**
+## Some things to notice
 
-The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT`, `USING`.
+**U-SQL keywords are case-sensitive**
 
-U-SQL keywords are case sensitive. Keep this in mind - it's one of the most common errors people run into.
+* The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT`, `USING`.
+* U-SQL keywords are case sensitive. Keep this in mind - it's one of the most common errors people run into.
 
-**Reading and Writing Files**
+**Reading and Writing Files with EXTRACT and OUTPUT**
 
-The `EXTRACT` statement reads from files. The built-in extractor called `Extractors.Tsv` handles Tab-Separated-Value files.
-
-The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
-
-We'll cover reading and writing to U-SQL tables in later chapters. Later, we'll also learn how to make custom extractors.
+* The `EXTRACT` statement reads from files. The built-in extractor called `Extractors.Tsv` handles Tab-Separated-Value files.
+* The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
+* We'll cover reading and writing to U-SQL tables in later chapters. Later, we'll also learn how to make custom extractors.
 
 **Schema for files and Header Rows**
 
-From the U-SQL perspective files are "blobs" - they don't contain any usable schema information. So U-SQL supports a concept called "schema on read" - this means the developer specified the schema that is expected in the file. As you can see the names of the columns and the datatypes are specified in the `EXTRACT` statement.
-
-The default Extractors and Outputters cannot infer the schema from the header row - in fact by default they assume that there is no header row \(this behavior can overriden\)
+* From the U-SQL perspective files are "blobs" - they don't contain any usable schema information. So U-SQL supports a concept called "schema on read" - this means the developer specified the schema that is expected in the file. As you can see the names of the columns and the datatypes are specified in the `EXTRACT` statement.
+* The default Extractors and Outputters cannot infer the schema from the header row - in fact by default they assume that there is no header row \(this behavior can overriden\)
 
 **RowSets**
 
-The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
+* The first statement in the script defines a "RowSet" called `@searchlog`. RowSets are an abstraction that represents how rows flow through a script.
+* Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
 
-Because it comes up so often, we should clarify one thing now: RowSets are not tables, or temporary tables, or views, etc. They imply nothing about how data will be persisted.
+
 
