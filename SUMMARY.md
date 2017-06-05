@@ -28,6 +28,7 @@
    * [Assemblies](ch08/assemblies.md)
 * [Extending U-SQL](ch09/extending-usql.md)
   * [User-Defined Functions (UDFs)](ch09/user-defined-functions.md)
+  * [User-Defined Types (UDTs)](ch09/user-defined-types.md)
 
 
 
