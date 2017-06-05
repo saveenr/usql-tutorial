@@ -1,19 +1,19 @@
-# Summary 
+# Summary
 
 * [Introduction](README.md)
 * [CH1: Getting started](ch01/getting-started.md)
-  * [USQL is not SQL](ch01/usql-is-not-sql.md) 
-  * [Running U-SQL scripts](ch01/running-usql-scripts.md)  
-  * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)  
-  * [Your first U-SQL script](ch01/your-first-usql-script.md)  
-  * [Common errors](ch01/common-errors.md)  
-  * [The SearchLog dataset](ch01/searchlog-dataset.md)    
+  * [USQL is not SQL](ch01/usql-is-not-sql.md)
+  * [Running U-SQL scripts](ch01/running-usql-scripts.md)
+  * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
+  * [Your first U-SQL script](ch01/your-first-usql-script.md)
+  * [Common errors](ch01/common-errors.md)
+  * [The SearchLog dataset](ch01/searchlog-dataset.md)
 * [CH2: Transforming RowSets](ch02/transforming-rowsets.md)
   * [Creating RowSets](ch02/creating-rowsets.md)
   * [Modifying columns with SELECT](ch02/modifying-columns-with-select.md)
   * [Refining RowSets](ch02/refining-rowsets.md)
-  * [Filtering RowSets with WHERE](ch02/filtering-rowsets-with-where.md)    
-  * [Numbering rows](ch02/numbering-rows.md)    
+  * [Filtering RowSets with WHERE](ch02/filtering-rowsets-with-where.md)
+  * [Numbering rows](ch02/numbering-rows.md)
 * [CH3: DECLARE Parameters](ch03/declare-parameters.md)
   * [Parameter type inference](ch03/parameter-type-inference.md)
 * [CH4: Data types](ch04/data-types.md)
@@ -23,8 +23,9 @@
   * [Tips for SQL developers](ch05/tips-for-sql-developers.md)
 * [CH6: Reading and writing files](ch06/reading-and-writing-files.md)
   * [FileSets](ch06/filesets.md)
-  * [Filtering files with WHERE](ch06/filtering-files-with-WHERE.md)
+  * [Filtering files with WHERE](ch06/filtering-files-with-where.md)
   * [FileSets with dates](ch06/filesets-with-dates.md)
+  * [Built-in Extractors](ch06/built-in-extractors.md)
 * [CH7: Grouping and aggregation](ch07/grouping-and-aggregation.md)
   * [Filtering aggregated rows](ch07/filtering-aggregated-rows.md)
   * [Aggregate functions](ch07/aggregate-functions.md)
@@ -38,6 +39,4 @@
   * [User-Defined Functions \(UDFs\)](ch09/user-defined-functions.md)
   * [User-Defined Types \(UDTs\)](ch09/user-defined-types.md)
   * [User-Defined Aggregators \(UDAggs\)](ch09/user-defined-aggregators.md)
-
-
 
