@@ -36,3 +36,9 @@ This script doesn't change the output of the script at all. But it does introduc
     ) AS D(DepID,DepName);
 ```
 
+| DepID | DepName |
+| ----- | -------- |
+| 31 | Sales |
+| 33| Engineering |
+| 34 | Clerical |
+| 35 | Marketing
