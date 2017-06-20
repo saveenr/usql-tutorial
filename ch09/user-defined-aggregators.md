@@ -23,7 +23,7 @@ namespace MVA_UDAgg
 
 ## Using the UDAgg
 
-In the SELECT clause use the AGG&lt;T&gt; operator where T is the name of your UDAgg;
+In the SELECT clause use the `AGG<T>` operator where `T` is the name of your UDAgg;
 
 ```
 AGG<UDAgg>(InputCol) AS OutputCOl
@@ -64,12 +64,11 @@ The snippet below shows how to do this.
 [SqlUserDefinedReducer(IsRecursive = true)]
 public class MySum : IAggregate<int, long>
 {
-   ...
-}
-    
+   // your code here
+}    
 ```
 
-**Do not just blindly add the IsRecursive property to your UDAggs. Make sure the UDAggs support the associative property.**
+**Do not just blindly add the `IsRecursive` property to your UDAggs. Make sure the UDAggs support the associative property.**
 
 
 

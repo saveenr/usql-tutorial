@@ -8,7 +8,7 @@ We'll start with this snippet
 @rows = 
   EXTRACT name string, 
            id int
-  FROM “/data.csv”
+  FROM "/data.csv"
   USING Extractors.Csv();
 ```
 
