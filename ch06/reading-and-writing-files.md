@@ -88,16 +88,20 @@ EXTRACT works with a comma-separated list of file paths. Keep in mind that the f
     "/file1.csv"
   USING Extractors.Csv( );
 
-@a = 
+@b = 
   SELECT * 
   FROM @a
   ORDER BY 1
   FETCH FIRST 100 ROWS;	
 ```
 
-This syntax may look misleading. The `FETCH FIRST` part should be obvious. The `ORDER BY 1 ASC` is the part we need to understand. You should read this as "order the rows on the constant value 1'. It DOES NOT mean "order the rows on the first column". 
+The `FETCH FIRST 100 ROWS` part should be obvious. 100 rows at most will be returned.
 
-We are going to cover `ORDER BY` in much greater detail on other chapters.
+The `ORDER BY 1 ASC` may be misleading at first glance. You should read this as "order the rows on the constant value 1'. Thus, it doesn't order by the data in the RowSet. This effectively results in no ordering being performed. 
+
+For those of you familiar with some SQL variants, the `ORDER BY 1` part DOES NOT mean "order the rows on the first column". 
+
+We will cover `ORDER BY` in much greater detail on other chapters.
 
 
 

@@ -39,7 +39,9 @@ DateTime?
 char?
 ```
 
-## 
+## FAQ
 
+#### Why is there no nullable version of the string type?
 
+The purpose of "nullable" is enable null values for a type that doesn't already support null values. The string type - like all .NET reference types - already supports null values.
 

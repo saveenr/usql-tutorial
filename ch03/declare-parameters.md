@@ -12,7 +12,7 @@ We'll start with this snippet
   USING Extractors.Csv();
 ```
 
-`DECLARE` lets us assign constant values to a name. In this case we can assign the input file to a parameter.
+`DECLARE` can assign constant values to a name. In this case we can assign the input file to a parameter.
 
 ```
 DECLARE @inputfile string = "/data.csv"

@@ -94,17 +94,21 @@ Consider this case where SELECT is used to define a new column called `DurationI
 
 ```
 @output =
-  SELECT Start, Region,Duration/60.0 AS DurationInMinutes
+  SELECT 
+      Start, 
+      Region,
+      Duration/60.0 AS DurationInMinutes
   FROM @searchlog;
 ```
 
 There are a couple of approaches for filtering rows based on the `DurationInMinutes` value
 
-The first option is to use RowSet refinement
+#### The first option is to use RowSet refinement
 
 ```
 @output =
-  SELECT Start,
+  SELECT 
+    Start,
     Region,
     Duration/60.0 ASDurationInMinutes
   FROM @searchlog;
@@ -115,7 +119,7 @@ The first option is to use RowSet refinement
   WHERE DurationInMinutes>= 20;
 ```
 
-The second option is to repeat the expression in the WHERE clause
+#### The second option is to repeat the expression in the WHERE clause
 
 ```
 @output =
@@ -127,26 +131,16 @@ The second option is to repeat the expression in the WHERE clause
     WHERE Duration/60.0>= 20;
 ```
 
-However, you might wonder why the expression is repeated. You might ask why not simply use `DurationInMinutes` in the `WHERE` clause below the `SELECT` that defined it. The short answer is that will not compile.
+#### WHERE does not work on calculated columns in the same statement
+
+`WHERE` filters rows coming into to the statement. The DurationInMinutes column doesn't exist in the input. Therefore WHERE cannot operate on it. So, the example below will not compile
 
 ```
-// SYNTAX ERROR
+// SYNTAX ERROR: WHERE cannot be used with columns created by SELECT
 @output =
   SELECT Start, Region,Duration/60.0 AS DurationInMinutes
   FROM @searchlog
   WHERE DurationInMinutes>= 20;
-```
-
-Let's understand why. `WHERE` filters rows coming to the statement. The DurationInMinutes column doesn't exist in the input. Therefore WHERE cannot operate on it.
-
-You might be tempted to use the `HAVING` clause \(which we haven't covered yet in this tutorial\). But although `HAVING` does filter outgoing rows from a statement, it also requires a GROUP BY clause. So it can't help in this scenario.
-
-```
-// SYNTAX ERROR
-@output =
-  SELECT Start, Region,Duration/60.0 AS DurationInMinutes
-  FROM @searchlog
-  HAVING DurationInMinutes>= 20;
 ```
 
 

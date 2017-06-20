@@ -11,8 +11,7 @@ Given, what we' ve covered so far A SQL developer will expect to write the follo
         UPPER( Region ) AS NewRegion
     FROM @searchlog;
 ```
-
-But those developers will be disappointed to find out that U-SQL has no UPPER() method. The C# developer knows what to: just use the string type's intrinsic ToUpper() method.
+Unfortunately, said developer will be disappointed to find out that U-SQL has no `UPPER()` method. The C# developer, on the other hand, knows what to do: use the string type's intrinsic `ToUpper()` method.
 
 ```
 @output = 

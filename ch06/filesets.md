@@ -1,6 +1,6 @@
 # FileSets
 
-We's seen that you can explicitly list all the files in the EXTRACT statement. You may not want to list all the files manually because there are a lot them.
+We've seen that you can explicitly list all the files in the EXTRACT statement. You may not want to list all the files manually because there are a lot them.
 
 FileSets make it easy to define a pattern to identify a set of files to read.
 

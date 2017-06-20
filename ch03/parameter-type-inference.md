@@ -6,7 +6,7 @@ DECLARE can infer the type as shown below.
 DECLARE @inputfile= "/data.csv"
 
 @rows =
-  EXTRACT name string, idint
+  EXTRACT name string, id int
   FROM @inputfile
   USING Extractors.Csv();
 ```
