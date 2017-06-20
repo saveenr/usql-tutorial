@@ -1,6 +1,8 @@
-# Common errors
+# Common compilation errors
 
-Of the many ways in which a U-SQL script is not compilable, there are only a few that account for the vast majority of issues. It WILL save you time to be familiar with the issues and how they manifest themselves in error messages and in the tools.
+When something is wrong with a U-SQL script it will not compile. Fortunately, of the many causes for compilation failure, there are only a few of them that account for the vast majority of compilation failures.
+
+It will save you time to be familiar with these issues and how they manifest themselves in error messages and in the tools.
 
 Try running each of the sample scripts below.
 
@@ -25,7 +27,7 @@ OUTPUT @searchlog
     USING Outputters.Tsv();
 ```
 
-## Input does not exist
+## Input file does not exist
 
 ```
 @searchlog = 
@@ -63,10 +65,7 @@ OUTPUT @searchlog
     USING Outputters.Tsv();
 ```
 
-Take a look at the TSV file. Some things to point out
 
-* there is no header row
-* it is a tsv - tab-separated-values
 
 
 
