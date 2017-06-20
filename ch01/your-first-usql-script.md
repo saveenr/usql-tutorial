@@ -1,4 +1,4 @@
-Launch Visual Studio. Go to **File &gt; New &gt; Project &gt; Installed &gt; Templates &gt; Azure Data Lake &gt; U-SQL \(ADLA\)**
+Launch Visual Studio. Go to **File > New > Project > Installed > Templates > Azure Data Lake > U-SQL Project**.
 
 At this point you should notice that an empty U-SQL script has been created called "Script.usql".
 
@@ -24,7 +24,7 @@ NOTE: U-SQL Code-behind is a convenience feature of ADLToolsForVS and not a part
 
 ## Your First Compiler Error
 
-Learning a language means learning how the compiler tells you something is wrong.
+Learning a programming language means learning how the compiler tells you something is wrong.
 
 Press **Submit** to run your empty script in Local Execution mode. You should see the Error List window appear and a single error. Unsurprisingly, it complains of an empty script.
 
@@ -32,17 +32,19 @@ Press **Submit** to run your empty script in Local Execution mode. You should se
 
 It's worth noticing a few things about this error.
 
-* First, the error code contains the id `CSC` : this refers to the U-SQL compiler. 
-* Second, the error code contains the id `USER`: this means that the user \(you\) are the source of the problem. If it says `SYSTEM` it means something is wrong with the U-SQL compiler itself or perhaps the service. These system errors are not very common to experience - but it will be valuable later on to always understand the distinction between **user errors** \(also called **user code errors**\) and system errors.
+* `CSC` : this refers to the U-SQL compiler. 
+* `USER`: this means that the user \(you\) are the source of the problem. If it says `SYSTEM` it means something is wrong with the U-SQL compiler itself or perhaps the service. 
+
+System errors are not very common - but it will be valuable later on to always understand the distinction between **user errors** \(also called **user code errors**\) and system errors.
 
 ## Inputs and Outputs
 
 All U-SQL scripts transform inputs to outputs. There are different kinds of inputs and outputs but ultimately they resolve to one of two things:
 
-* files
+* Files
 * U-SQL tables
 
-One thing you must always remember: a compiling a U-SQL script requires that the inputs must exist. Consequently we often describe this as "all inputs must be known at compile time". Later chapters will talk about this topic in more detail.
+REMEMBER: compiling a U-SQL script requires that all the inputs must exist. We often describe this as "all inputs must be known at compile time". Later chapters will talk about this topic in more detail.
 
 ## Location of inputs and Outputs
 
@@ -50,13 +52,13 @@ During U-SQL Cloud Execution the inputs/outputs must all be in the cloud - typic
 
 During U-SQL Local Execution the inputs/outputs must all be on your own box. There's a special name for this location: The U-**SQL Local Data Root**.
 
-You can find the local data root by going to Tools &gt; Data Lake &gt; Options and Settings. It in the field called **DataRoot **at the top.
+You can find the local data root by going to **Tools > Data Lake > Options and Settings**. It in the field called **DataRoot **at the top.
 
 ![](/assets/vs_tools_datalake_options.png)
 
 Copy that location and open it in Windows Explorer.
 
-Download the SearchLog.tsv file into the Local Data Root from here:
+Download the `SearchLog.tsv` file into the Local Data Root from here:
 
 [https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/SearchLog.tsv)
 
@@ -66,7 +68,7 @@ Take a look at the TSV file. Some things to point out
 * It has no header row
 * Each row has the same number of columns
 
-Now paste the following script in to the Script.usql
+Now paste the following script in to the `Script.usql` window.
 
 ```
 @searchlog = 
@@ -87,22 +89,27 @@ OUTPUT @searchlog
 
 This script we've just run is very simple - all it does is copy a file. However, there it introduces many interesting topics we will discuss.
 
-Click **Submit**.The script should run successfully. Then Look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
+Click **Submit**. 
 
-Congratulations, you've run your first U-SQL script.
+Visual Studio will show the Job Graph window and a Console window will open. The script should run successfully. 
 
+After the script completes, look in the Local Run Data Root folder, you should see a file called `SearchLog_output.tsv`.
+
+**Congratulations, you've run your first U-SQL script!**
+  
 ## Some things to notice
 
 **U-SQL keywords are case-sensitive**
 
-* The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT`, `USING`.
+* The script contains a number of U-SQL keywords: `EXTRACT`, `FROM`, `TO`, `OUTPUT`, `USING`, etc.
 * U-SQL keywords are case sensitive. Keep this in mind - it's one of the most common errors people run into.
 
 **Reading and Writing Files with EXTRACT and OUTPUT**
 
 * The `EXTRACT` statement reads from files. The built-in extractor called `Extractors.Tsv` handles Tab-Separated-Value files.
 * The `OUTPUT` statement writes to files. The built-in outputter called `Outputters.Tsv` handles Tab-Separated-Value files.
-* We'll cover reading and writing to U-SQL tables in later chapters. Later, we'll also learn how to make custom extractors.
+
+We'll cover reading and writing to U-SQL tables in later chapters. Later, we'll also learn how to make custom extractors.
 
 **Schema for files and Header Rows**
 
