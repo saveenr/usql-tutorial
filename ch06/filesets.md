@@ -47,7 +47,7 @@ Because we are reading rows from multiple files. it is convenient to for the row
 
 You are probably wondering about the `__` in the column `__filename`. It isn't necessary at all, however it is useful as a way of marking that this information came from the process of extracting the file, not from the data in the file itself.
 
-To emphasize that the naming of `__filename` was completely arbitrary below is the same script with a different name (`foo`).
+To emphasize that the naming of `__filename` and the use of the `__` prefix was completely arbitrary below is the same script with a different name (`foo`).
 
 ```
 @rs =
