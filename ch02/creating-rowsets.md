@@ -1,4 +1,4 @@
-## Creating a new rowset from another rowset
+## Creating a RowSet from another RowSet
 
 ```
 @searchlog = 
@@ -21,7 +21,13 @@ OUTPUT @output
     USING Outputters.Tsv();
 ```
 
-This script doesn't change the output of the script at all. But it does introduce the basic mechanism of how a rowset is defined from another rowset.
+Effectively this script just copies the data without transforming it. 
+
+**However**, if you look at the output file you will notice some things about the default behavior of `Outputters.Tsv`:
+* values have been surrounded by double-quotes - which is the default behavior of `Outputters.Tsv`. You can disable the quoting by using `Outputters.Tsv( quoting:false )`.
+* `DateTime` values are output in a longer standard format
+* The default encoding is UTF-8 and the BOM (Byte Order Mark) is not written.
+
 
 ## Creating constant rowsets
 

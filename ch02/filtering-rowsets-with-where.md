@@ -26,16 +26,16 @@ OUTPUT @output
 
 ## The SQL Logical Operators
 
-The **AND**/**OR**/**NOT** operators can be combined with parentheses for more complex expressions
+The **AND**/**OR**/**NOT** operators can be combined with parentheses to create more complex logical expressions
 
 ```
 @output =
- SELECT Start, Region, Duration
- FROM @searchlog
- WHERE (Duration >= 2*60 AND Duration <= 5*60) OR NOT (Region == "en-gb");
+    SELECT Start, Region, Duration
+    FROM @searchlog
+    WHERE (Duration >= 2*60 AND Duration <= 5*60) OR NOT (Region == "en-gb");
 ```
 
-## The C\# Logical Operators
+## The C# Logical Operators
 
 U-SQL also supports the C\# logical operators
 
@@ -46,13 +46,16 @@ U-SQL also supports the C\# logical operators
  WHERE (Duration >= 2*60 && Duration <= 5*60) || (!(Region == "en-gb"));
 ```
 
-## SQL Logical Operators versus C\# Operators
+## SQL Logical Operators (AND OR) versus C\# Operators ( && || )
 
-Answer: Use the SQL-style logical unless you have to use the C\# versions.
+These operators behave the same except for their short-circuiting behavior:
 
-That answer clearly suggests there is a difference - and it is an important one. A part of standard U-SQL optimization predicates in the WHERE clause may be reordered when the script is executed. Specifically, they DO NOT perform short-circuiting behavior. The C\# logical operators DO provide short circuiting.
+* SQL-style logical operators: These DO NOT short-circuit
+* C#-style logical operators: These DO short-circuit
 
-Find all the sessions occurring between two dates
+Use the SQL-style logical operators unless you MUST have the short-circuiting behavior. The reasons why this is important are covered in a later chapter that describes the order of evaluation of predicates in expressions.
+
+## Find all the sessions occurring before a date
 
 ```
 @output =
@@ -61,7 +64,7 @@ Find all the sessions occurring between two dates
  WHERE Start <= DateTime.Parse("2012/02/17");
 ```
 
-Find all the sessions occurring between two dates
+## Find all the sessions occurring between two dates
 
 ```
 @output = 

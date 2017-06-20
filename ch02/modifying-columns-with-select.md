@@ -2,11 +2,13 @@
 
 We can create new Columns with the SELECT clause. Simply use a C\# expression and give it a column name with AS.
 
+IMPORTANT: For the sake of brevity we will start omitting the EXTRACT and OUTPUT statements in the code samples. 
+
 ```
 @output = 
     SELECT 
         *, 
-        Query+Query AS Query2
+        (Query + Query) AS Query2
     FROM @searchlog;
 ```
 
@@ -17,7 +19,7 @@ In the example above, we added a column without having to explicitly list out al
     SELECT 
         Region,
         Query, 
-        Query+Query AS Query2, 
+        (Query + Query) AS Query2, 
         Urls.Length AS UrlsLength
     FROM @searchlog;
 ```
