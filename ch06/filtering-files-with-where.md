@@ -20,7 +20,6 @@ FileSets also let us filter the inputs so that the EXTRACT only chooses some of 
         ( __filenum <= 21 );
 ```
 
-## 
 
 
 
