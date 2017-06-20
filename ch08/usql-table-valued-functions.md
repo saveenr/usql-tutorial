@@ -15,7 +15,7 @@ Many of the scripts in the tutorial have required reading from the searchlog and
     USING Extractors.Tsv();
 ```
 
-Now instead of writing this code over and over in every script we will store the code as a TVF in a database. The name of this function is going to be `MyDB.dbo.ExtractSearchLog`. The "dbo" part of that name is the "schema".
+Now instead of writing this code over and over in every script we will store the code as a TVF in a database. The name of this function is going to be `MyDB.dbo.ExtractSearchLog`. The `dbo` part of that name is the "schema".
 
 ```
 CREATE FUNCTION MyDB.dbo.ExtractSearchLog()
@@ -42,6 +42,4 @@ Now that the TVF is created, we can call it this way.
 ```
 @searchlog = MyDB.dbo.ExtractSearchLog();
 ```
-
-
 
