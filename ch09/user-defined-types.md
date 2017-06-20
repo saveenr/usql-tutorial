@@ -50,8 +50,6 @@ public class BitFormatter : Microsoft.Analytics.Interfaces.IFormatter<Bits>
 
 namespace MyUDTExamples
 {
-
-
     [SqlUserDefinedType(typeof(BitFormatter))]
     public struct Bits
     {
@@ -178,7 +176,6 @@ CREATE TABLE MyDB.dbo.MyTable
     INDEX idx  
     CLUSTERED(ProductCode ASC)
     DISTRIBUTED BY HASH(ProductCode) 
-) AS SELECT * FROM @products2
-;
+) AS SELECT * FROM @products2;
 ```
 

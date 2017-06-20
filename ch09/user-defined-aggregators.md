@@ -14,11 +14,8 @@ namespace MVA_UDAgg
     public class MySum : IAggregate<int, long>
     {
         long total;
-
         public override void Init() { total = 0; }
-
         public override void Accumulate(int value) { total += value; }
-
         public override long Terminate() { return total; }
     }
 }
@@ -57,7 +54,7 @@ OUTPUT @results
 
 ## Recursive Aggregators
 
-If the operation in your is associative \(https://en.wikipedia.org/wiki/Associative\_property\) then you should mark your aggregator with an attribute to indicate that the USAgg is "recursive" \(a.k.a "associative" \). This will improve the performance substantially of your U-SQL script has to aggregate a lot of data with your UDAgg because the UDAgg can be parallelized.
+If the operation in your is associative \(https://en.wikipedia.org/wiki/Associative\_property\) then you should mark your aggregator with an attribute to indicate that the UDAgg is "recursive" \(a.k.a "associative" \). This will improve the performance substantially of your U-SQL script has to aggregate a lot of data with your UDAgg because the UDAgg can be parallelized.
 
 
 
@@ -72,7 +69,7 @@ public class MySum : IAggregate<int, long>
     
 ```
 
-**Do not just blindly add the IsRecursive property to your UDAggs. Make sure the UDAggs support the assocaitive property.**
+**Do not just blindly add the IsRecursive property to your UDAggs. Make sure the UDAggs support the associative property.**
 
 
 
