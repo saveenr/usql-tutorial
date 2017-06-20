@@ -1,8 +1,8 @@
 # FileSets
 
-We've seen that you can explicitly list all the files in the EXTRACT statement. You may not want to list all the files manually because there are a lot them.
+We've seen that you can explicitly list all the files in the EXTRACT statement. In some cases, there might be a large number of files, so you may not want to list all the files manually every time.
 
-FileSets make it easy to define a pattern to identify a set of files to read.
+**FileSets** make it easy to define a pattern to identify a set of files to read.
 
 In the simplest case let's get all the files in a folder.
 
@@ -47,6 +47,20 @@ Because we are reading rows from multiple files. it is convenient to for the row
 
 You are probably wondering about the `__` in the column `__filename`. It isn't necessary at all, however it is useful as a way of marking that this information came from the process of extracting the file, not from the data in the file itself.
 
+To emphasize that the naming of `__filename` was completely arbitrary below is the same script with a different name (`foo`).
+
+```
+@rs =
+    EXTRACT 
+        user string,
+        id   string,
+        foo  string
+    FROM 
+        "/input/{foo}"
+    USING Extractors.Csv();
+```
+
+
 ### Getting parts of a filename as a column in the RowSet
 
 Instead of the full filename, we can also get part of the filename. The sample below shows how to get just the number part.
@@ -62,7 +76,12 @@ Instead of the full filename, we can also get part of the filename. The sample b
     USING Extractors.Csv();
 ```
 
-## 
+
+### Notes
+
+* The schemas for all the files in the FileSet must match the schema specified in the extract.
+* The more files there are in the FileSet the longer the compilation time will take.
+
 
 
 
