@@ -11,8 +11,9 @@ We’ll start again with a simple GROUP BY
   GROUP BY Region;
 ```
 
-| en_ca | 24 |
+| Region | TotalDuration |
 | --- | --- |
+| en_ca | 24 |
 | en_ch | 10 |
 | en_fr | 241 |
 | en_gb | 688 |
