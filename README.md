@@ -1,6 +1,6 @@
 # Introduction
 
-# What is the U-SQL Tutorial
+## What is the U-SQL Tutorial
 
 The U-SQL Tutorial is a set of documents, sample code, and programming exercises to help a developer get productive in using the U-SQL Language. 
 
