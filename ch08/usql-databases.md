@@ -13,4 +13,11 @@ CREATE DATABASE IF NOT EXISTS MyDB;
 ```
 
 
+## Deleting a Database
 
+
+```
+DROP DATABASE MyDB;
+```
+
+DROP DATABASE IF EXISTS MyDB;

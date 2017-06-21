@@ -2,9 +2,9 @@
 
 U-SQL tables offer a way to store data in form that preserves it schema and organize data to high-performance queries which is very important as data sizes grow.
 
-# Creating a table from a rowset
+# Creating a table from a RowSet
 
-If you have a rowset creating a table from it is very simple. The one thing you must remember is that a table must have an index defined. The table gets its schema from the schema of the rowset.
+If you have a RowSet creating a table from it is very simple. The one thing you must remember is that a table must have an index defined. The table gets its schema from the schema of the rowset.
 
 ```
 @customers  = 
@@ -53,8 +53,6 @@ INSERT INTO MyDB.dbo.Customers
 ```
 
 # Reading from a table
-
-This is very easy
 
 ```
 @rs = 

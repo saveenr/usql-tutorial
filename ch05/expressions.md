@@ -21,9 +21,9 @@ Expressions can also be converted to a different type
     FROM @searchlog;
 ```
 
-### Using .NET Types
+### Calling methods .NET Types
 
-RowSet columns are strongly typed. U-SQL allows you to call methods defined on those types in the SELECT clause.  
+RowSet columns are strongly typed. U-SQL allows you to call methods defined on those types in the SELECT clause. Because U-SQL supports .NET types such as string and DateTime, you can use all the methods available on those types. 
 
 ```
 // Find what day of year each session took place

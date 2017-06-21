@@ -32,26 +32,29 @@ DECLARE @inputfile string = "/data.csv"
 // Text
 DECLARE @text1 string = "Hello World";
 DECLARE @text2 string = @"Hello World";
-DECLARE @text3 char = 'a';
+
+DECLARE @text3 char   = 'a';
 ```
 
 **DateTimes**
 
 ```
 // DateTimes
-DECLARE @d1 DateTime=System.DateTime.Parse("1979/03/31");
-DECLARE @d2 DateTime=DateTime.Now;
+DECLARE @d1 DateTime = System.DateTime.Parse("1979/03/31");
+DECLARE @d2 DateTime= DateTime.Now;
 ```
 
 **Signed numerics**
 
 ```
 // Signed numerics
-DECLARE @a sbyte= 0;
-DECLARE @b short = 1;
-DECLARE @c int= 2;
-DECLARE @d long = 3L;
-DECLARE @e float = 4.0f;
+DECLARE @a sbyte  = 0;
+DECLARE @b short  = 1;
+
+DECLARE @c int    = 2;
+DECLARE @d long   = 3L;
+
+DECLARE @e float  = 4.0f;
 DECLARE @f double = 5.0;
 ```
 
@@ -59,17 +62,17 @@ DECLARE @f double = 5.0;
 
 ```
 // Unsigned numerics
-DECLARE @g byte = 0;
-DECLARE @h ushort= 1;
-DECLARE @i uint= 2;
-DECLARE @j ulong= 3L;
+DECLARE @g byte   = 0;
+DECLARE @h ushort = 1;
+DECLARE @i uint   = 2;
+DECLARE @j ulong  = 3L;
 ```
 
 **Miscellaneous**
 
 ```
-DECLARE @misc1 bool = true;
-DECLARE @misc2 Guid = System.Guid.Parse("BEF7A4E8-F583-4804-9711-7E608215EBA6");
+DECLARE @misc1 bool    = true;
+DECLARE @misc2 Guid    = System.Guid.Parse("BEF7A4E8-F583-4804-9711-7E608215EBA6");
 DECLARE @misc4 byte [] = new byte[] { 0, 1, 2, 3, 4};
 ```
 
@@ -85,13 +88,13 @@ DECLARE @b string = string.Format("BEGIN{0}END", @text1);
 DECLARE @c string = MyHelper.GetMyName();
 ```
 
+
 ## Parameter values cannot be assigned directly from a RowSet.
 
 Values cannot be assigned from a RowSet to a DECLARE parameter.
 
 ```
-// This does *NOT* work
-
+// This does NOT work
 DECLARE @maxval int = SELECT MAX(value) FROM data;
 ```
 

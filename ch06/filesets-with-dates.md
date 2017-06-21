@@ -15,7 +15,7 @@ Image we have files that are named in this pattern `"data-YEAR-MONTH-DAY.csv"`. 
   USING Extractors.Csv();
 ```
 
-Many times you'll have to restrict the files to a specific time range. This can be done by refining the rowset with a WHERE clause.
+Many times you'll have to restrict the files to a specific time range. This can be done by refining the RowSet with a WHERE clause.
 
 ```
 @rs = 

@@ -3,7 +3,7 @@
 There's a common pattern C# developers are used to, as shown below:
 
 ```
-if ((QueryString!=null) && (QueryString.StartsWith("bing"))
+if ( (QueryString!=null) && (QueryString.StartsWith("bing") )
 {
     // do something
 }
@@ -57,5 +57,5 @@ Of course, then you'll be tempted to write your script by splitting apart the ex
 
 The assumption here is that the first statement executes, before the second. This assumption is wrong.
 
-This won't work either. U-SQL is declarative language not an imperative one. Just because @rs1 is defined earlier than @rs2 in the script above it does NOT imply that the WHERE condition in @rs1 is evaluated before the WHERE in @rs2. U-SQL reserves the right to combine multiple statements together and perform optimizations. You MUST use the && operator if you want to perform short-circuiting.
+This won't work either. U-SQL is declarative language not an imperative one. Just because `@rs1` is defined earlier than `@rs2` in the script above it does NOT imply that the WHERE condition in `@rs1` is evaluated before the WHERE in `@rs2`. U-SQL reserves the right to combine multiple statements together and perform optimizations. You MUST use the && operator if you want to perform short-circuiting.
 

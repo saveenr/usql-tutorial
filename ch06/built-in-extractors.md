@@ -25,7 +25,7 @@ All three built-in extractors allow you to control the encoding through the **en
      USING Extractors.Csv( encoding: Encoding.[ASCII] );
 ```
 
-These are the supported encodings:
+These are the supported text encodings:
 
 ```
 Encoding.[ASCII]
