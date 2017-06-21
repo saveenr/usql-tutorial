@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to the U-SQL Tutorial
 
 ## What is the U-SQL Tutorial
 
