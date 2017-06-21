@@ -1,14 +1,25 @@
 # Introduction
 
-The U-SQL Tutorial is a set of documents, sample code, and programming exercises to help a developer get productive in using the U-SQL Language. The structure, order, and approach of this tutorial has been used to train **tens of thousands of developers** at Microsoft.
+# What is the U-SQL Tutorial
 
-## You can always find this document at
+The U-SQL Tutorial is a set of documents, sample code, and programming exercises to help a developer get productive in using the U-SQL Language. 
+
+## Get the latest version online
+
+You can always find this document at
 
 [**http://aka.ms/USQLTutorial**](http://aka.ms/USQLTutorial)
 
 ## How to Read this document
 
-Set aside a day or two and just start reading each chapter in sequence. Every chapter introduces a simple topic. Don’t skip ahead. Each chapter builds on the one before it. When you are done with all the chapters you’ll have a good working grasp of how to use U-SQL.
+Set aside a day or two and just start reading each chapter in sequence. Every chapter introduces a simple topic. Don’t skip ahead. Each chapter builds on the one before it. When you are done with all the chapters you’ll have a good working knowledge of how to use U-SQL.
+
+## Current Status
+
+The U-SQL tutorial is currently in first-draft state. It will be updated very frequently through the remainder of 2017. 
+
+It is scheduled for a v1 release in December of 2017.
+
 
 ## Looking for the U-SQL Language Reference?
 
