@@ -1,4 +1,4 @@
-# U-SQL compared to SQL
+# U-SQL versus SQL
 
 If you come from a SQL background, you'll notice that U-SQL queries look a lot of SQL queries. Many fundamental concepts and syntactic expressions will be very familiar to those with a background in SQL.
 

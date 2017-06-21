@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [CH1: Getting started](ch01/getting-started.md)
-  * [USQL is not SQL](ch01/usql-is-not-sql.md)
+  * [USQL vs SQL](ch01/usql-vs-sql.md)
   * [Running U-SQL scripts](ch01/running-usql-scripts.md)
   * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
   * [Your first U-SQL script](ch01/your-first-usql-script.md)

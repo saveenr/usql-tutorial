@@ -64,7 +64,7 @@ Download the `SearchLog.tsv` file into the Local Data Root from here:
 
 Take a look at the TSV file. Some things to point out
 
-* It is a tsv - tab-separated-value
+* It is a TSV file. TSV = Tab-Separated-Value
 * It has no header row
 * Each row has the same number of columns
 

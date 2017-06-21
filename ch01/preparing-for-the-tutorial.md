@@ -21,7 +21,7 @@
 
 * Support for Visual Studio 2017 is coming soon.
 
-### Azure Data Lake Tools for Visual Studio \(ADLToolsForVS\)
+### Azure Data Lake Tools for Visual Studio (ADLToolsForVS)
 
 Install ADLToolsForVS from [**here**](http://aka.ms/ADLToolsVS).
 
