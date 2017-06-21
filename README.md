@@ -12,9 +12,8 @@ Set aside a day or two and just start reading each chapter in sequence. Every ch
 
 ## Looking for the U-SQL Language Reference?
 
-The goal of this document is to rapidly give a reader competence with U-SQL, not to be a language reference. You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
+You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
 
-## 
 
 
 
