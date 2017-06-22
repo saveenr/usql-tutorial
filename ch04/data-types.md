@@ -4,14 +4,7 @@ U-SQL has many built-in Native U-SQL datatypes in that U-SQL has special support
 
 Most of the datatypes below will be familiar to a C\#/.NET programmer. Indeed except for MAP and ARRAY, these _ARE_ the normal .NET datatypes you are used to.
 
-**Miscellaneous**
 
-```
-bool
-Guid
-DateTime
-byte[]
-```
 
 **Numeric signed**
 
@@ -47,3 +40,14 @@ string
 MAP<k,v>
 ARRAY<v>
 ```
+
+**Miscellaneous**
+
+```
+bool
+Guid
+DateTime
+byte[]
+```
+
+
