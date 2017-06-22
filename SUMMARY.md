@@ -23,7 +23,7 @@
   * [Tips for SQL developers](ch05/tips-for-sql-developers.md)
 * [CH6: Reading and writing files](ch06/reading-and-writing-files.md)
   * [FileSets](ch06/filesets.md)
-  * [Filtering files with WHERE](ch06/filtering-files-with-where.md)
+  * [Filtering FileSets with WHERE](ch06/filtering-filesets-with-where.md)
   * [FileSets with dates](ch06/filesets-with-dates.md)
   * [Built-in Extractors](ch06/built-in-extractors.md)
 * [CH7: Grouping and aggregation](ch07/grouping-and-aggregation.md)
