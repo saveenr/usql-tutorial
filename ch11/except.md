@@ -3,55 +3,30 @@
 
 The **EXCEPT** operator returns all the rows in the left RowSet that _are not_ in the right RowSet.
 
+
+
 ```
-@except\_all\_ab =
+@a_except_b_all =
+   SELECT * FROM @a
+   EXCEPT ALL
+   SELECT * FROM @b;
 
-SELECT \* FROM @a
-
-EXCEPT DISTINCT
-
-SELECT \* FROM @b;
-
-@except\_distinct\_ab =
-
-SELECT \* FROM @a
-
-EXCEPT ALL
-
-SELECT \* FROM @b;
-
-@except\_all\_ba =
-
-SELECT \* FROM @b
-
-EXCEPT DISTINCT
-
-SELECT \* FROM @a;
-
-@except\_dstinct\_ba =
-
-SELECT \* FROM @b
-
-EXCEPT ALL
-
-SELECT \* FROM @a;
+@b_except_a_all =
+   SELECT * FROM @b
+   EXCEPT ALL
+   SELECT * FROM @a;
 ```
 
-EXCEPT ALL (A,B)
+
+@a_except_b_all
 
 | DepID | name |
 | --- | --- |
 | 3 | Case |
 
 
-EXCEPT DISTINCT (A,B)
 
-| DepID | name |
-| --- | --- |
-| 3 | Case |
-
-
-EXCEPT ALL (B,A)
+@b_except_a_all
 
 | DepID | name |
 | --- | --- |
@@ -60,7 +35,29 @@ EXCEPT ALL (B,A)
 | 4 | Dey |
 
 
-EXCEPT DISTINCT (B,A)
+
+
+
+```
+@a_except_b_distinct =
+   SELECT * FROM @a
+   EXCEPT DISTINCT
+   SELECT * FROM @b;
+
+@b_except_a_distinct =
+   SELECT * FROM @b
+   EXCEPT DISTINCT
+   SELECT * FROM @a;
+```
+
+@a_except_b_distinct
+
+| DepID | name |
+| --- | --- |
+| 3 | Case |
+
+
+@b_except_a_distinct
 
 | DepID | name |
 | --- | --- |

@@ -3,20 +3,18 @@
 **UNION ALL** will preserve any duplicates while **UNION DISTICT** will remove them.
 
 ```
-@union\_distinct =   SELECT \* FROM @a
+@union_distinct = 
+    SELECT * FROM @a
+    UNION DISTINCT
+    SELECT * FROM @b;
 
-                        UNION DISTINCT
-
-                    SELECT \* FROM @b;
-
-@union\_all =        SELECT \* FROM @a
-
-                        UNION ALL
-
-                    SELECT \* FROM @b;
+@union_all = 
+    SELECT * FROM @a
+    UNION ALL
+    SELECT * FROM @b;
 ```
 
-UNION DISTINCT
+@union_distinct
 
 | DepID | Name |
 | --- | --- |
@@ -26,7 +24,7 @@ UNION DISTINCT
 | 4 | Dey |
 
 
-UNION ALL 
+@union_all
 
 | DepID | Name |
 | --- | --- |
