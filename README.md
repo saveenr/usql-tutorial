@@ -29,7 +29,13 @@ It is scheduled for a v1 release in December of 2017.
 
 You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
 
-### Want to send feedback?
+### Contributing 
+
+We welcome contributions. Fork the Git repo and send pull requests
+
+See: https://www.gitbook.com/book/saveenr/usql-tutorial/details
+
+### How to send feedback
 
 We'd love to hear it!
 
