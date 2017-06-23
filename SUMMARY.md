@@ -42,6 +42,7 @@
 * [CH10: Window functions](ch09/window-functions.md)
   * [Sample datasets](ch10/sample-datasets.md)
   * [Window functions vs. GROUP BY](ch10/window-functions-vs-group-by.md)
-  
-  
+  * [Window aggregate functions](ch10/window-aggregate-functions.md)  
+  * [Window ranking functions](ch10/window-ranking-functions.md)    
+  * [Window analytic functions](ch10/window-analytic-functions.md)    
 
