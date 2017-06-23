@@ -39,4 +39,9 @@
   * [User-Defined Functions \(UDFs\)](ch09/user-defined-functions.md)
   * [User-Defined Types \(UDTs\)](ch09/user-defined-types.md)
   * [User-Defined Aggregators \(UDAggs\)](ch09/user-defined-aggregators.md)
+* [CH10: Window functions](ch09/window-functions.md)
+  * [Sample datasets](ch10/sample-datasets.md)
+  * [Window functions vs. GROUP BY](ch10/window-functions-vs-group-by.md)
+  
+  
 
