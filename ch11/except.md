@@ -4,19 +4,14 @@
 The **EXCEPT** operator returns all the rows in the left RowSet that _are not_ in the right RowSet.
 
 
+## EXCEPT ALL
 
 ```
 @a_except_b_all =
    SELECT * FROM @a
    EXCEPT ALL
    SELECT * FROM @b;
-
-@b_except_a_all =
-   SELECT * FROM @b
-   EXCEPT ALL
-   SELECT * FROM @a;
 ```
-
 
 @a_except_b_all
 
@@ -25,6 +20,12 @@ The **EXCEPT** operator returns all the rows in the left RowSet that _are not_ i
 | 3 | Case |
 
 
+```
+@b_except_a_all =
+   SELECT * FROM @b
+   EXCEPT ALL
+   SELECT * FROM @a;
+```
 
 @b_except_a_all
 
@@ -35,19 +36,13 @@ The **EXCEPT** operator returns all the rows in the left RowSet that _are not_ i
 | 4 | Dey |
 
 
-
-
+## EXCEPT DISTINCT
 
 ```
 @a_except_b_distinct =
    SELECT * FROM @a
    EXCEPT DISTINCT
    SELECT * FROM @b;
-
-@b_except_a_distinct =
-   SELECT * FROM @b
-   EXCEPT DISTINCT
-   SELECT * FROM @a;
 ```
 
 @a_except_b_distinct
@@ -56,6 +51,13 @@ The **EXCEPT** operator returns all the rows in the left RowSet that _are not_ i
 | --- | --- |
 | 3 | Case |
 
+
+```
+@b_except_a_distinct =
+   SELECT * FROM @b
+   EXCEPT DISTINCT
+   SELECT * FROM @a;
+```
 
 @b_except_a_distinct
 

@@ -48,7 +48,7 @@
   * [Window ranking functions](ch10/window-ranking-functions.md)    
   * [Window analytic functions](ch10/window-analytic-functions.md)    
 * [CH11: Set operations](ch11/set-operations.md)
-  * [sample data](ch11/sample-data.md)
+  * [Sample data](ch11/sample-data.md)
   * [UNION](ch11/union.md)
   * [INTERSECT](ch11/intersect.md)
   * [EXCEPT](ch11/except.md)
