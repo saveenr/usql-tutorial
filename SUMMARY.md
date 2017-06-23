@@ -1,6 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
+  * [Contributing](contributing.md)
+  * [Sending feedback](feedback.md)
 * [CH1: Getting started](ch01/getting-started.md)
   * [USQL vs SQL](ch01/usql-vs-sql.md)
   * [Running U-SQL scripts](ch01/running-usql-scripts.md)

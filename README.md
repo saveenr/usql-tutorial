@@ -28,19 +28,3 @@ It is scheduled for a v1 release in December of 2017.
 ### Looking for the U-SQL Language Reference?
 
 You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
-
-### Contributing 
-
-We welcome contributions. Fork the Git repo and send pull requests
-
-See: https://www.gitbook.com/book/saveenr/usql-tutorial/details
-
-### How to send feedback
-
-We'd love to hear it!
-
-Send **feedback and ideas about U-SQL** or Azure Data Lake to our UserVoice forum: https://aka.ms/adlfeedback
-
-If you need to send **suggestions for the U-SQL tutorial document** itself, contact saveenr@microsoft.com 
-
-
