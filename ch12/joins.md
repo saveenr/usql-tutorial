@@ -41,3 +41,30 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 | 35 | NULL | Williams | Marketing |
 
 
+## SEMIJOIN
+It is easiest to think of SEMIJOIN as a way to filter a rowset.
+There are two variants: LEFT SEMIJOIN and RIGHT SEMIJOIN.
+
+* LEFT SEMIJOIN -> Give only those rows in the left rowset that have a matching row in the right rowset.
+* RIGHT SEMIJOIN -> Give only those rows in the right rowset that have a matching row in the left rowset.
+
+NOTE: If you leave out LEFT or RIGHT, and instead simply write SEMIJOIN then what you get is LEFT SEMIJOIN. Do not leave out LEFT or RIGHT always explicitly it.
+Find all employees that are in valid departments
+
+```
+@left_semijoin =
+    SELECT 
+        @employees.DepID,
+        @employees.EmpName
+    FROM @employees
+    LEFT SEMIJOIN @departments
+        ON @employees.DepID == @departments.DepID;
+```
+
+
+| DepID | EmpName |
+| --- | --- |
+| 33 | Jones |
+| 33 | Heisenberg |
+| 34 | Robinson |
+| 34 | Smith |
