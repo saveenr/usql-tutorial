@@ -9,7 +9,7 @@
   * [Change log](ch00/change-log.md)
 * 1 Getting started
   * [Overview](ch01/getting-started-intro.md)
-  * [USQL vs SQL](ch01/usql-vs-sql.md)
+  * [U-SQL vs SQL](ch01/usql-vs-sql.md)
   * [Running U-SQL scripts](ch01/running-usql-scripts.md)
   * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
   * [Your first U-SQL script](ch01/your-first-usql-script.md)
