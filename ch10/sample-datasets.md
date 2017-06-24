@@ -27,11 +27,12 @@ Copy and paste the following script into your U-SQL project for constructing the
 ## Employees sample dataset
 
 The Employee dataset includes the following fields:
-* EmpID - Employee ID.
-* EmpName  Employee name.
-* DeptName - Department name. 
-* DeptID - Deparment ID.
-* Salary - Employee salary.
+
+* EmpID - Employee ID
+* EmpName  Employee name
+* DeptName - Department name
+* DeptID - Deparment ID
+* Salary - Employee salary
 
 Copy and paste the following script into your U-SQL project for constructing the Employees rowset:
 
