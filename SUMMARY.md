@@ -3,8 +3,8 @@
 
 * [Introduction](README.md)
 * 0 Meta
-  * [Contributing](contributing.md)
-  * [Sending feedback](feedback.md)
+  * [Contributing](ch00/contributing.md)
+  * [Sending feedback](ch00/feedback.md)
 * 1 Getting started
   * [Introduction](ch01/getting-started.md)
   * [USQL vs SQL](ch01/usql-vs-sql.md)
