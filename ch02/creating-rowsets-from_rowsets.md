@@ -29,22 +29,3 @@ Effectively this script just copies the data without transforming it.
 * The default encoding is UTF-8 and the BOM (Byte Order Mark) is not written.
 
 
-## Creating constant rowsets
-
-```
-@departments =
-  SELECT * 
-  FROM (VALUES
-    (31, "Sales"),
-    (33, "Engineering"),
-    (34, "Clerical"),
-    (35, "Marketing")
-    ) AS D(DepID,DepName);
-```
-
-| DepID | DepName |
-| ----- | -------- |
-| 31 | Sales |
-| 33| Engineering |
-| 34 | Clerical |
-| 35 | Marketing

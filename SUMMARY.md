@@ -16,7 +16,8 @@
   * [The SearchLog dataset](ch01/searchlog-dataset.md)
 * 2 Transforming RowSets
   * [Overview](ch02/transforming-rowsets-intro.md)
-  * [Creating RowSets](ch02/creating-rowsets.md)
+  * [Creating RowSets from RowSets](ch02/creating-rowsets-from-rowsets.md)  
+  * [Creating constant RowSets](ch02/creating-constant-rowsets.md)
   * [Refining RowSets](ch02/refining-rowsets.md)
   * [Modifying columns with SELECT](ch02/modifying-columns-with-select.md)
   * [Filtering RowSets with WHERE](ch02/filtering-rowsets-with-where.md)
