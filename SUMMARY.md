@@ -49,7 +49,7 @@
   * [Assemblies](ch08/assemblies.md)
 * 9 Window functions
   * [Overview](ch09/window-functions-intro.md)
-  * [Sample datasets](ch09/sample-datasets.md)
+  * [Sample data](ch09/sample-data.md)
   * [Window functions vs. GROUP BY](ch09/window-functions-vs-group-by.md)
   * [Window aggregate functions](ch09/window-aggregate-functions.md)
   * [Window ranking functions](ch09/window-ranking-functions.md)
