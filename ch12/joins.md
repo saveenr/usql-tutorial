@@ -17,9 +17,13 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 ```
 @inner_join =  
     SELECT 
-        @employees.DepID AS EmpDepId, @departments.DepID , @employees.EmpName, @departments.DepName
-        FROM @employees 
-        INNER JOIN @departments ON @employees.DepID == @departments.DepID;
+        @employees.DepID AS EmpDepId, 
+        @departments.DepID, 
+        @employees.EmpName, 
+        @departments.DepName
+    FROM @employees 
+    INNER JOIN @departments 
+        ON @employees.DepID == @departments.DepID;
 ```
 
 | EmpDepId | DepID | EmpName | DepName |
@@ -33,9 +37,13 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 ```
 @left_outer_join =  
     SELECT 
-        @employees.DepID AS EmpDepId, @departments.DepID , @employees.EmpName, @departments.DepName
-        FROM @employees 
-        LEFT OUTER JOIN @departments ON @employees.DepID == @departments.DepID;
+        @employees.DepID AS EmpDepId, 
+        @departments.DepID , 
+        @employees.EmpName, 
+        @departments.DepName
+    FROM @employees 
+    LEFT OUTER JOIN @departments 
+        ON @employees.DepID == @departments.DepID;
 ```
 
 | EmpDepId | DepID | EmpName | DepName |
@@ -49,9 +57,13 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 ```
 @right_outer_join =  
     SELECT 
-        @employees.DepID AS EmpDepId, @departments.DepID , @employees.EmpName, @departments.DepName
-        FROM @employees 
-        RIGHT OUTER JOIN @departments ON @employees.DepID == @departments.DepID;
+        @employees.DepID AS EmpDepId, 
+        @departments.DepID , 
+        @employees.EmpName, 
+        @departments.DepName
+    FROM @employees 
+    RIGHT OUTER JOIN @departments 
+        ON @employees.DepID == @departments.DepID;
 ```
 
 | EmpDepId | DepID | EmpName | DepName |
@@ -66,9 +78,13 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 ```
 @full_outer_join =  
     SELECT 
-        @employees.DepID AS EmpDepId, @departments.DepID , @employees.EmpName, @departments.DepName
-        FROM @employees 
-        FULL OUTER JOIN @departments ON @employees.DepID == @departments.DepID;
+        @employees.DepID AS EmpDepId, 
+        @departments.DepID , 
+        @employees.EmpName, 
+        @departments.DepName
+    FROM @employees 
+    FULL OUTER JOIN @departments 
+        ON @employees.DepID == @departments.DepID;
 ```
 
 | EmpDepId | DepID | EmpName | DepName |
@@ -79,3 +95,4 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 | 34 | 34 | Smith | Clerical |
 | NULL | 35 | NULL | Marketing |
 | NULL | NULL | Williams | NULL |
+
