@@ -1,4 +1,4 @@
-# Introduction to the U-SQL Tutorial
+# Introduction to the U-SQL Tutorial (First Draft)
 
 The U-SQL Tutorial gets developers productive on the U-SQL Language. 
 
