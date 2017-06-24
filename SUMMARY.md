@@ -66,6 +66,10 @@
 * 11 Joins
   * [Overview](ch11/joins-intro.md)
   * [Sample data](ch11/sample-data.md)
+  * [CROSS JOIN](ch11/cross-join.md)  
+  * [INNER JOIN and OUTER JOIN](ch11/ch11/inner-join-and-outer-join.md.md)  
+  * [SEMIJOIN](ch11/semijoin.md)  
+  * [ANTISEMIJOIN](ch11/antisemijoin.md)  
 * 12 Extending U-SQL
   * [Overview](ch12/extending-usql-intro.md)
   * [User-Defined Functions \(UDFs\)](ch12/user-defined-functions.md)
