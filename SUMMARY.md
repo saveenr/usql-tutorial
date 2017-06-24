@@ -1,6 +1,5 @@
 # Summary
 
-
 * [Introduction](README.md) 
 * 0 Meta
   * [How to read the tutorial](ch00/how-to-read.md)
@@ -55,10 +54,10 @@
   * [Window functions vs. GROUP BY](ch09/window-functions-vs-group-by.md)
   * [Window aggregate functions](ch09/window-aggregate-functions.md)
   * [Window ranking functions](ch09/window-ranking-functions.md)
-  * [Window analytic functions](ch09/window-analytic-functions.md)
   * [Ranking: Assign unique row numbers](ch09/ranking-assign-new-unique-row-numbers.md)
   * [Ranking: Get TOP N rows in group](ch09/ranking-get-top-n-rows-in-group.md)
   * [Ranking: Get row with min/max value](ch09/ranking-get-row-with-min-max-value.md)
+  * [Window analytic functions](ch09/window-analytic-functions.md)
 * 10 Set operations
   * [Overview](ch10/set-operations-intro.md)
   * [Sample data](ch10/sample-data.md)
