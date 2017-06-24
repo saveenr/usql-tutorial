@@ -1,28 +1,28 @@
 # Sample data
 
 ```
-@departments  =
+@departments =
     SELECT * FROM
-        (VALUES
-            ("31", "Sales"),
-            ("33", "Engineering"),
-            ((int?)34, "Clerical"),
-            ((int?)35, "Marketing")
-        ) AS D( DepID, DepName );
+    (VALUES
+    ("31", "Sales"),
+    ("33", "Engineering"),
+    ("34", "Clerical"),
+    ("35", "Marketing")
+    ) AS D( DepID, DepName );
 ```
 
 
 ```
-@employees  =
-    SELECT * FROM
-        (VALUES
-            ((int?)31, "Rafferty"),
-            ((int?)33, "Jones"),
-            ((int?)33, "Heisenberg"),
-            ((int?)34, "Robinson"),
-            ((int?)34, "Smith"),
-            ((int?)null, "Williams")
-        ) AS D( DepID, EmpName );
+@employees =
+SELECT * FROM
+    (VALUES
+    ("31", "Rafferty"),
+    ("33", "Jones"),
+    ("33", "Heisenberg"),
+    ("34", "Robinson"),
+    ("34", "Smith"),
+    ((string)null, "Williams")
+    ) AS D( DepID, EmpName );
 ```
 
 
@@ -37,6 +37,7 @@
         @departments.DepName
     FROM @employees CROSS JOIN @departments;
 ```
+
 
 |DepIDDep|DepIDEmp|EmpName|DepName|
 |---|---|---|---|
@@ -65,6 +66,7 @@
 ﻿|35|34|Robinson|Marketing|
 ﻿|35|34|Smith|Marketing|
 ﻿|35|NULL|Williams|Marketing|
+
 
 
 
