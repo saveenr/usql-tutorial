@@ -1,4 +1,3 @@
-
 # Reporting aggregation functions
 
 Window functions also support the following aggregates:
@@ -13,7 +12,7 @@ Window functions also support the following aggregates:
 
 The syntax:
 
-&lt;AggregateFunction&gt;( [DISTINCT] &lt;expression&gt;) [&lt;OVER\_clause&gt;]
+<AggregateFunction>( [DISTINCT] <expression>) [<OVER_clause>]
 
 Note:
 
@@ -24,15 +23,13 @@ Note:
 
 The following example adds a total salary by department to each input row:
 
+```
 @result=
-
     SELECT
-
-        \*,
-
+        *,
         SUM(Salary) OVER( PARTITION BY DeptName ) AS TotalByDept
-
     FROM @employees;
+```
 
 | **EmpID** | **EmpName** | **DeptName** | **DeptID** | **Salary** | **TotalByDept** |
 | --- | --- | --- | --- | --- | --- |
@@ -50,13 +47,13 @@ The following example adds a total salary by department to each input row:
 
 The following example adds an extra field to each row to show the total number employees in each department.
 
+```
 @result =
-
-    SELECT \*,
-
-        COUNT(\*) OVER(PARTITION BY DeptName) AS CountByDept
-
+    SELECT 
+        *,
+        COUNT(*) OVER(PARTITION BY DeptName) AS CountByDept
     FROM @employees;
+```
 
 | **EmpID** | **EmpName** | **DeptName** | **DeptID** | **Salary** | **CountByDept** |
 | --- | --- | --- | --- | --- | --- |
@@ -74,15 +71,13 @@ The following example adds an extra field to each row to show the total number e
 
 The following example adds an extra field to each row to show the lowest salary of each department:
 
+```
 @result =
-
     SELECT
-
-        \*,
-
-        MIN(Salary) OVER ( PARTITION BY DeptName ) AS MinSalary
-
+    *,
+    MIN(Salary) OVER ( PARTITION BY DeptName ) AS MinSalary
     FROM @employees;
+```
 
 | **EmpID** | **EmpName** | **DeptName** | **DeptID** | **Salary** | **MinSalary** |
 | --- | --- | --- | --- | --- | --- |
