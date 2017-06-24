@@ -1,6 +1,6 @@
 # Summary
 
-* Introduction
+* **Introduction**
   * [Introduction](README.md)
   * [Contributing](contributing.md)
   * [Sending feedback](feedback.md)
