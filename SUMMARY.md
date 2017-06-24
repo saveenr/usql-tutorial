@@ -1,7 +1,8 @@
 # Summary
 
-* 0 Introduction
-  * [Introduction](README.md)
+
+* [Introduction](README.md)
+* 0 Meta
   * [Contributing](contributing.md)
   * [Sending feedback](feedback.md)
 * 1 Getting started
@@ -22,14 +23,14 @@
 * 3 DECLARE Parameters
   * [Introduction](ch03/declare-parameters.md)
   * [Parameter type inference](ch03/parameter-type-inference.md)
-* 4 Data types
+* [4 Data types](4-data-types.md)
   * [Introduction](ch04/data-types.md)
   * [Nullable types](ch04/nullable-types.md)
-* 5 Expressions
+* [5 Expressions](5-expressions.md)
   * [Introduction](ch05/expressions.md)
   * [Order of evaluation in expressions](ch05/order-of-evaluation-in-expressions.md)
   * [Tips for SQL developers](ch05/tips-for-sql-developers.md)
-* 6 Reading and writing files
+* [6 Reading and writing files](6-reading-and-writing-files.md)
   * [Introduction](ch06/reading-and-writing-files.md)
   * [FileSets](ch06/filesets.md)
   * [Filtering FileSets with WHERE](ch06/filtering-filesets-with-where.md)
@@ -50,9 +51,9 @@
   * [Introduction](ch09/window-functions.md)
   * [Sample datasets](ch09/sample-datasets.md)
   * [Window functions vs. GROUP BY](ch09/window-functions-vs-group-by.md)
-  * [Window aggregate functions](ch09/window-aggregate-functions.md)  
-  * [Window ranking functions](ch09/window-ranking-functions.md)    
-  * [Window analytic functions](ch09/window-analytic-functions.md)    
+  * [Window aggregate functions](ch09/window-aggregate-functions.md)
+  * [Window ranking functions](ch09/window-ranking-functions.md)
+  * [Window analytic functions](ch09/window-analytic-functions.md)
 * 10 Set operations
   * [Introduction](ch10/set-operations.md)
   * [Sample data](ch10/sample-data.md)
@@ -64,6 +65,7 @@
   * [Sample data](ch11/sample-data.md)
 * 12 Extending U-SQL
   * [Introduction](ch12/extending-usql.md)
-  * [User-Defined Functions (UDFs)](ch12/user-defined-functions.md)
-  * [User-Defined Types (UDTs)](ch12/user-defined-types.md)
-  * [User-Defined Aggregators (UDAggs)](ch12/user-defined-aggregators.md)
+  * [User-Defined Functions \(UDFs\)](ch12/user-defined-functions.md)
+  * [User-Defined Types \(UDTs\)](ch12/user-defined-types.md)
+  * [User-Defined Aggregators \(UDAggs\)](ch12/user-defined-aggregators.md)
+
