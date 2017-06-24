@@ -1,10 +1,10 @@
 # Summary
 
-* **Introduction**
+* CH0. Introduction
   * [Introduction](README.md)
   * [Contributing](contributing.md)
   * [Sending feedback](feedback.md)
-* Getting started
+* CH1. Getting started
   * [Introduction](ch01/getting-started.md)
   * [USQL vs SQL](ch01/usql-vs-sql.md)
   * [Running U-SQL scripts](ch01/running-usql-scripts.md)
@@ -12,7 +12,7 @@
   * [Your first U-SQL script](ch01/your-first-usql-script.md)
   * [Common errors](ch01/common-errors.md)
   * [The SearchLog dataset](ch01/searchlog-dataset.md)
-* 2. Transforming RowSets
+* CH2. Transforming RowSets
   * [Introduction](ch02/transforming-rowsets.md)
   * [Creating RowSets](ch02/creating-rowsets.md)
   * [Refining RowSets](ch02/refining-rowsets.md)
