@@ -12,7 +12,9 @@ Window functions also support the following aggregates:
 
 The syntax:
 
+```
 <AggregateFunction>( [DISTINCT] <expression>) [<OVER_clause>]
+```
 
 Note:
 
@@ -74,8 +76,8 @@ The following example adds an extra field to each row to show the lowest salary 
 ```
 @result =
     SELECT
-    *,
-    MIN(Salary) OVER ( PARTITION BY DeptName ) AS MinSalary
+        *,
+        MIN(Salary) OVER ( PARTITION BY DeptName ) AS MinSalary
     FROM @employees;
 ```
 

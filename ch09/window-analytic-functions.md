@@ -12,7 +12,7 @@ Supported analytic window functions
 
 ## CUME_DIST
 
-CUME_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the CUME_DIST of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. CUME_DIST returns numbers in the range `0 < x <= 1`
+**CUME_DIST** computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the **CUME_DIST** of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. **CUME_DIST** returns numbers in the range `0 < x <= 1`
 
 ```
 CUME_DIST()
