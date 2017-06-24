@@ -1,57 +1,73 @@
-# The input Data
-
-To start, let&#39;s assume we have two rowsets as shown below:
-
-@a
-
-| DepID | Name |
-| --- | --- |
-| 1 | Smith |
-| 1 | Smith |
-| 2 | Brown |
-| 3 | Case |
-
-
-|
-
-@b
-
-| DepID | Name |
-|---| --- |
-| 1 | Smith |
-| 1 | Smith |
-| 1 | Smith |
-| 2 | Brown |
-| 4 | Dey |
-| 4 | Dey |
-
-
-For convenience we&#39;ll define them in the U-SQL Script instead of loading them from a file.
+# Sample data
 
 ```
-@a  =
-    SELECT \* FROM
-        (VALUES
-            (1,    "Smith"),
-            (1,    "Smith"),
-            (2,    "Brown"),
-            (3,    "Case")
-        ) AS D( DepID, DepName );
+@departments =
+    SELECT * FROM
+    (VALUES
+    ("31", "Sales"),
+    ("33", "Engineering"),
+    ("34", "Clerical"),
+    ("35", "Marketing")
+    ) AS D( DepID, DepName );
 ```
 
 
 ```
-@b  =
-    SELECT \* FROM
-        (VALUES
-            (1,    "Smith"),
-            (1,    "Smith"),
-            (1,    "Smith"),
-            (2,    "Brown"),
-            (4,    "Dey"),
-            (4,    "Dey")
-        ) AS D( DepID, DepName );
+@employees =
+SELECT * FROM
+    (VALUES
+    ("31", "Rafferty"),
+    ("33", "Jones"),
+    ("33", "Heisenberg"),
+    ("34", "Robinson"),
+    ("34", "Smith"),
+    ((string)null, "Williams")
+    ) AS D( DepID, EmpName );
 ```
+
+
+# CROSS JOIN
+
+```
+@cross_join =
+    SELECT
+        @departments.DepID AS DepID_Dep,
+        @employees.DepID AS DepID_Emp,
+        @employees.EmpName, 
+        @departments.DepName
+    FROM @employees CROSS JOIN @departments;
+```
+
+
+|DepIDDep|DepIDEmp|EmpName|DepName|
+|---|---|---|---|
+|31|31|Rafferty|Sales|
+|31|31|Rafferty|Sales|
+﻿|31|33|Jones|Sales|
+﻿|31|33|Heisenberg|Sales|
+﻿|31|34|Robinson|Sales|
+﻿|31|34|Smith|Sales|
+﻿|31|ERR|Williams|Sales|
+﻿|33|31|Rafferty|Engineering|
+﻿|33|33|Jones|Engineering|
+﻿|33|33|Heisenberg|Engineering|
+﻿|33|34|Robinson|Engineering|
+﻿|33|34|Smith|Engineering|
+﻿|33|ERR|Williams|Engineering|
+﻿|34|31|Rafferty|Clerical|
+﻿|34|33|Jones|Clerical|
+﻿|34|33|Heisenberg|Clerical|
+﻿|34|34|Robinson|Clerical|
+﻿|34|34|Smith|Clerical|
+﻿|34|ERR|Williams|Clerical|
+﻿|35|31|Rafferty|Marketing|
+﻿|35|33|Jones|Marketing|
+﻿|35|33|Heisenberg|Marketing|
+﻿|35|34|Robinson|Marketing|
+﻿|35|34|Smith|Marketing|
+﻿|35|NULL|Williams|Marketing|
+
+
 
 
 
