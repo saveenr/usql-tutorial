@@ -20,7 +20,7 @@ Find all departments that don’t have an employee listed in the employees rowse
     LEFT ANTISEMIJOIN @employees
         ON @departments.DepID == @employees.DepID;
 ```
-
 | DepID | DepName |
 | --- | --- |
+| 35 | Marketing |
 

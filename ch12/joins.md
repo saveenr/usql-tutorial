@@ -14,6 +14,8 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 
 ## INNER JOIN
 
+
+
 ```
 @inner_join =  
     SELECT 
@@ -28,11 +30,14 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 
 | EmpDepId | DepID | EmpName | DepName |
 | --- | --- | --- | --- |
+| 31 | 31 | Rafferty | Sales |
 | 33 | 33 | Jones | Engineering |
 | 33 | 33 | Heisenberg | Engineering |
 | 34 | 34 | Robinson | Clerical |
 | 34 | 34 | Smith | Clerical |
 
+
+## LEFT OUTER JOIN
 
 ```
 @left_outer_join =  
@@ -48,11 +53,15 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 
 | EmpDepId | DepID | EmpName | DepName |
 | --- | --- | --- | --- |
+| 31 | 31 | Rafferty | Sales |
 | 33 | 33 | Jones | Engineering |
 | 33 | 33 | Heisenberg | Engineering |
 | 34 | 34 | Robinson | Clerical |
 | 34 | 34 | Smith | Clerical |
 | NULL | NULL | Williams | NULL |
+
+
+## RIGHT OUTER JOIN
 
 ```
 @right_outer_join =  
@@ -68,12 +77,15 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 
 | EmpDepId | DepID | EmpName | DepName |
 | --- | --- | --- | --- |
+| 31 | 31 | Rafferty | Sales |
 | 33 | 33 | Heisenberg | Engineering |
 | 33 | 33 | Jones | Engineering |
 | 34 | 34 | Smith | Clerical |
 | 34 | 34 | Robinson | Clerical |
 | NULL | 35 | NULL | Marketing |
 
+
+## FULL OUTER JOIN
 
 ```
 @full_outer_join =  
@@ -89,10 +101,12 @@ https://en.wikipedia.org/wiki/Join_(SQL)
 
 | EmpDepId | DepID | EmpName | DepName |
 | --- | --- | --- | --- |
+| 31 | 31 | Rafferty | Sales |
 | 33 | 33 | Jones | Engineering |
 | 33 | 33 | Heisenberg | Engineering |
 | 34 | 34 | Robinson | Clerical |
 | 34 | 34 | Smith | Clerical |
 | NULL | 35 | NULL | Marketing |
 | NULL | NULL | Williams | NULL |
+
 

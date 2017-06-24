@@ -11,34 +11,39 @@ NOTE: If you leave out LEFT or RIGHT, and instead simply write SEMIJOIN then wha
 
 ```
 @left_semijoin1 =
-SELECT
-@employees.DepID,
-@employees.EmpName
-FROM @employees
-LEFT SEMIJOIN @departments
-ON @employees.DepID == @departments.DepID;
+    SELECT
+        @employees.DepID,    
+        @employees.EmpName
+    FROM @employees
+    LEFT SEMIJOIN @departments
+        ON @employees.DepID == @departments.DepID;
 ```
 
 | DepID | EmpName |
 | --- | --- |
+| 31 | Rafferty |
 | 33 | Jones |
 | 33 | Heisenberg |
 | 34 | Robinson |
 | 34 | Smith |
 
+
 Find all departments that has an employee listed in the employee rowset
 
 ```
 @left_semijoin2 =
-SELECT @departments.DepID,
-@departments.DepName
-FROM @departments
-LEFT SEMIJOIN @employees
-ON @departments.DepID == @employees.DepID;
+    SELECT 
+        @departments.DepID,
+        @departments.DepName
+    FROM @departments
+    LEFT SEMIJOIN @employees
+    ON @departments.DepID == @employees.DepID;
 ```
 
 | DepID | DepName |
 | --- | --- |
+| 31 | Sales |
 | 33 | Engineering |
 | 34 | Clerical |
+
 

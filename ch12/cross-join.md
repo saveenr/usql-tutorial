@@ -11,6 +11,7 @@ FROM @employees CROSS JOIN @departments;
 ```
 | DepID_Dep | DepID_Emp | EmpName | DepName |
 | --- | --- | --- | --- |
+| 31 | 31 | Rafferty | Sales |
 | 31 | 33 | Jones | Sales |
 | 31 | 33 | Heisenberg | Sales |
 | 31 | 34 | Robinson | Sales |
@@ -34,3 +35,4 @@ FROM @employees CROSS JOIN @departments;
 | 35 | 34 | Robinson | Marketing |
 | 35 | 34 | Smith | Marketing |
 | 35 | NULL | Williams | Marketing |
+
