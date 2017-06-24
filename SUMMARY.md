@@ -52,4 +52,7 @@
   * [UNION](ch11/union.md)
   * [INTERSECT](ch11/intersect.md)
   * [EXCEPT](ch11/except.md)
+* [CH12: Set operations](ch12/joins.md)
+  * [Sample data](ch12/sample-data.md)
+
 
