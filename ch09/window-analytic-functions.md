@@ -12,7 +12,11 @@ Supported analytic window functions
 
 ## CUME_DIST
 
-**CUME_DIST** computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the **CUME_DIST** of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. **CUME_DIST** returns numbers in the range `0 < x <= 1`
+**CUME_DIST** computes the relative position of a specified value in a group of values. 
+
+For a column "X", It calculates the percent of rows that have an X less than or equal to the current X in the same window. 
+
+For a row R, assuming ascending ordering, the **CUME_DIST** of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. **CUME_DIST** returns numbers in the range `0 < x <= 1`
 
 ```
 CUME_DIST()
@@ -46,7 +50,7 @@ The results:
 | Papaya | 200 | Web | 0.5 |
 | Apple | 100 | Web | 0.166666666666667 |
 
-- There are 6 rows in the partition where partition key is &quot;Web&quot; (4th row and down)
+- There are 6 rows in the partition where partition key is "Web" (4th row and down)
 - There are 6 rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
 - There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
 - There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 4/6=0.66
@@ -88,7 +92,8 @@ Notes
 @result=
     SELECT
         *,
-        PERCENT_RANK() OVER(PARTITION BY Vertical ORDER BY Latency) AS PercentRank
+        PERCENT_RANK() 
+            OVER (PARTITION BY Vertical ORDER BY Latency) AS PercentRank
     FROM @querylog;
 ```
 
@@ -142,7 +147,7 @@ You can see how both work in the example below which tries to find the median (p
             WITHIN GROUP (ORDER BY Latency)
             OVER ( PARTITION BY Vertical ) AS PercentileDisc50
     FROM @querylog;
-    ```
+```
 
 The results:
 
