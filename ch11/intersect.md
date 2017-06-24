@@ -26,9 +26,9 @@ Sometimes, we only care about the rows both rowsets have _in common_. We use the
 
 ```
 @intersect_distinct =
-SELECT \* FROM @a
-INTERSECT DISTINCT
-SELECT \* FROM @b;
+    SELECT * FROM @a
+    INTERSECT DISTINCT
+    SELECT * FROM @b;
 ```
 
 @intersect_distinct

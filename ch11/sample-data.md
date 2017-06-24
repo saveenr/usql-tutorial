@@ -36,14 +36,12 @@ For convenience we&#39;ll define them in the U-SQL Script instead of loading the
             (1,    "Smith"),
             (2,    "Brown"),
             (3,    "Case")
-        ) AS
-              D( DepID, DepName );
+        ) AS D( DepID, DepName );
 ```
 
 
 ```
 @b  =
-
     SELECT \* FROM
         (VALUES
             (1,    "Smith"),
@@ -52,9 +50,7 @@ For convenience we&#39;ll define them in the U-SQL Script instead of loading the
             (2,    "Brown"),
             (4,    "Dey"),
             (4,    "Dey")
-        ) AS
-
-              D( DepID, DepName );
+        ) AS D( DepID, DepName );
 ```
 
 
