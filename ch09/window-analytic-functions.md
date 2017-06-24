@@ -13,29 +13,25 @@ Supported analytic window functions
 
 ## CUME\_DIST
 
-CUME\_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the CUME\_DIST of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. CUME\_DIST returns numbers in the range 0 &lt; x &lt;= 1.
+CUME\_DIST computes the relative position of a specified value in a group of values. It calculates the percent of queries that have a latency less than or equal to the current query latency in the same vertical. For a row R, assuming ascending ordering, the CUME\_DIST of R is the number of rows with values lower than or equal to the value of R, divided by the number of rows evaluated in the partition or query result set. CUME\_DIST returns numbers in the range `0 < x <= 1`
 
+```
 CUME\_DIST()
-
     OVER (
-
-        [PARTITION BY &lt;identifier, &gt; …[n]]
-
-        ORDER BY &lt;identifier, &gt; …[n] [ASC|DESC]
-
-) AS &lt;alias&gt;
+        [PARTITION BY <identifier, > …[n]]
+        ORDER BY >identifier, > …[n] [ASC|DESC]
+) AS <alias>
+```
 
 The following example uses the CUME\_DIST function to compute the latency percentile for each query within a vertical.
 
+```
 @result=
-
     SELECT
-
         \*,
-
         CUME\_DIST() OVER(PARTITION BY Vertical ORDER BY Latency) AS CumeDist
-
     FROM @querylog;
+```
 
 The results:
 
@@ -70,15 +66,15 @@ Usage notes:
 
 PERCENT\_RANK calculates the relative rank of a row within a group of rows. PERCENT\_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT\_RANK is greater than 0 and less than or equal to 1. Unlike CUME\_DIST, PERCENT\_RANK is always 0 for the first row.
 
-PERCENT\_RANK()
 
+```
+PERCENT_RANK()
     OVER (
 
-        [PARTITION BY &lt;identifier, &gt; …[n]]
-
-        ORDER BY &lt;identifier, &gt; …[n] [ASC|DESC]
-
-    ) AS &lt;alias&gt;
+        [PARTITION BY <identifier>; …[n]]
+        ORDER BY <identifier,> …[n] [ASC|DESC]
+    ) AS <alias>;
+```
 
 Notes
 
@@ -90,15 +86,13 @@ Notes
 - The PARTITION BY clause is specified to partition the rows in the result set by the vertical. The ORDER BY clause in the OVER clause orders the rows in each partition.
 - The value returned by the PERCENT\_RANK function represents the rank of the queries&#39; latency within a vertical as a percentage.
 
+```
 @result=
-
     SELECT
-
         \*,
-
         PERCENT\_RANK() OVER(PARTITION BY Vertical ORDER BY Latency) AS PercentRank
-
     FROM @querylog;
+```
 
 The results:
 
@@ -120,11 +114,11 @@ These two functions calculates a percentile based on a continuous or discrete di
 
 Syntax
 
+```
 [PERCENTILE\_CONT | PERCENTILE\_DISC] ( numeric\_literal )
-
     WITHIN GROUP ( ORDER BY &lt;identifier&gt; [ASC | DESC] )
-
     OVER ( [PARTITION BY &lt;identifier,&gt;…[n] ] ) AS &lt;alias&gt;
+```
 
 numeric\_literal - The percentile to compute. The value must range between 0.0 and 1.0.
 
@@ -138,27 +132,19 @@ PERCENTILE\_DISC calculates the percentile based on a discrete distribution of t
 
 You can see how both work in the example below which tries to find the median (percentile=0.50) value for Latency within each Vertical
 
+```
 @result =
-
     SELECT
-
         Vertical,
-
         Query,
-
         PERCENTILE\_CONT(0.5)
-
             WITHIN GROUP (ORDER BY Latency)
-
             OVER ( PARTITION BY Vertical ) AS PercentileCont50,
-
         PERCENTILE\_DISC(0.5)
-
             WITHIN GROUP (ORDER BY Latency)
-
             OVER ( PARTITION BY Vertical ) AS PercentileDisc50
-
     FROM @querylog;
+```
 
 The results:
 
