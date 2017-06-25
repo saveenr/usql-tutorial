@@ -20,3 +20,7 @@
     white-space: nowrap;
     position: relative;
 }
+
+.book.font-family-1 {
+    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
