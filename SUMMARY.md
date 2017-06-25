@@ -2,6 +2,8 @@
 
 * [Introduction](README.md)
 
+---
+
 # 0 Meta
 
 * [How to read the tutorial](ch00/how-to-read.md)
@@ -9,16 +11,21 @@
 * [Sending feedback](ch00/feedback.md)
 * [Change log](ch00/change-log.md)
 
+---
+
 # 1 Getting started
 
-  * [Overview](ch01/getting-started-intro.md)
-  * [U-SQL vs SQL](ch01/usql-vs-sql.md)
-  * [Running U-SQL scripts](ch01/running-usql-scripts.md)
-  * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
-  * [Your first U-SQL script](ch01/your-first-usql-script.md)
-  * [Common errors](ch01/common-errors.md)
-  * [The SearchLog dataset](ch01/searchlog-dataset.md)
-* [2 Transforming RowSets](2-transforming-rowsets.md)
+* [Overview](ch01/getting-started-intro.md)
+* [U-SQL vs SQL](ch01/usql-vs-sql.md)
+* [Running U-SQL scripts](ch01/running-usql-scripts.md)
+* [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
+* [Your first U-SQL script](ch01/your-first-usql-script.md)
+* [Common errors](ch01/common-errors.md)
+* [The SearchLog dataset](ch01/searchlog-dataset.md)
+
+---
+
+[2 Transforming RowSets](2-transforming-rowsets.md)
   * [Overview](ch02/transforming-rowsets-intro.md)
   * [Creating RowSets from RowSets](ch02/creating-rowsets-from-rowsets.md)
   * [Creating constant RowSets](ch02/creating-constant-rowsets.md)
