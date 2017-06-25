@@ -68,9 +68,9 @@
   * [Window functions vs. GROUP BY](window-functions/window-functions-vs-group-by.md)
   * [Window aggregate functions](window-functions/window-aggregate-functions.md)
   * [Window ranking functions](window-functions/window-ranking-functions.md)
-  * [Ranking: Assign unique row numbers](window-functions/ranking-assign-new-unique-row-numbers.md)
-  * [Ranking: Get TOP N rows in group](window-functions/ranking-get-top-n-rows-in-group.md)
-  * [Ranking: Get row with min/max value](window-functions/ranking-get-row-with-min-max-value.md)
+    * [Ranking: Assign unique row numbers](window-functions/ranking-assign-new-unique-row-numbers.md)
+    * [Ranking: Get TOP N rows in group](window-functions/ranking-get-top-n-rows-in-group.md)
+    * [Ranking: Get row with min/max value](window-functions/ranking-get-row-with-min-max-value.md)
   * [Window analytic functions](window-functions/window-analytic-functions.md)
 
 * 10 Set operations
