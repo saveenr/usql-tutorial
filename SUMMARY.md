@@ -4,7 +4,7 @@
 
 ---
 
-# 0 Meta
+## 0 Meta
 
 * [How to read the tutorial](ch00/how-to-read.md)
 * [Contributing](ch00/contributing.md)
@@ -13,7 +13,7 @@
 
 ---
 
-# 1 Getting started
+## 1 Getting started
 
 * [Overview](ch01/getting-started-intro.md)
 * [U-SQL vs SQL](ch01/usql-vs-sql.md)
