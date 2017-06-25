@@ -1,4 +1,4 @@
-# Sample Datasets
+# Sample data
 
 ## QueryLog sample dataset
 

@@ -1,4 +1,4 @@
-#Window Functions
+# Window Functions
 
 **Window functions** were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL adopts a subset of window functions as defined by the ANSI SQL Standard.
 

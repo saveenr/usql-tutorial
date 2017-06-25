@@ -1,4 +1,4 @@
-## Creating a database
+# Creating a database
 
 To create a database is simple.
 

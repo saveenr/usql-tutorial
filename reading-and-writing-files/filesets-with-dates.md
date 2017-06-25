@@ -1,4 +1,4 @@
-## FileSets with dates
+# FileSets with dates
 
 File names or paths often include information about dates and times. This is often the case for log files. FileSets make it easy to handle these cases.
 

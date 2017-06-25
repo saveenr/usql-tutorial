@@ -1,4 +1,4 @@
-## Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
+# Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
 
 Many users want to select only TOP n rows per group. This is not possible with the traditional GROUP BY.
 

@@ -1,4 +1,4 @@
-## Getting the Rows that have the maximum (or minimum) value for a Column within a partition
+# Getting the Rows that have the maximum (or minimum) value for a Column within a partition
 
 Another scenario easily done through the ranking functions, is finding the row that contains the max value in a partition
 

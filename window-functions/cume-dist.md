@@ -1,4 +1,4 @@
-## CUME\_DIST
+# CUME\_DIST
 
 **CUME\_DIST** computes the relative position of a specified value in a group of values.
 

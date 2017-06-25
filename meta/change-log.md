@@ -1,4 +1,4 @@
-
+# Change log
 
 
 * 2017/06/24 - Updated Joins, Window functions, and Set ops

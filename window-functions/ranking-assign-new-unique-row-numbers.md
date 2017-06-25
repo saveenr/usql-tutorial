@@ -1,4 +1,4 @@
-## Assign Globally Unique Row Number
+# Assign Globally Unique Row Number
 
 It's often useful to assign a globally unique number to each row. This is easy (and more efficient than using a reducer) with the ranking functions.
 

@@ -1,4 +1,4 @@
-## PERCENT\_RANK
+# PERCENT\_RANK
 
 PERCENT\_RANK calculates the relative rank of a row within a group of rows. PERCENT\_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT\_RANK is greater than 0 and less than or equal to 1. Unlike CUME\_DIST, PERCENT\_RANK is always 0 for the first row.
 

@@ -1,4 +1,4 @@
-## CROSS JOIN
+# CROSS JOIN
 
 ```
 @cross_join =

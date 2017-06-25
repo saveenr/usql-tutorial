@@ -1,4 +1,4 @@
-## Filtering records with WHERE
+# Filtering records with WHERE
 
 Now let's transform the data by filtering out records with the WHERE clause
 

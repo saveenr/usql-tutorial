@@ -1,4 +1,4 @@
-## Type Inference
+# Parameter type inference
 
 DECLARE can infer the type as shown below.
 

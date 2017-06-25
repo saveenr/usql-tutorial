@@ -1,4 +1,4 @@
-## System-Defined Aggregates
+# Aggregate functions
 
 U-SQL contains several common aggregation functions:
 

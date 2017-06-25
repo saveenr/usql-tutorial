@@ -1,4 +1,4 @@
-## Creating constant RowSets
+# Creating constant RowSets
 
 RowSets can be directly created in a U-SQL script. 
 

@@ -1,4 +1,4 @@
-## NTILE
+# NTILE
 
 NTILE distributes the rows in an ordered partition into a specified number of groups. The groups are numbered, starting at one.
 

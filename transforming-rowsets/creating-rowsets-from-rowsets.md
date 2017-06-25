@@ -1,4 +1,4 @@
-## Creating a RowSet from another RowSet
+# Creating a RowSet from another RowSet
 
 ```
 @searchlog = 

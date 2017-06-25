@@ -1,4 +1,4 @@
-# The input Data
+# Sample data
 
 To start, let&#39;s assume we have two rowsets as shown below:
 

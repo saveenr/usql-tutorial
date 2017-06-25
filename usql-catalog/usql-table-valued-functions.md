@@ -1,4 +1,4 @@
-## Reusing U-SQL code with a table-valued function \(TVF\)
+# Reusing U-SQL code with a table-valued function \(TVF\)
 
 Many of the scripts in the tutorial have required reading from the searchlog and the code to read from the searchlog is shown below
 

@@ -1,4 +1,5 @@
-## SEMIJOIN
+# SEMIJOIN
+
 It is easiest to think of SEMIJOIN as a way to filter a rowset.
 There are two variants: LEFT SEMIJOIN and RIGHT SEMIJOIN.
 

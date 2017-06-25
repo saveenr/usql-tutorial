@@ -1,5 +1,5 @@
 
-## A Tip for SQL developers
+# Tips for SQL developers
 
 Lots of people come to U-SQL from SQL and ask how U-SQL accomplishes things they are familiar with in SQL. A great example in creating an uppercase string.
 

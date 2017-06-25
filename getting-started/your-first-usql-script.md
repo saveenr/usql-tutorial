@@ -1,3 +1,5 @@
+# Your first U-SQL Script
+
 Launch Visual Studio. Go to **File > New > Project > Installed > Templates > Azure Data Lake > U-SQL Project**.
 
 At this point you should notice that an empty U-SQL script has been created called "Script.usql".

@@ -1,4 +1,4 @@
-## Native Data types
+# Native Data types
 
 U-SQL has many built-in Native U-SQL datatypes in that U-SQL has special support for them so that using them will be more performant. In general use the U-SQL's native data types wherever possible.
 

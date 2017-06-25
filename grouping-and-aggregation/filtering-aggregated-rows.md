@@ -1,4 +1,4 @@
-## Filtering on Aggregated Rows
+# Filtering Aggregated Rows
 
 We’ll start again with a simple GROUP BY
 

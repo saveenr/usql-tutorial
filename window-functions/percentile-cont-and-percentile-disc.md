@@ -1,4 +1,4 @@
-## PERCENTILE\_CONT & PERCENTILE\_DISC
+# PERCENTILE\_CONT & PERCENTILE\_DISC
 
 These two functions calculates a percentile based on a continuous or discrete distribution of the column values.
 

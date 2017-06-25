@@ -1,4 +1,4 @@
-## Adding new columns with SELECT
+# Adding new columns with SELECT
 
 We can create new Columns with the SELECT clause. Simply use a C\# expression and give it a column name with AS.
 

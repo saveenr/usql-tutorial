@@ -9,9 +9,4 @@ Supported analytic window functions
 * PERCENTILE\_CONT
 * PERCENTILE\_DISC
 
-## 
-
-## 
-
-
 
