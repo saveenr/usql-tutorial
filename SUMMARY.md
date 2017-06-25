@@ -7,7 +7,7 @@
   * [Sending feedback](meta/feedback.md)
   * [Change log](meta/change-log.md)
 * 1 Getting started
-  * [Overview](getting-started/getting-started-intro.md)
+  * [Overview](getting-started/intro.md)
   * [U-SQL vs SQL](getting-started/usql-vs-sql.md)
   * [Running U-SQL scripts](getting-started/running-usql-scripts.md)
   * [Preparing for the tutorial](getting-started/preparing-for-the-tutorial.md)
@@ -15,7 +15,7 @@
   * [Common errors](getting-started/common-errors.md)
   * [The SearchLog dataset](getting-started/searchlog-dataset.md)
 * 2 Transforming RowSets
-  * [Overview](transforming-rowsets/transforming-rowsets-intro.md)
+  * [Overview](transforming-rowsets/intro.md)
   * [Creating RowSets from RowSets](transforming-rowsets/creating-rowsets-from-rowsets.md)
   * [Creating constant RowSets](transforming-rowsets/creating-constant-rowsets.md)
   * [Refining RowSets](transforming-rowsets/refining-rowsets.md)
@@ -25,35 +25,35 @@
   * [RowSets must lead to an output](transforming-rowsets/rowsets-must-lead-to-an-output.md)
   * [Escaping column names](transforming-rowsets/escaping-column-names.md)
 * 3 DECLARE Parameters
-  * [Overview](declare-parameters/declare-parameters-intro.md)
+  * [Overview](declare-parameters/intro.md)
   * [Parameter type inference](declare-parameters/parameter-type-inference.md)
 * 4 Data types
-  * [Overview](data-types/data-types-intro.md)
+  * [Overview](data-types/intro.md)
   * [Nullable types](data-types/nullable-types.md)
 * 5 Expressions
-  * [Overview](expressions/expressions-intro.md)
+  * [Overview](expressions/intro.md)
   * [Order of evaluation in expressions](expressions/order-of-evaluation-in-expressions.md)
   * [Tips for SQL developers](expressions/tips-for-sql-developers.md)
 * 6 Reading and writing files
-  * [Overview](reading-and-writing-files/reading-and-writing-files-intro.md)
+  * [Overview](reading-and-writing-files/intro.md)
   * [FileSets](reading-and-writing-files/filesets.md)
   * [Filtering FileSets with WHERE](reading-and-writing-files/filtering-filesets-with-where.md)
   * [FileSets with dates](reading-and-writing-files/filesets-with-dates.md)
   * [Built-in Extractors](reading-and-writing-files/built-in-extractors.md)
 * 7 Grouping and aggregation
-  * [Overview](grouping-and-aggregation/grouping-and-aggregation-intro.md)
+  * [Overview](grouping-and-aggregation/intro.md)
   * [Filtering aggregated rows](grouping-and-aggregation/filtering-aggregated-rows.md)
   * [Aggregate functions](grouping-and-aggregation/aggregate-functions.md)
   * [CROSS APPLY and ARRAY\_AGG](grouping-and-aggregation/cross-apply-and-array_agg.md)
 * 8 The U-SQL catalog
-  * [Overview](usql-catalog/usql-catalog-intro.md)
+  * [Overview](usql-catalog/intro.md)
   * [Databases](usql-catalog/usql-databases.md)
   * [Table-valued functions \(TVFs\)](usql-catalog/usql-table-valued-functions.md)
   * [Tables](usql-catalog/usql-tables.md)
   * [Assemblies](usql-catalog/assemblies.md)
   * [Packages](usql-catalog/packages.md)
 * 9 Window functions
-  * [Overview](window-functions/window-functions-intro.md)
+  * [Overview](window-functions/intro.md)
   * [Sample data](window-functions/sample-data.md)
   * [Window functions vs. GROUP BY](window-functions/window-functions-vs-group-by.md)
   * [Window aggregate functions](window-functions/window-aggregate-functions.md)
@@ -68,23 +68,21 @@
     * [PERCENT RANK](window-functions/percent-rank.md)
     * [PERCENTILE\_CONT & PERCENTILE\_DISC](window-functions/percentile-cont-and-percentile-disc.md)
 
----
-
 * 10 Set operations
-  * [Overview](set-operations/set-operations-intro.md)
+  * [Overview](set-operations/intro.md)
   * [Sample data](set-operations/sample-data.md)
   * [UNION](set-operations/union.md)
   * [INTERSECT](set-operations/intersect.md)
   * [EXCEPT](set-operations/except.md)
 * 11 Joins
-  * [Overview](joins/joins-intro.md)
+  * [Overview](joins/intro.md)
   * [Sample data](joins/sample-data.md)
   * [CROSS JOIN](joins/cross-join.md)
   * [INNER JOIN and OUTER JOIN](joins/inner-join-and-outer-join.md.md)
   * [SEMIJOIN](joins/semijoin.md)
   * [ANTISEMIJOIN](joins/antisemijoin.md)
 * 12 Extending U-SQL
-  * [Overview](extending-usql/extending-usql-intro.md)
+  * [Overview](extending-usql/intro.md)
   * [User-Defined Functions \(UDFs\)](extending-usql/user-defined-functions.md)
   * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
   * [User-Defined Aggregators \(UDAggs\)](extending-usql/user-defined-aggregators.md)
