@@ -121,15 +121,3 @@ For example:
 - 100 rows divided into 4 groups: [25, 25, 25, 25]
 - 102 rows divided into 4 groups: [26, 26, 25, 25]
 
-
-## Assign Globally Unique Row Number
-
-It's often useful to assign a globally unique number to each row. This is easy (and more efficient than using a reducer) with the ranking functions.
-
-```
-@result =
-    SELECT
-        *,
-        ROW_NUMBER() OVER () AS RowNumber
-        FROM @querylog;
-```
