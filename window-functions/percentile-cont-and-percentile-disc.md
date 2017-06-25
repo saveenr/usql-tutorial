@@ -38,17 +38,17 @@ You can see how both work in the example below which tries to find the median \(
 
 The results:
 
-|   | **Query** | **Latency** | **Vertical** | **PercentileCont50** | **PercentilDisc50** |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-|   | Banana | 300 | Image | 300 | 300 |
-|   | Cherry | 300 | Image | 300 | 300 |
-|   | Durian | 500 | Image | 300 | 300 |
-|   | Apple | 100 | Web | 250 | 200 |
-|   | Fig | 200 | Web | 250 | 200 |
-|   | Papaya | 200 | Web | 250 | 200 |
-|   | Fig | 300 | Web | 250 | 200 |
-|   | Cherry | 400 | Web | 250 | 200 |
-|   | Durian | 500 | Web | 250 | 200 |
+| **Query** | **Latency** | **Vertical** | **PercentileCont50** | **PercentilDisc50** |
+| :--- | :--- | :--- | :--- | :--- |
+| Banana | 300 | Image | 300 | 300 |
+| Cherry | 300 | Image | 300 | 300 |
+| Durian | 500 | Image | 300 | 300 |
+| Apple | 100 | Web | 250 | 200 |
+| Fig | 200 | Web | 250 | 200 |
+| Papaya | 200 | Web | 250 | 200 |
+| Fig | 300 | Web | 250 | 200 |
+| Cherry | 400 | Web | 250 | 200 |
+| Durian | 500 | Web | 250 | 200 |
 
 For PERCENTILE\_CONT because values can be interpolated, the median for web is 250 even though no query in the web vertical had a latency of 250.
 
