@@ -25,3 +25,9 @@
 .book.font-family-1 {
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
+
+.markdown-section h1 {
+    font-size: 3em;
+    font-weight: lighter;
+    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
