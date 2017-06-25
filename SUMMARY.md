@@ -5,24 +5,20 @@
 ---
 
 ## 0 Meta
-
-* [How to read the tutorial](ch00/how-to-read.md)
-* [Contributing](ch00/contributing.md)
-* [Sending feedback](ch00/feedback.md)
-* [Change log](ch00/change-log.md)
-
+  * [How to read the tutorial](ch00/how-to-read.md)
+  * [Contributing](ch00/contributing.md)
+  * [Sending feedback](ch00/feedback.md)
+  * [Change log](ch00/change-log.md)
 ---
-
 ## 1 Getting started
-
-* [Overview](ch01/getting-started-intro.md)
-* [U-SQL vs SQL](ch01/usql-vs-sql.md)
-* [Running U-SQL scripts](ch01/running-usql-scripts.md)
-* [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
-* [Your first U-SQL script](ch01/your-first-usql-script.md)
-* [Common errors](ch01/common-errors.md)
-* [The SearchLog dataset](ch01/searchlog-dataset.md)
-
+  * [Overview](ch01/getting-started-intro.md)
+  * [U-SQL vs SQL](ch01/usql-vs-sql.md)
+  * [Running U-SQL scripts](ch01/running-usql-scripts.md)
+  * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
+  * [Your first U-SQL script](ch01/your-first-usql-script.md)
+  * [Common errors](ch01/common-errors.md)
+  * [The SearchLog dataset](ch01/searchlog-dataset.md)
+  
 ---
 
  ##2 Transforming RowSets
