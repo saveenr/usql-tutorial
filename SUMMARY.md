@@ -25,7 +25,7 @@
 
 ---
 
-[2 Transforming RowSets](2-transforming-rowsets.md)
+ ##2 Transforming RowSets
   * [Overview](ch02/transforming-rowsets-intro.md)
   * [Creating RowSets from RowSets](ch02/creating-rowsets-from-rowsets.md)
   * [Creating constant RowSets](ch02/creating-constant-rowsets.md)
