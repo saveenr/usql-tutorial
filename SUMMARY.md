@@ -25,6 +25,8 @@
   * [Modifying columns with SELECT](transforming-rowsets/modifying-columns-with-select.md)
   * [Filtering RowSets with WHERE](transforming-rowsets/filtering-rowsets-with-where.md)
   * [Numbering rows](transforming-rowsets/numbering-rows.md)
+  * [RowSets must lead to an output](transforming-rowsets/rowsets-must-lead-to-an-output.md)
+  * [Escaping column names](transforming-rowsets/escaping-column-names.md)
 
 * 3 DECLARE Parameters
   * [Overview](declare-parameters/declare-parameters-intro.md)
