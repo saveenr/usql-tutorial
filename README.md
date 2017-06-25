@@ -23,3 +23,7 @@ It is scheduled for a v1 release in December of 2017.
 ### Looking for the U-SQL Language Reference?
 
 You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
+
+### Changes to the U-SQL Language
+
+You can find [**U-SQL Release Notes here**](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes)
