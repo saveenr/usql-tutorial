@@ -3,6 +3,7 @@
 **UNION ALL** will preserve any duplicates while **UNION DISTICT** will remove them.
 
 
+## UNION ALL
 ```
 @union_all = 
     SELECT * FROM @a
@@ -26,6 +27,7 @@
 | 4 | Dey |
 
 
+## UNION DISTINCT
 ```
 @union_distinct =
     SELECT * FROM @a
