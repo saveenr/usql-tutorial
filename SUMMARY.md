@@ -1,13 +1,17 @@
 # Summary
 
 * [Introduction](README.md)
-* 0 Meta
+
+## 0 Meta
+
   * [How to read the tutorial](ch00/how-to-read.md)
   * [Contributing](ch00/contributing.md)
   * [Sending feedback](ch00/feedback.md)
   * [Change log](ch00/change-log.md)
-* 1 Getting started
-  * [Overview](ch01/getting-started-intro.md)
+
+## 1 Getting started
+
+    * [Overview](ch01/getting-started-intro.md)
   * [U-SQL vs SQL](ch01/usql-vs-sql.md)
   * [Running U-SQL scripts](ch01/running-usql-scripts.md)
   * [Preparing for the tutorial](ch01/preparing-for-the-tutorial.md)
