@@ -82,6 +82,10 @@
     * [Ranking: Get TOP N rows in group](window-functions/ranking-get-top-n-rows-in-group.md)
     * [Ranking: Get row with min/max value](window-functions/ranking-get-row-with-min-max-value.md)
   * [Window analytic functions](window-functions/window-analytic-functions.md)
+    * [CUME_DIST](window-functions/cume-dist.md)
+    * [PERCENT RANK](window-functions/percent-rank.md)
+    * [PERCENTILE_CONT & PERCENTILE_DISC](window-functions/percentile-cont-and-percentile-disc.md)
+    
 
 * 10 Set operations
 
