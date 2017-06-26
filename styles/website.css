@@ -10,6 +10,12 @@
     line-height: normal;     
 }
 
+.markdown-section code, .markdown-section pre 
+{
+    font-size: larger;
+}
+
+
 .markdown-section pre 
 {
     border-left-width: 1pt;

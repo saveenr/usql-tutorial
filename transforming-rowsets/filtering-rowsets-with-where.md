@@ -35,7 +35,7 @@ The **AND**/**OR**/**NOT** operators can be combined with parentheses to create 
     WHERE (Duration >= 2*60 AND Duration <= 5*60) OR NOT (Region == "en-gb");
 ```
 
-## The C# Logical Operators
+## The C\# Logical Operators
 
 U-SQL also supports the C\# logical operators
 
@@ -46,12 +46,12 @@ U-SQL also supports the C\# logical operators
  WHERE (Duration >= 2*60 && Duration <= 5*60) || (!(Region == "en-gb"));
 ```
 
-## SQL Logical Operators (AND OR) versus C\# Operators ( && || )
+## SQL Logical Operators \(AND OR\) versus C\# Operators \( && \|\| \)
 
 These operators behave the same except for their short-circuiting behavior:
 
 * SQL-style logical operators: These DO NOT short-circuit
-* C#-style logical operators: These DO short-circuit
+* C\#-style logical operators: These DO short-circuit
 
 Use the SQL-style logical operators unless you MUST have the short-circuiting behavior. The reasons why this is important are covered in a later chapter that describes the order of evaluation of predicates in expressions.
 
@@ -74,19 +74,6 @@ Use the SQL-style logical operators unless you MUST have the short-circuiting be
    Start >= DateTime.Parse("2012/02/16") 
    AND Start <= DateTime.Parse("2012/02/17");
 ```
-
-## Testing for Membership with the IN Operator
-
-You can use the **IN** operator as shown below to test for membership in a set of values.
-
-```
-@rs =
- SELECT FirstName, LastName, JobTitle
- FROM People
- WHERE JobTitle IN ("Design Engineer", "Tool Designer", "Marketing Assistant");
-```
-
-Keep in mind that the U-SQL **IN** operator does not offer all the features of the SQL **IN** operator.
 
 ## Filtering on calculated columns
 
