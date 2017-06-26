@@ -11,10 +11,10 @@ The Web vertical has 6 rows, the two extra rows are distributed to the first two
 
 ```
 @result =
-SELECT
-*,
-NTILE(4) OVER(PARTITION BY Vertical ORDER BY Latency) AS Quartile
-FROM @querylog;
+    SELECT
+        *,
+        NTILE(4) OVER(PARTITION BY Vertical ORDER BY Latency) AS Quartile
+    FROM @querylog;
 ```
 
 The results:
