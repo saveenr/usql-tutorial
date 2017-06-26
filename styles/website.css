@@ -55,4 +55,5 @@
 
 .markdown-section table td, .markdown-section table th {
     padding: 0px 4px;
+    font-family: consolas;
 }
