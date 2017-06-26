@@ -13,6 +13,7 @@ RowSets can be directly created in a U-SQL script.
     ) AS D( DepID, DepName );
 ```
 
+
 | DepID | DepName |
 | ----- | -------- |
 | 31 | Sales |
