@@ -1,6 +1,6 @@
 # Sample data
 
-To start, let&#39;s assume we have two rowsets as shown below:
+Let's define two RowSets: `@a` and `@b`. Notice that both RowSets have duplicate rows.
 
 ```
 @a  =
