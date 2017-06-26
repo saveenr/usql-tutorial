@@ -13,7 +13,7 @@ Download and onstall ADLToolsForVS from [**here**](http://aka.ms/ADLToolsVS).
 
 
 
-## Verify ADLToolsForVS is Installed**. 
+## Verify ADLToolsForVS is Installed
 
 In Visual Studio, go to **Tools menu**. If you see an item in that menu called **Data Lake** then ADLToolsForVS is installed.
 
