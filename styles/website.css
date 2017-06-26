@@ -33,3 +33,8 @@
     font-weight: lighter;
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
+
+.chapter li
+{
+    color: #ff0000;
+}
