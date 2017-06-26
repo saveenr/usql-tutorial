@@ -11,8 +11,6 @@ Download and onstall ADLToolsForVS from [**here**](http://aka.ms/ADLToolsVS).
 * Once the Installer is running again, it may show that Visual Studio needs an update. GO ahead and update Visual Studio.
 * Under **Individual Components** select **Azure Data Lake tools** 
 
-
-
 ## Verify ADLToolsForVS is Installed
 
 In Visual Studio, go to **Tools menu**. If you see an item in that menu called **Data Lake** then ADLToolsForVS is installed.
