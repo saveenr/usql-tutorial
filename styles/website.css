@@ -7,7 +7,14 @@
     padding-bottom: 3pt;
     border: none;
     color: inherit;
-    line-height: normal;
+    line-height: normal;     
+}
+
+.markdown-section pre 
+{
+    border-left-width: 1pt;
+    border-left-style: solid;
+    border-left-color: #c0c0c0;
 }
 
 .book-summary ul.summary li a, .book-summary ul.summary li span {
