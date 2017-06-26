@@ -37,4 +37,6 @@
 li.chapter
 {
     color: #ff0000;
+    font-weight: bolder;
+    font-family: Courier;
 }
