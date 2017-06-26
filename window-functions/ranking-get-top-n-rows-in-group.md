@@ -1,4 +1,4 @@
-# Top N Records per Partition via RANK, DENSE_RANK or ROW_NUMBER
+# Top N Records in group  via RANK, DENSE_RANK or ROW_NUMBER
 
 Many users want to select only TOP n rows per group. This is not possible with the traditional GROUP BY.
 
@@ -6,14 +6,13 @@ You have seen the following example at the beginning of the Ranking functions se
 
 ```
 @result =
-SELECT
-*,
-ROW_NUMBER() OVER (PARTITION BY Vertical ORDER BY Latency) AS RowNumber,
-RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS Rank,
-DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
+    SELECT
+        *,
+        ROW_NUMBER() OVER (PARTITION BY Vertical ORDER BY Latency) AS RowNumber,
+        RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS Rank,
+        DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
+    FROM @querylog;
 ```
-
-FROM @querylog;
 
 The results:
 
@@ -35,14 +34,16 @@ The following example returns the top 3 records from each group with no gaps in 
 
 ```
 @result =
-SELECT
-*,
-DENSE_RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
-FROM @querylog;
+    SELECT
+        *,
+        DENSE_RANK() 
+            OVER (PARTITION BY Vertical ORDER BY Latency) AS DenseRank
+    FROM @querylog;
+
 @result =
-SELECT *
-FROM @result
-WHERE DenseRank <= 3;
+    SELECT *
+    FROM @result
+    WHERE DenseRank <= 3;
 ```
 
 The results:
@@ -62,14 +63,16 @@ The results:
 
 ```
 @result =
-SELECT
-*,
-RANK() OVER (PARTITION BY Vertical ORDER BY Latency) AS Rank
-FROM @querylog;
-@result =
-SELECT *
-FROM @result
-WHERE Rank <= 3;
+    SELECT
+        *,
+        RANK() 
+            OVER (PARTITION BY Vertical ORDER BY Latency) AS Rank
+    FROM @querylog;
+    
+    @result =
+        SELECT *
+        FROM @result
+        WHERE Rank <= 3;
 ```
 
 The results:
@@ -87,15 +90,16 @@ The results:
 
 ```
 @result =
-SELECT
-*,
-ROW_NUMBER() OVER (PARTITION BY Vertical ORDER BY Latency) AS RowNumber
-FROM @querylog;
-
+    SELECT
+        *,
+        ROW_NUMBER() 
+            OVER (PARTITION BY Vertical ORDER BY Latency) AS RowNumber
+    FROM @querylog;
+    
 @result =
-SELECT *
-FROM @result
-WHERE RowNumber <= 3;
+    SELECT *
+    FROM @result
+    WHERE RowNumber <= 3;
 ```
 
 The results:
