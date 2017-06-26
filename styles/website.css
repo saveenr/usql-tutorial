@@ -10,7 +10,7 @@
     line-height: normal;     
 }
 
-.markdown-section code, .markdown-section pre 
+.markdown-section code
 {
     color: #ff0000;
     font-size: 90%;
