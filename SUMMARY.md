@@ -11,6 +11,7 @@
   * [U-SQL vs SQL](getting-started/usql-vs-sql.md)
   * [Running U-SQL scripts](getting-started/running-usql-scripts.md)
   * [Preparing for the tutorial](getting-started/preparing-for-the-tutorial.md)
+  * [Install Azure Data Lake Tools for Visual Studio](getting-started/install-adltoolsforvs.md)
   * [Your first U-SQL script](getting-started/your-first-usql-script.md)
   * [Common errors](getting-started/common-errors.md)
   * [The SearchLog dataset](getting-started/searchlog-dataset.md)
