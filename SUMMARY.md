@@ -14,7 +14,7 @@
   * [Install Azure Data Lake Tools for Visual Studio](getting-started/install-adltoolsforvs.md)
   * [Your first U-SQL script](getting-started/your-first-usql-script.md)
   * [Common errors](getting-started/common-errors.md)
-  * [The SearchLog dataset](getting-started/searchlog-dataset.md)
+  * [The SearchLog dataset](getting-started/searchlog-sample-data.md)
 * 2 Transforming RowSets
   * [Overview](transforming-rowsets/intro.md)
   * [Creating RowSets from RowSets](transforming-rowsets/creating-rowsets-from-rowsets.md)
