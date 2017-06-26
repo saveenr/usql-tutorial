@@ -25,7 +25,7 @@
   * [Numbering rows](transforming-rowsets/numbering-rows.md)
   * [RowSets must lead to an output](transforming-rowsets/rowsets-must-lead-to-an-output.md)
   * [Escaping column names](transforming-rowsets/escaping-column-names.md)
-* 3 DECLARE Parameters
+* [3 DECLARE Parameters](3-declare-parameters.md)
   * [Overview](declare-parameters/intro.md)
   * [Parameter type inference](declare-parameters/parameter-type-inference.md)
 * 4 Data types

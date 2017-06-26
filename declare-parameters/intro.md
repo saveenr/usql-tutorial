@@ -15,18 +15,19 @@ We'll start with this snippet
 `DECLARE` can assign constant values to a name. In this case we can assign the input file to a parameter.
 
 ```
-DECLARE @inputfile string = "/data.csv"
+DECLARE @inputfile string = "/data.csv";
 
 @rows = 
-  EXTRACT name string, 
-          id int
+  EXTRACT 
+    name string, 
+    id   int
   FROM @inputfile
   USING Extractors.Csv();
 ```
 
 ## Supported Datatypes with DECLARE
 
-**Text**
+### Text
 
 ```
 DECLARE @text1 string = "Hello World";
@@ -35,14 +36,16 @@ DECLARE @text2 string = @"Hello World";
 DECLARE @text3 char   = 'a';
 ```
 
-**DateTimes**
+DECLARE
+
+###  Datetimes
 
 ```
 DECLARE @d1 DateTime = System.DateTime.Parse("1979/03/31");
 DECLARE @d2 DateTime= DateTime.Now;
 ```
 
-**Signed numerics**
+### Signed numerics
 
 ```
 DECLARE @a sbyte  = 0;
@@ -55,7 +58,7 @@ DECLARE @e float  = 4.0f;
 DECLARE @f double = 5.0;
 ```
 
-**Unsigned numerics**
+### Unsigned numerics
 
 ```
 DECLARE @g byte   = 0;
@@ -64,15 +67,14 @@ DECLARE @i uint   = 2;
 DECLARE @j ulong  = 3L;
 ```
 
-** Arrays **
-
+### .NET Arrays
 
 ```
 DECLARE @array1 byte [] = new byte[] { 0, 1, 2, 3, 4 };
 DECLARE @array2 string [] = new string[] { "foo", "bar", "beer" };
 ```
 
-**Miscellaneous**
+### Miscellaneous
 
 ```
 DECLARE @misc1 bool    = true;
