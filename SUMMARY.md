@@ -32,6 +32,7 @@
   * [Tips for SQL developers](expressions/tips-for-sql-developers.md)
 * [6 Reading and writing files](reading-and-writing-files/intro.md)
   * [Built-in Extractors](reading-and-writing-files/built-in-extractors.md)
+  * [Text encoding](reading-and-writing-files/text-encoding.md)
 * [7 FileSets](filesets/intro.md)
   * [Filtering FileSets with WHERE](filesets/filtering-filesets-with-where.md)
   * [FileSets with dates](filesets/filesets-with-dates.md)
