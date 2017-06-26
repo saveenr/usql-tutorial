@@ -20,6 +20,8 @@
     overflow: hidden;
     white-space: nowrap;
     position: relative;
+    font-family: "Courier", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
 }
 
 .book.font-family-1 {
@@ -30,9 +32,4 @@
     font-size: 3em;
     font-weight: lighter;
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-
-.book-summary ul.summary li a, .book-summary ul.summary li span {
-
-font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
