@@ -67,6 +67,7 @@
   * [UNION](set-operations/union.md)
   * [INTERSECT](set-operations/intersect.md)
   * [EXCEPT](set-operations/except.md)
+  * [OUTER UNION](set-operations/outer-union.md)
 * [12 Joins](joins/intro.md)
   * [Sample data](joins/sample-data.md)
   * [CROSS JOIN](joins/cross-join.md)
