@@ -16,6 +16,12 @@
 }
 
 
+.markdown-section table {
+    width: auto;
+    min-width: 100;
+    display: table;
+}
+
 .markdown-section pre 
 {
     border-left-width: 1pt;
