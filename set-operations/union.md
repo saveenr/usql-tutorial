@@ -29,7 +29,7 @@ As you can see UNION ALL clearly leaves in duplicate rows.
 
 ## UNION DISTINCT
 
-UNIONS DISTINCT discards duplicate rows.
+UNION DISTINCT discards duplicate rows.
 
 ```
 @union_distinct =
