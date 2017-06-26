@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [0 Meta](intro.md)
+* [0 Meta](meta/intro.md)
   * [How to read the tutorial](meta/how-to-read.md)
   * [Contributing](meta/contributing.md)
   * [Sending feedback](meta/feedback.md)
