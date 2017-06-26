@@ -68,8 +68,7 @@
     * [CUME\_DIST](window-functions/cume-dist.md)
     * [PERCENT RANK](window-functions/percent-rank.md)
     * [PERCENTILE\_CONT & PERCENTILE\_DISC](window-functions/percentile-cont-and-percentile-disc.md)
-
-* 10 Set operations
+* [10 Set operations](10-set-operations.md)
   * [Overview](set-operations/intro.md)
   * [Sample data](set-operations/sample-data.md)
   * [UNION](set-operations/union.md)
