@@ -52,3 +52,7 @@
     font-weight: lighter;
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
+
+.markdown-section table td, .markdown-section table th {
+    padding: 0px 4px;
+}
