@@ -1,4 +1,4 @@
-#### U-SQL introduces `OUTER UNION` to enable easier handling of semistructured data
+# OUTER UNION
 
 By default UNION requires both RowSets to have matching schemas. OUTER UNION allows the schemas to be different. If one RowSet is missing a column that the other has, that row will be included in the result with a default value for the missing columns.
 
@@ -34,7 +34,6 @@ K | A   | C  | B  |
 1 | "x" | 50 |  0 |
 1 | "x" |    |  5 |
 1 | "y" | 60 |  0 |
-2 | "x"	|    |  6 |
+2 | "x" |    |  6 |
 3 | "y" |    | 10 |
-
 
