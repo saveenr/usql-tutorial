@@ -1,9 +1,10 @@
 # PERCENT\_RANK
 
-PERCENT\_RANK calculates the relative rank of a row within a group of rows. PERCENT\_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT\_RANK is greater than 0 and less than or equal to 1. Unlike CUME\_DIST, PERCENT\_RANK is always 0 for the first row.
+PERCENT\_RANK calculates the relative rank of a row within a group of rows. PERCENT\_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT\_RANK is greater than 0 and less than or equal to 1. 
+
 
 ```
-PERCENT_RANK()
+PERCENT_RANK( )
     OVER (
         [PARTITION BY <identifier>; …[n]]
         ORDER BY <identifier,> …[n] [ASC|DESC]
@@ -14,11 +15,9 @@ Notes
 
 * The first row in any set has a PERCENT\_RANK of 0.
 * NULL values are treated as the lowest possible values.
-* You must specify the ORDER BY clause to calculate PERCENT\_RANK.
-* CUME\_DIST is similar to the PERCENT\_RANK function
-* The following example uses the PERCENT\_RANK function to compute the latency percentile for each query within a vertical.
-* The PARTITION BY clause is specified to partition the rows in the result set by the vertical. The ORDER BY clause in the OVER clause orders the rows in each partition.
-* The value returned by the PERCENT\_RANK function represents the rank of the queries' latency within a vertical as a percentage.
+* PERCENT\_RANK is similar to the CUME\_DIST the function. Unlike CUME\_DIST, PERCENT\_RANK is always 0 for the first row.
+
+The following example uses the PERCENT\_RANK function to compute the latency percentile for each query within a vertical. The PARTITION BY clause is specified to partition the rows in the result set by the vertical. The ORDER BY clause in the OVER clause orders the rows in each partition. The value returned by the PERCENT\_RANK function represents the rank of the queries' latency within a vertical as a percentage.
 
 ```
 @result=
@@ -29,7 +28,7 @@ Notes
     FROM @querylog;
 ```
 
-The results:
+
 
 | **Query** | **Latency:int** | **Vertical** | **PercentRank** |
 | --- | --- | --- | --- |
