@@ -31,6 +31,7 @@ As you can see UNION ALL clearly leaves in duplicate rows.
 
 UNIONS DISTINCT discards duplicate rows.
 
+```
 @union_distinct =
     SELECT * FROM @a
     UNION DISTINCT
