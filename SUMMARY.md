@@ -1,4 +1,4 @@
-# Summary
+# Summary -
 
 * [Introduction](README.md)
 * [0 Meta](meta/intro.md)
