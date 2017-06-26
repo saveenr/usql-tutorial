@@ -9,9 +9,9 @@ Sometimes, we only care about the rows both rowsets have _in common_. We use the
 
 ```
 @intersect_all =
-    SELECT \* FROM @a
+    SELECT * FROM @a
     INTERSECT ALL
-    SELECT \* FROM @b;
+    SELECT * FROM @b;
 ```
 
 @intersect_all
