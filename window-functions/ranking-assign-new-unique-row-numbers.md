@@ -4,8 +4,8 @@ It's often useful to assign a globally unique number to each row. This is easy (
 
 ```
 @result =
-SELECT
-*,
-ROW_NUMBER() OVER () AS RowNumber
-FROM @querylog;
+    SELECT
+        *,
+        ROW_NUMBER() OVER () AS RowNumber
+    FROM @querylog;
 ```
