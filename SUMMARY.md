@@ -75,4 +75,5 @@
   * [User-Defined Functions \(UDFs\)](extending-usql/user-defined-functions.md)
   * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
   * [User-Defined Aggregators \(UDAggs\)](extending-usql/user-defined-aggregators.md)
+  * [Recursive aggregators](extending-usql/recursive-aggregators.md)
 
