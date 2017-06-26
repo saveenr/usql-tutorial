@@ -62,7 +62,7 @@
     * [Ranking: Assign unique row numbers](window-functions/ranking-assign-new-unique-row-numbers.md)
     * [Ranking: Get TOP N rows in group](window-functions/ranking-get-top-n-rows-in-group.md)
     * [Ranking: Get row with min/max value](window-functions/ranking-get-row-with-min-max-value.md)
-* [11 Set operations](intro.md)
+* [11 Set operations](set-operations/intro.md)
   * [Sample data](set-operations/sample-data.md)
   * [UNION](set-operations/union.md)
   * [INTERSECT](set-operations/intersect.md)
