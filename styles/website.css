@@ -10,17 +10,6 @@
     line-height: normal;
 }
 
-.book-summary ul.summary li a, .book-summary ul.summary li span {
-    display: block;
-    padding: 3px 15px;
-    border-bottom: none;
-    color: #ff3030;
-    background: 0 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-}
 
 .book.font-family-1 {
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
@@ -29,10 +18,5 @@
 .markdown-section h1 {
     font-size: 3em;
     font-weight: lighter;
-    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
-}
-
-body
-{
     font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
