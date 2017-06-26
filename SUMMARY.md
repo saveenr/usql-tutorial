@@ -29,6 +29,7 @@
   * [Nullable types](data-types/nullable-types.md)
 * [5 Expressions](expressions/intro.md)
   * [Order of evaluation in expressions](expressions/order-of-evaluation-in-expressions.md)
+  * [Useful expressions](expressions/useful-expressions.md)
   * [Tips for SQL developers](expressions/tips-for-sql-developers.md)
 * [6 Reading and writing files](reading-and-writing-files/intro.md)
   * [Built-in Extractors](reading-and-writing-files/built-in-extractors.md)
