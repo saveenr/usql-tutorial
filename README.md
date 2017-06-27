@@ -2,16 +2,8 @@
 
 The U-SQL Tutorial gets developers productive on the U-SQL Language. 
 
-### Read it online
-
-You can always find it here:
-
-[http://aka.ms/USQLTutorial](http://aka.ms/USQLTutorial)
-
-### Read it as a PDF
-
-https://www.gitbook.com/download/pdf/book/saveenr/usql-tutorial
-
+* [Read it online](http://aka.ms/USQLTutorial)
+* [Download the PDF](https://www.gitbook.com/download/pdf/book/saveenr/usql-tutorial)
 
 ### Current Status
 
