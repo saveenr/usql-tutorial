@@ -1,15 +1,12 @@
 # ANTISEMIJOIN
 
-An ANTISEMIJOIN is well .. .the opposite of SEMIJOIN
+An **ANTISEMIJOIN** is the opposite of **SEMIJOIN**
 
-There are two variants: LEFT ANTISEMIJOIN and RIGHT ANTI SEMIJOIN.
-* LEFT SEMIJOIN -> Give only those rows in the left rowset that DO NOT have a matching row in the right rowset.
-* RIGHT SEMIJOIN -> Give only those rows in the right rowset that DO NOT have a matching row in the left rowset.
+There are two variants:
+* **LEFT ANTISEMIJOIN** -> Give only those rows in the left RowSet that DO NOT have a matching row in the right rowset.
+* **RIGHT ANTISEMIJOIN** -> Give only those rows in the right RowSet that DO NOT have a matching row in the left RowSet.
 
-SQL has an ANTIJOIN (http://en.wikipedia.org/wiki/Relational_algebra#Antijoin) operator, but U-SQL does not.
-
-
-Find all departments that don’t have an employee listed in the employees rowset
+Find all departments that don’t have an employee listed in the employees RowSet.
 
 ```
 @left_antisemijoin =
@@ -20,6 +17,7 @@ Find all departments that don’t have an employee listed in the employees rowse
     LEFT ANTISEMIJOIN @employees
         ON @departments.DepID == @employees.DepID;
 ```
+
 | DepID | DepName |
 | --- | --- |
 | 35 | Marketing |
