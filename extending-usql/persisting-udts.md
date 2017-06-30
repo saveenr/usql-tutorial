@@ -1,10 +1,8 @@
 # Persisting UDTs
 
-UDTs cannot be persistent directly into a U-SQL table. You'll have to manually convert your UDT's value to a U-SQL-supported datataype. 
+## Persisting UDTs into a file 
 
-
-# Persisting UDTs into a file 
-
+UDTs cannot be persistent directly into a file using a default U-SQL outputter. You'll have to manually convert your UDT's value to a U-SQL-supported datataype. 
 
 ```
 @products2 = 
@@ -23,8 +21,9 @@ OUTPUT @products2
     USING Outputters.Csv();
 ```
 
-# Persisting UDTs into a table file 
+## Persisting UDTs into a U-SQL table
 
+UDTs cannot be persistent directly into a U-SQL table. You'll have to manually convert your UDT's value to a U-SQL-supported datataype. 
 
 ```
 CREATE TABLE MyDB.dbo.MyTable
