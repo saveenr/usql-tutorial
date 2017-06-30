@@ -1,9 +1,6 @@
 # User-Defined Functions
 
-User defined functions are normal static methods on a .NET Class 
-
-
-Compile the code below as OrdersLib.dll and upload it to "/DLLs/OrdersLib.dll".
+User defined functions are normal static methods on a .NET Class. Below is the code for a simple class.
 
 ```
 namespace OrdersLib
@@ -16,14 +13,7 @@ namespace OrdersLib
 }
 ```
 
-Then register it in the U-SQL Catalog
-
-```
-CREATE DATABASE IF NOT EXISTS MyDB;
-CREATE ASSEMBLY MyDB.OrdersLibAsm FROM @"/DLLs/OrdersLib.dll";
-```
-
-Now you can use it in a U-SQL script.
+Assuming you registered the assembly that contains this class using the name "MyDB.OrdersLibAsm", you can use the assembly and the UDF as shown below.
 
 ```
 REFERENCE ASSEMBLY MyDB.OrdersLibAsm;
