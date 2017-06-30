@@ -1,6 +1,6 @@
 # Assemblies
 
-# Step 1 creating a .NET assembly
+## Step 1: create a .NET assembly
 
 Create a .NET assembly with a filename of `OrdersLib.dll` with this code. In this case we will simply crate a single static string in the assembly that we will reuse in a U-SQL script.
 
@@ -22,7 +22,7 @@ For example place the assembly in this location
 "/DLLs/OrdersLib.dll"
 ```
 
-# Step 3 Register the assembly in the catalog
+## Step 3: Register the assembly in a U-SQL database
 
 For example place the assembly in this location
 
@@ -35,7 +35,7 @@ The identifier `OrdersLibAsm` is the name the U-SQL catalog uses for the assembl
 
 The dll has been copied to the U-SQL database called MyDB. You can now safely delete the file from `"/DLLs/OrdersLib.dll"`.
 
-# Step 4 Run a script that uses the assembly
+## Step 4: Run a script that uses the assembly
 
 The `REFERENCE ASSEMBLY` statement makes the code from the assembly named `OrdersLibAsm` to the script.
 
