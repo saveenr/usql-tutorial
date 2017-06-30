@@ -146,7 +146,7 @@ namespace MyUDTExamples
     FROM @products;
 ```
 
-# Persisting the UDTs values into a text files and tables
+# Persisting the UDTs values into a files and tables
 
 UDTs cannot be persistent directly into a U-SQL table. You'll have to manually convert your UDT's value to a U-SQL-supported datataype. 
 
