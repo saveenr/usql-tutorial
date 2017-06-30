@@ -1,12 +1,15 @@
 # SEMIJOIN
 
-It is easiest to think of SEMIJOIN as a way to filter a rowset.
-There are two variants: LEFT SEMIJOIN and RIGHT SEMIJOIN.
+**SEMIJOIN** is a way to filter a RowSet using another RowSet. 
 
-* LEFT SEMIJOIN -> Give only those rows in the left rowset that have a matching row in the right rowset.
-* RIGHT SEMIJOIN -> Give only those rows in the right rowset that have a matching row in the left rowset.
+A simple example is: "Find all the employees in this RowSet A, where the employee appears also in RowSet B".
 
-NOTE: If you leave out LEFT or RIGHT, and instead simply write SEMIJOIN then what you get is LEFT SEMIJOIN. Do not leave out LEFT or RIGHT always explicitly it.
+There are two variants: 
+
+* **LEFT SEMIJOIN** -> Give only those rows in the left rowset that have a matching row in the right rowset.
+* **RIGHT SEMIJOIN** -> Give only those rows in the right rowset that have a matching row in the left rowset.
+
+NOTE: If you leave out **LEFT** or **RIGHT**, and instead simply write **SEMIJOIN** then what you get is **LEFT SEMIJOIN**. Do not leave out **LEFT** or **RIGHT** always explicitly it.
 
 **Find all employees that are in valid departments**
 
@@ -29,8 +32,8 @@ NOTE: If you leave out LEFT or RIGHT, and instead simply write SEMIJOIN then wha
 | 34 | Smith |
 
 
-Find all departments that has an employee listed in the employee rowset
-
+**Find all departments that has an employee listed in the employee RowSet.
+**
 ```
 @left_semijoin2 =
     SELECT 
