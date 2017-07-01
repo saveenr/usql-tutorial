@@ -1,4 +1,4 @@
-## Supported Datatypes with DECLARE
+# Supported datatypes
 
 ### Text
 
@@ -9,7 +9,6 @@ DECLARE @text2 string = @"Hello World";
 DECLARE @text3 char   = 'a';
 ```
 
-DECLARE
 
 ###  Datetimes
 
@@ -65,14 +64,6 @@ DECLARE @misc2 Guid    = System.Guid.Parse("BEF7A4E8-F583-4804-9711-7E608215EBA6
 ```
 
 
-## Using Expressions
 
-DECLARE parameters can be expressions
-
-```
-DECLARE @a string = "BEGIN" + @text1 + "END";
-DECLARE @b string = string.Format("BEGIN{0}END", @text1);
-DECLARE @c string = MyHelper.GetMyName();
-```
 
 
