@@ -74,10 +74,10 @@
   * [INNER JOIN and OUTER JOIN](joins/inner-join-and-outer-join.md.md)
   * [SEMIJOIN](joins/semijoin.md)
   * [ANTISEMIJOIN](joins/antisemijoin.md)
-* [13 Extending U-SQL](extending-usql/intro.md)
-  * [User-Defined Functions \(UDFs\)](extending-usql/user-defined-functions.md)
   * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
     * [Persisting UDTs](extending-usql/persisting-udts.md)
+* [13 Extending U-SQL](extending-usql/intro.md)
+  * [User-Defined Functions \(UDFs\)](extending-usql/user-defined-functions.md)
   * [User-Defined Aggregators \(UDAggs\)](extending-usql/user-defined-aggregators.md)
   * [Recursive aggregators](extending-usql/recursive-aggregators.md)
 
