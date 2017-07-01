@@ -105,8 +105,8 @@ First, we'll merge the Urls together into an array with ARRAY_AGG
 
 | Region | UrlsArray |
 | :--- | :--- |
-| en-us | SqlArray<string>{"A","B","C"} |
-| en-gb | SqlArray<string>{"D","E","F"} |
+| en-us | SqlArray&lt; string &gt;{"A","B","C"} |
+| en-gb | SqlArray&lt; string &gt;{"D","E","F"} |
 
 Now that we have arrays of strings, we will collapse the each array into a string using `string.Join`.
 
