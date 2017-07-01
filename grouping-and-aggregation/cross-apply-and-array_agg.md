@@ -1,6 +1,6 @@
 # CROSS APPLY and ARRAY_AGG
 
-CROSS APPLY and ARRAY_AGG support two very common scenarios in transforming text
+**CROSS APPLY** and **ARRAY_AGG** support two very common scenarios in transforming text
 
 * CROSS APPLY can break a row apart into multiple rows
 * ARRAY_AGG joins rows into a single row
@@ -8,14 +8,14 @@ CROSS APPLY and ARRAY_AGG support two very common scenarios in transforming text
 What we will how is how to move back and forth between the following two RowSets
 
 
-The first rowset has a column called Urls we want to split
+The first RowSet has a column called Urls we want to split
 
 | Region | Urls |
 | :--- | :--- |
 | en-us | A;B;C |
 | en-gb | D;E;F |
 
-The second rowset has a column called Url we want to merge
+The second RowSet has a column called `Url` we want to merge
 
 | Region | Url |
 | :--- | :--- |
