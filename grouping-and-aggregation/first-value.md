@@ -1,4 +1,4 @@
-## FIRST_VALUE
+# FIRST_VALUE
 
 As you can expect FIRST_VALUE will return the first value. However, if
 you want to be specific about what qualifies as “First” use an ORDER BY  
