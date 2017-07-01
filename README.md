@@ -11,7 +11,6 @@ The U-SQL tutorial is currently in first-draft state. It will be updated very fr
 
 It is scheduled for a v1 release in December of 2017.
 
-
 ### Looking for the U-SQL Language Reference?
 
 You can find [**the language reference here**](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx).
