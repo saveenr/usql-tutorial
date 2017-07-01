@@ -52,7 +52,7 @@
   * [Tables](usql-catalog/usql-tables.md)
   * [Assemblies](usql-catalog/assemblies.md)
   * [Packages](usql-catalog/packages.md)
-  [10 Referencing assemblies](referencing-assemblies/intro.md)
+* [10 Referencing assemblies](referencing-assemblies/intro.md)
 * [11 Window functions](window-functions/intro.md)
   * [Sample data](window-functions/sample-data.md)
   * [Window functions vs. GROUP BY](window-functions/window-functions-vs-group-by.md)
