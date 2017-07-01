@@ -84,6 +84,8 @@
   * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
     * [Persisting UDTs](extending-usql/persisting-udts.md)
 * [14 Complex types](complex-types/intro.md)
+  * [Arrays](complex-types/arrays.md)
+  * [Maps](complex-types/maps.md)
 * [15 Extending U-SQL](extending-usql/intro.md)
   * [User-Defined Functions \(UDFs\)](extending-usql/user-defined-functions.md)
   * [User-Defined Aggregators \(UDAggs\)](extending-usql/user-defined-aggregators.md)
