@@ -25,7 +25,7 @@
   * [Escaping column names](transforming-rowsets/escaping-column-names.md)
 * [3 DECLARE Parameters](declare-parameters/intro.md)
   * [Supported datatypes](declare-parameters/supported-datatypes.md)
-  * [Parameter type inference](declare-parameters/parameter-type-inference.md)
+  * [Parameter type inference](declare-parameters/type-inference.md)
 * [4 Data types](data-types/intro.md)
   * [Nullable types](data-types/nullable-types.md)
 * [5 Expressions](expressions/intro.md)
