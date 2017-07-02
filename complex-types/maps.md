@@ -2,9 +2,6 @@
 
 ## Overview
 
-* An ordered list of values (all of the same type)
-* Immutable
-* Single-Dimension
 
 
 ## Creating maps
