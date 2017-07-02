@@ -16,17 +16,18 @@
 ### Creating Empty arrays
 
 ```
-new SqlArray<string> ( );
+new SqlArray<string> ( )
 ```
+
 or
 
 ```
-new SqlArray<string> { };
+new SqlArray<string> { }
 ```
 
 ### Creating arrays initialized with data
 
 ```
-new SqlArray<string> { "A", "B" };
+new SqlArray<string> { "A", "B" }
 ```
 
