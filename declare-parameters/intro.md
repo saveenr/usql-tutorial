@@ -6,8 +6,9 @@ We'll start with this snippet
 
 ```
 @rows = 
-  EXTRACT name string, 
-           id int
+  EXTRACT 
+      name string, 
+      id int
   FROM "/data.csv"
   USING Extractors.Csv();
 ```
