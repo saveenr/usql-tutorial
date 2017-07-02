@@ -10,9 +10,9 @@ These do what you expect them to do
         AVG(Duration) AS DurationAvg,
         SUM(Duration) AS DurationSum,
         VAR(Duration) AS DurationVariance,
-        VARP(Duration) AS DurationVariance,
         STDEV(Duration) AS DurationStDev,
-        STDEVP(Duration) AS DurationStDev,
+        VARP(Duration) AS DurationVariance,
+        STDEVP(Duration) AS DurationStDev
     FROM @searchlog
     GROUP BY Region;
     ```
