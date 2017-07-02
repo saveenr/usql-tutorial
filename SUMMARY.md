@@ -44,8 +44,6 @@
   * [Filtering aggregated rows](grouping-and-aggregation/filtering-aggregated-rows.md)
   * [Aggregate functions](grouping-and-aggregation/aggregate-functions.md)
     * [Basic statistics](grouping-and-aggregation/basic-statistics.md)
-    * [FIRST VALUE](grouping-and-aggregation/first-value.md)
-    * [LAST VALUE](grouping-and-aggregation/last-value.md)
     * [ANY VALUE](grouping-and-aggregation/any-value.md)
   * [CROSS APPLY and ARRAY\_AGG](grouping-and-aggregation/cross-apply-and-array_agg.md)
 * [9 The U-SQL catalog](usql-catalog/intro.md)
