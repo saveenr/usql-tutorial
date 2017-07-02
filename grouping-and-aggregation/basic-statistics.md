@@ -10,11 +10,14 @@ These do what you expect them to do
         AVG(Duration) AS DurationAvg,
         SUM(Duration) AS DurationSum,
         VAR(Duration) AS DurationVariance,
+        VARP(Duration) AS DurationVariance,
         STDEV(Duration) AS DurationStDev,
+        STDEVp(Duration) AS DurationStDev,
     FROM @searchlog
     GROUP BY Region;
     ```
 
 ### Notes for Statisticians
 
-**VAR** & **STDEV** are the **sample version** with Bessel's correction,**not** the better-known **population version**.
+**VAR** & **STDEV** are the **sample version** with Bessel's correction
+**VARP** & **STDEVP** are the better-known **population version**.
