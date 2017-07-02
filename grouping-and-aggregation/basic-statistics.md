@@ -12,7 +12,7 @@ These do what you expect them to do
         VAR(Duration) AS DurationVariance,
         VARP(Duration) AS DurationVariance,
         STDEV(Duration) AS DurationStDev,
-        STDEVp(Duration) AS DurationStDev,
+        STDEVP(Duration) AS DurationStDev,
     FROM @searchlog
     GROUP BY Region;
     ```
