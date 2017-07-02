@@ -18,7 +18,7 @@ For example, imagine we have 10 files as shown below.
 /input/data10.csv
 ```
 
-The following EXTRACT will read all the files
+The following EXTRACT will read all 10 files
 
 ```
 @rs =
@@ -31,7 +31,7 @@ The following EXTRACT will read all the files
     USING Extractors.Csv();
 ```
 
-However by adding a WHERE clause that uses `__filenum` only those files that are matched by the WHERE clause are read.
+However by adding a WHERE clause that uses `__filenum` only those files that are matched by the WHERE clause are read. Only 3 files are read (7,8,9).
 
 ```
 @rs =
@@ -48,9 +48,6 @@ However by adding a WHERE clause that uses `__filenum` only those files that are
     FROM @rs
     WHERE 
         ( __filenum >= 7  ) AND 
-        ( __filenum <= 21 );
+        ( __filenum <= 9 );
 ```
-
-
-
 
