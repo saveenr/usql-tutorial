@@ -113,4 +113,35 @@ FROM @projectmembers;
 | Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } | 5 |
 | DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } | 3 |
 
+# Retrieving values
+```
+@output =
+    SELECT 
+        Project,
+        Members["Mallory"] AS MalloryRole
+   FROM @projectmembers;
+```
+
+Note that if the key is missing then the default value for the type is returned
+
+| Project | MalloryRole  |
+| --- | --- | --- |
+| Website | PM |
+| DB | null |
+
+# Checking if a key exists
+
+```
+@output =
+    SELECT 
+        Project,
+        Members.ContainsKey("Mallory") AS ContainsMallory
+FROM @projectmembers;
+``` 
+
+| Project | ContainsMallory |
+| --- | --- |
+| Website | True |
+| DB | False |
+
 
