@@ -9,6 +9,8 @@ Window functions also support the following aggregates:
 - AVG
 - STDEV
 - VAR
+- STDEVP
+- VARP
 
 The syntax:
 
