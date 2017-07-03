@@ -37,3 +37,80 @@ AS T(Category, Dict);
 | Category string | Dict SqlMap-2 |
 | --- | --- |
 | cat1 | SqlMap &lt; string, string &gt; { A=X; B=Y } |
+
+### Sample data
+
+```
+@projectmembers = 
+    SELECT *
+    FROM
+    ( VALUES
+        ( "Website", new SqlMap<string,string> { 
+                {"Mallory", "PM"}, 
+                {"Bob", "Dev"} ,
+                {"Alice", "Dev"} ,
+                {"Stan", "Dev"} ,
+                {"Chris", "UX"} ,
+             } 
+        ),
+        ( "DB", new SqlMap<string,string> { 
+                {"Ted", "Test"}, 
+                {"Joe", "Dev"} ,
+                {"Chuck", "Dev"} 
+             } 
+        )
+)
+AS T(Project, Members);
+```
+
+| Project | Members |
+| --- | --- |
+| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } |
+| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } |
+
+
+### Removing members based on keys
+
+```
+@output =
+    SELECT Project,
+           new SqlMap<string,string>(Members.Where(kv => kv.Key != "Mallory")) AS Members
+    FROM @projectmembers;
+```
+
+| Project | Members |
+| --- | --- |
+| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Stan=Dev } |
+| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } |
+
+
+### Removing members based on values
+
+```
+@output =
+    SELECT Project,
+           new SqlMap<string,string>(Members.Where(kv => kv.Value != "Dev")) AS Members
+    FROM @projectmembers;
+```
+
+| Project | Members |
+| --- | --- |
+| Website | SqlMap<string, string>{ Chris=UX; Mallory=PM } |
+| DB | SqlMap<string, string>{ Ted=Test } |
+
+### counting members
+
+```
+@output =
+    SELECT Project,
+           Members,
+           Members.Count AS Count
+FROM @projectmembers;
+```
+
+| Project | Members | Count |
+| --- | --- | --- |
+| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } | 5 |
+| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } | 3 |
+
+
