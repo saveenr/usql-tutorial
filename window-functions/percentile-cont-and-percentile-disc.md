@@ -18,7 +18,9 @@ Syntax
 
 * `WITHIN GROUP ( ORDER BY <identifier> [ASC | DESC])` - Within each partition, compute the percentile on `identifier`. The default sort order is ascending.
 
-* `OVER ( [PARTITION BY <identifierm,...> [n] ] )` - Defines the partitions. Note: Any nulls in the data set are ignored.
+* `OVER ( [PARTITION BY <identifierm,...> [n] ] )` - Defines the partitions. 
+
+Note: Any nulls in the data set are ignored.
 
 ### PERCENTILE_CONT vs PERCENTILE_DISC
 
