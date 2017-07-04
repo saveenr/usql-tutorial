@@ -2,6 +2,10 @@
 
 These two functions calculates a percentile based on a continuous or discrete distribution of the column values.
 
+* **PERCENTILE_CONT** calculates a percentile based on a **continuous distribution**. It will interpolate values. 
+
+* **PERCENTILE_DISC** calculates the percentile based on a **discrete distribution**. It  will always return one of the input values and will not interpolate a value.
+
 Syntax
 
 ```
@@ -16,11 +20,8 @@ Syntax
 
 * `OVER ( [PARTITION BY <identifierm,...> [n] ] )` - Defines the partitions. Note: Any nulls in the data set are ignored.
 
-* **PERCENTILE_CONT** calculates a percentile based on a **continuous distribution**. It will interpolate values. 
 
-* **PERCENTILE_DISC** calculates the percentile based on a **discrete distribution**. It  will always return one of the input values and will not interpolate a value.
-
-You can see how both work in the example below which tries to find the median \(percentile=0.50\) value for Latency within each Vertical
+You can see how **PERCENTILE_CONT** and **PERCENTILE_DISC** differ in the example below which tries to find the median \(percentile=0.50\) value for Latency within each Vertical
 
 ```
 @result =
