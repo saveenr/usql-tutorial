@@ -20,6 +20,7 @@ Syntax
 
 * `OVER ( [PARTITION BY <identifierm,...> [n] ] )` - Defines the partitions. Note: Any nulls in the data set are ignored.
 
+### PERCENTILE_CONT vs PERCENTILE_DISC
 
 You can see how **PERCENTILE_CONT** and **PERCENTILE_DISC** differ in the example below which tries to find the median \(percentile=0.50\) value for Latency within each Vertical
 
@@ -51,7 +52,8 @@ The results:
 | Cherry | 400 | Web | 250 | 200 |
 | Durian | 500 | Web | 250 | 200 |
 
-For **PERCENTILE_CONT** because values can be interpolated, the median for web is 250 even though no query in the web vertical had a latency of 250.
+Look at the median for the `Web` vertical.
 
-PERCENTILE\_DISC does not interpolate values, so the median for Web is 200 - which is an actual value found in the input rows.
+* **PERCENTILE_CONT** gives the median as 250 even though no query in the web vertical had a latency of 250.
+* **PERCENTILE_DISC** gives median for Web as 200, which is an actual value found in the input rows.
 
