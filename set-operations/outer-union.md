@@ -29,11 +29,11 @@ The following script will union the two rowsets `@left` and `@right` with the pa
 
 The result is:
 
-K | A   | C  | B  |
-- | --- | -- | -- |
-1 | "x" | 50 |  0 |
-1 | "x" |    |  5 |
-1 | "y" | 60 |  0 |
-2 | "x" |    |  6 |
-3 | "y" |    | 10 |
+| K | A   | C  | B  |
+| - | --- | -- | -- |
+| 1 | "x" | 50 |  0 |
+| 1 | "x" |    |  5 |
+| 1 | "y" | 60 |  0 |
+| 2 | "x" |    |  6 |
+| 3 | "y" |    | 10 |
 
