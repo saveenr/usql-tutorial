@@ -1,17 +1,15 @@
 # ARRAYs
 
-## Overview
+### Overview
 
 * An ordered list of values (all of the same type)
 * Immutable
 * Single-Dimension
 
-## Sample data
+### Sample data
 
 
 
-
-## Creating ARRAYs
 
 ### Creating Empty arrays
 
@@ -87,7 +85,7 @@ DECLARE @letters = new [] { "A", "B" };
 | Wyoming | SqlArray<string>{ "Cheyenne", "Casper", "Laramie", "Gillette", "Rock Springs" } |
 
 
-## Array Indexing 
+### Array Indexing 
 
 Use the array indexing operator [n] where n is a long. The first index is 0 – just like .NET
 
@@ -117,7 +115,7 @@ Use the array indexing operator [n] where n is a long. The first index is 0 – 
 | Wyoming | Cheyenne |
 
 
-## Removing members
+### Removing members
 
 ```
 @output = 

@@ -1,10 +1,9 @@
 # MAPs
 
-## Overview
+### Overview
 
 
 
-## Creating maps
 
 ### Creating Empty maps
 
@@ -113,7 +112,7 @@ FROM @projectmembers;
 | Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } | 5 |
 | DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } | 3 |
 
-# Retrieving values
+### Retrieving values
 ```
 @output =
     SELECT 
@@ -129,7 +128,7 @@ Note that if the key is missing then the default value for the type is returned
 | Website | PM |
 | DB | null |
 
-# Checking if a key exists
+### Checking if a key exists
 
 ```
 @output =
