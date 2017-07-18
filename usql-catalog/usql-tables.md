@@ -14,6 +14,8 @@ If you have a RowSet creating a table from it is very simple. The one thing you 
        ("Woodgrove", 456 )
     ) AS D( Customer, Id  );
 
+DROP TABLE IF EXISTS MyDB.dbo.Customers;
+
 CREATE TABLE MyDB.dbo.Customers
 ( 
     INDEX idx  
@@ -28,6 +30,8 @@ CREATE TABLE MyDB.dbo.Customers
 If you need don't have the data available at the time of table creation. You can create an empty table as shown below. Notice that this time the schema has to be specified.
 
 ```
+DROP TABLE IF EXISTS MyDB.dbo.Customers;
+
 CREATE TABLE MyDB.dbo.Customers
 ( 
     Customer string, 
