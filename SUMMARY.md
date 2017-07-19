@@ -2,10 +2,6 @@
 
 * [Introduction](README.md)
 * [0 Meta](meta/intro.md)
-  * [How to read the tutorial](meta/how-to-read.md)
-  * [Contributing](meta/contributing.md)
-  * [Sending feedback](meta/feedback.md)
-  * [Change log](meta/change-log.md)
 * [1 Getting started](getting-started/intro.md)
   * [U-SQL vs SQL](getting-started/usql-vs-sql.md)
   * [Running U-SQL scripts](getting-started/running-usql-scripts.md)
