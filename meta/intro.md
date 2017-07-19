@@ -6,7 +6,7 @@ This section is for content about the tutorial itself. If you want to get right 
 
 Set aside a day or two and just start reading each chapter in sequence. Every chapter introduces a simple topic. Don’t skip ahead. Each chapter builds on the one before it. When you are done with all the chapters you’ll have a good working knowledge of how to use U-SQL.
 
-# How to send feedback
+## Send feedback
 
 We'd love to hear it!
 
@@ -45,6 +45,4 @@ https://git.gitbook.com/saveenr/usql-tutorial.git
 * 2017/06/25 - CSS customizations
 * 2017/06/24 - Updated Joins, Window functions, and Set ops
 * 2017/06/21 - First draft released
-
-
 
