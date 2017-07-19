@@ -78,8 +78,6 @@
   * [INNER JOIN and OUTER JOIN](joins/inner-join-and-outer-join.md.md)
   * [SEMIJOIN](joins/semijoin.md)
   * [ANTISEMIJOIN](joins/antisemijoin.md)
-  * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
-    * [Persisting UDTs](extending-usql/persisting-udts.md)
 * [14 Complex types](complex-types/intro.md)
   * [Arrays](complex-types/arrays.md)
   * [Maps](complex-types/maps.md)
@@ -88,5 +86,6 @@
   * [User-Defined Aggregators \(UDAggs\)](extending-usql/user-defined-aggregators.md)
   * [Recursive aggregators](extending-usql/recursive-aggregators.md)
   * [DEPLOY RESOURCE](extending-usql/deploy-resource.md)
-
+  * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
+  * [Persisting UDTs](extending-usql/persisting-udts.md)
 
