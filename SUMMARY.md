@@ -65,6 +65,7 @@
     * [NTILE](window-functions/ntile.md)
     * [Ranking: Assign unique row numbers](window-functions/ranking-assign-new-unique-row-numbers.md)
     * [Ranking: Get TOP N rows in group](window-functions/ranking-get-top-n-rows-in-group.md)
+    * [Ranking: Get ANY N rows in group](window-functions/ranking-get-any-n-rows-in-group.md)
     * [Ranking: Get row with min/max value](window-functions/ranking-get-row-with-min-max-value.md)
 * [12 Set operations](set-operations/intro.md)
   * [Sample data](set-operations/sample-data.md)
