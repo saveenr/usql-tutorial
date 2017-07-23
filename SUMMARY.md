@@ -37,6 +37,7 @@
   * [Filtering FileSets with WHERE](filesets/filtering-filesets-with-where.md)
   * [FileSets with dates](filesets/filesets-with-dates.md)
 * [8 Grouping and aggregation](grouping-and-aggregation/intro.md)
+  * [Conditionally counting](grouping-and-aggregation/conditionally-counting.md)  
   * [Filtering aggregated rows](grouping-and-aggregation/filtering-aggregated-rows.md)
   * [Aggregate functions](grouping-and-aggregation/aggregate-functions.md)
     * [Basic statistics](grouping-and-aggregation/basic-statistics.md)
