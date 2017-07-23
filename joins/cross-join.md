@@ -2,13 +2,15 @@
 
 ```
 @cross_join =
-SELECT
-@departments.DepID AS DepID_Dep,
-@employees.DepID AS DepID_Emp,
-@employees.EmpName,
-@departments.DepName
-FROM @employees CROSS JOIN @departments;
+    SELECT
+        @departments.DepID AS DepID_Dep,
+        @employees.DepID AS DepID_Emp,
+        @employees.EmpName,
+        @departments.DepName
+     FROM 
+        @employees CROSS JOIN @departments;
 ```
+
 | DepID_Dep | DepID_Emp | EmpName | DepName |
 | --- | --- | --- | --- |
 | 31 | 31 | Rafferty | Sales |
