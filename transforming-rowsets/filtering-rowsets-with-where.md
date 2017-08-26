@@ -97,7 +97,7 @@ There are a couple of approaches for filtering rows based on the `DurationInMinu
   SELECT 
     Start,
     Region,
-    Duration/60.0 ASDurationInMinutes
+    Duration/60.0 AS DurationInMinutes
   FROM @searchlog;
 
 @output =
