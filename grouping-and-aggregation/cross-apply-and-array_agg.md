@@ -105,8 +105,8 @@ First, we'll merge the Urls together into an array with ARRAY_AGG
 
 | Region | UrlsArray |
 | :--- | :--- |
-| en-us | SqlArray&lt; string &gt;{"A","B","C"} |
-| en-gb | SqlArray&lt; string &gt;{"D","E","F"} |
+| en-us | SqlArray{"A","B","C"} |
+| en-gb | SqlArray{"D","E","F"} |
 
 Now that we have arrays of strings, we will collapse the each array into a string using `string.Join`.
 
@@ -115,8 +115,7 @@ Now that we have arrays of strings, we will collapse the each array into a strin
   SELECT 
     Region, 
     string.Join(";", UrlsArray) AS Urls  
-  FROM @d
-  GROUP BY Region;
+  FROM @d;
 ```
 
 Finally @e looks like this. We are back to where we started.
