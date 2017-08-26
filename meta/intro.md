@@ -35,6 +35,7 @@ https://git.gitbook.com/saveenr/usql-tutorial.git
 
 ## Change log
 
+* 2017/08/26 - Fixed a few typos
 * 2017/07/23 - Added section on conditionally counting
 * 2017/07/18 - Improved sample for CREATE TABLE AS SELECT
 * 2017/07/11 - added DEPLOY RESOURCE section
