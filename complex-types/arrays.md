@@ -14,7 +14,7 @@ The SqlArray.Create static method can also be used to create arrays.
 
 
 ```
-@cities =
+@output =
     SELECT * 
     FROM
     ( VALUES
