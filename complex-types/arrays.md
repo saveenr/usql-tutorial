@@ -18,7 +18,7 @@ The SqlArray.Create static method can also be used to create arrays.
     SELECT * 
     FROM
     ( VALUES
-        ( "West Virginia", SqlArray.Create( new string [] { "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling"} ) ),
+        ( "West Virginia", new SqlArray<string>( new string [] { "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling"} ) ),
         ( "Wisconsin", SqlArray.Create( new string [] { "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine"} ) )
 
     ) AS T(State, Cities);
