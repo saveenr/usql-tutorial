@@ -4,12 +4,25 @@
 
 * An ordered list of values (all of the same type)
 * Immutable
-* Single-Dimension
+* Single-Dimension only
 
-### Sample data
+### Creating arrays initialized with data
+
+You can create a SQlArray using the SqlArray constructor or use the SqlArray.Create static method
+
+The SqlArray.Create static method can also be used to create arrays.
 
 
+```
+@cities =
+    SELECT * 
+    FROM
+    ( VALUES
+        ( "West Virginia", SqlArray.Create( new string [] { "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling"} ) ),
+        ( "Wisconsin", SqlArray.Create( new string [] { "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine"} ) )
 
+    ) AS T(State, Cities);
+```
 
 ### Creating Empty arrays
 
@@ -23,66 +36,56 @@ or
 new SqlArray<string> { }
 ```
 
-### Creating arrays initialized with data
+### Creating an ARRAY from an .NET Array
 
 ```
-new SqlArray<string> { "A", "B" }
-```
+DECLARE @wv_cities = new string [] { "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling"};
+DECLARE @wi_cities = new string [] { "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine" };
 
-For example:
-
-```
-@output =
+@cities =
     SELECT * 
     FROM
     ( VALUES
-        ( "West Virginia", 
-            new SqlArray<string> { 
-                "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling" 
-        )
-    )
-AS T(State, Cities);
-```
+        ( "West Virginia", new SqlArray<string>( @wv_cities ) ),
+        ( "Wisconsin", SqlArray.Create( @wi_cities ) )
 
-### Creating an ARRAY from an IEnumerable
-
+    ) AS T(State, Cities);
 
 ```
-DECLARE @letters = new [] { "A", "B" };
 
-@output = 
-    SELECT         
+
+
+# Sample data
+
+```
+@cities =
+    SELECT * 
+    FROM
+    ( VALUES
+        ( "Vermont","Burlington,Essex,South,Burlington,Colchester,Rutland" ),
+        ( "Virginia","Virginia Beach,Norfolk,Chesapeake,Richmond,Newport News" ),
+        ( "Washington","Seattle,Spokane,Tacoma,Vancouver,Bellevue" ),
+        ( "West Virginia", "Charleston,Huntington,Parkersburg,Morgantown,Wheeling"),
+        ( "Wisconsin","Milwaukee,Madison,Green Bay,Kenosha,Racine"),
+        ( "Wyoming","Cheyenne,Casper,Laramie,Gillette,Rock Springs" )
+    ) AS T(State, Cities);
+
+@cities =
+    SELECT 
         State,
-        SqlArray.Create( @letters ) AS Cities
+        SqlArray.Create( Cities.Split(',') ) AS Cities 
     FROM @cities;
 ```
 
-| State | Cities |
+| State string | Cities SqlArray |
 | --- | --- |
-| Vermont | SqlArray<string>{ "A", "B" } |
-| Virginia | SqlArray<string>{ "A", "B" } |
-| Washington | SqlArray<string>{ "A", "B" } |
-| West Virginia | SqlArray<string>{ "A", "B" } |
-| Wisconsin | SqlArray<string>{ "A", "B" } |
-| Wyoming | SqlArray<string>{ "A", "B" } |
+| Vermont | SqlArray{ "Burlington", "Essex", "South", "Burlington", "Colchester", "Rutland" } |
+| Virginia | SqlArray{ "Virginia Beach", "Norfolk", "Chesapeake", "Richmond", "Newport News" } |
+| Washington | SqlArray{ "Seattle", "Spokane", "Tacoma", "Vancouver", "Bellevue" } |
+| West Virginia | SqlArray{ "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling" } |
+| Wisconsin | SqlArray{ "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine" } |
+| Wyoming | SqlArray{ "Cheyenne", "Casper", "Laramie", "Gillette", "Rock Springs" } |
 
-
-```
-@output = 
-    SELECT         
-        State,
-        SqlArray.Create( Cities.Split(';') ) AS Cities
-    FROM @cities;
-```
-
-| State | Cities |
-| --- | --- |
-| Vermont | SqlArray<string>{ "Burlington", "Essex", "South Burlington", "Colchester", "Rutland" } |
-| Virginia | SqlArray<string>{ "Virginia Beach", "Norfolk", "Chesapeake", "Richmond", "Newport News" } |
-| Washington | SqlArray<string>{ "Seattle", "Spokane", "Tacoma", "Vancouver", "Bellevue" } |
-| West Virginia | SqlArray<string>{ "Charleston", "Huntington", "Parkersburg", "Morgantown", "Wheeling" } |
-| Wisconsin | SqlArray<string>{ "Milwaukee", "Madison", "Green Bay", "Kenosha", "Racine" } |
-| Wyoming | SqlArray<string>{ "Cheyenne", "Casper", "Laramie", "Gillette", "Rock Springs" } |
 
 
 ### Array Indexing 
@@ -90,12 +93,6 @@ DECLARE @letters = new [] { "A", "B" };
 Use the array indexing operator [n] where n is a long. The first index is 0 – just like .NET
 
 ```
-@output = 
-    SELECT         
-        State,
-        SqlArray.Create( Cities.Split(';') ) AS Cities
-    FROM @cities;
-
 
 @output =
     SELECT
@@ -118,12 +115,6 @@ Use the array indexing operator [n] where n is a long. The first index is 0 – 
 ### Removing members
 
 ```
-@output = 
-    SELECT         
-        State,
-        SqlArray.Create( Cities.Split(';') ) AS Cities
-    FROM @cities;
-
 @output =
     SELECT
         State ,
@@ -133,22 +124,17 @@ Use the array indexing operator [n] where n is a long. The first index is 0 – 
 
 | State | Cities |
 | --- | --- |
-| Vermont | SqlArray<string>{ "Colchester" } |
-| Virginia | SqlArray<string>{ "Chesapeake" } |
-| Washington | SqlArray<string>{  } |
-| West Virginia | SqlArray<string>{ "Charleston" } |
-| Wisconsin | SqlArray<string>{  } |
-| Wyoming | SqlArray<string>{ "Cheyenne", "Casper" } |
+| Vermont | SqlArray{ "Colchester" } |
+| Virginia | SqlArray{ "Chesapeake" } |
+| Washington | SqlArray{  } |
+| West Virginia | SqlArray{ "Charleston" } |
+| Wisconsin | SqlArray{  } |
+| Wyoming | SqlArray{ "Cheyenne", "Casper" } |
 
 
 ## Counting members
 
 ```
-@output = 
-    SELECT         
-        State,
-        SqlArray.Create( Cities.Split(';') ) AS Cities
-    FROM @cities;
 
 @output =
     SELECT
