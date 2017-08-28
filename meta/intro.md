@@ -10,7 +10,7 @@ Set aside a day or two and just start reading each chapter in sequence. Every ch
 
 We'd love to hear it!
 
-Send **feedback and ideas about U-SQL** or Azure Data Lake to our UserVoice forum: https://aka.ms/adlfeedback
+Send **feedback and ideas about U-SQL** or Azure Data Lake to our UserVoice forum: [https://aka.ms/adlfeedback](https://aka.ms/adlfeedback)
 
 If you need to send **suggestions for the U-SQL tutorial document** itself, contact [**usqltutorial@microsoft.com**](mailto:usqltutorial@microsoft.com)
 
@@ -22,8 +22,7 @@ We welcome contributions.
 
 If you have an account with GitBooks you can edit the tutorial
 
-https://www.gitbook.com/book/saveenr/usql-tutorial/edit
-
+[https://www.gitbook.com/book/saveenr/usql-tutorial/edit](https://www.gitbook.com/book/saveenr/usql-tutorial/edit)
 
 #### With Git
 
@@ -35,6 +34,7 @@ https://git.gitbook.com/saveenr/usql-tutorial.git
 
 ## Change log
 
+* 2017/08/28 - Updated SqlMap section
 * 2017/08/27 - Added a tip for generating ranges of numbers and dates
 * 2017/08/27 - Updated SqlArray section
 * 2017/08/26 - Fixed a few typos
@@ -49,4 +49,6 @@ https://git.gitbook.com/saveenr/usql-tutorial.git
 * 2017/06/25 - CSS customizations
 * 2017/06/24 - Updated Joins, Window functions, and Set ops
 * 2017/06/21 - First draft released
+
+
 
