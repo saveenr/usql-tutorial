@@ -90,4 +90,6 @@
   * [DEPLOY RESOURCE](extending-usql/deploy-resource.md)
   * [User-Defined Types \(UDTs\)](extending-usql/user-defined-types.md)
   * [Persisting UDTs](extending-usql/persisting-udts.md)
+* [16 Tips](tips/README.md)
+  
 
