@@ -4,40 +4,9 @@
 
 
 
+### Creating a SqlMap from constant values
 
-### Creating Empty maps
-
-```
-new SqlMap<string,string> ( )
-```
-or
-
-```
-new SqlMap<string,string> { }
-```
-
-### Creating maps initialized with data
-
-```
-new SqlMap<string,string> { {"A", "X"}, {"B", "Y"} }
-```
-
-```
-@output =
-    SELECT * 
-    FROM  
-    ( VALUES
-        ( "cat1", new SqlMap<string,string> { {"A", "X"}, {"B", "Y"} } )
-
-    )
-AS T(Category, Dict);
-```
-
-| Category string | Dict SqlMap-2 |
-| --- | --- |
-| cat1 | SqlMap &lt; string, string &gt; { A=X; B=Y } |
-
-### Sample data
+The following snippet creates two rows and each has a SqlMap<K,V> where the key (K) is a string and the value is also a string.
 
 ```
 @projectmembers = 
@@ -64,8 +33,22 @@ AS T(Project, Members);
 
 | Project | Members |
 | --- | --- |
-| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } |
-| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } |
+| Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } |
+| DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
+
+
+
+
+### Creating Empty maps
+
+```
+new SqlMap<string,string> ( )
+```
+or
+
+```
+new SqlMap<string,string> { }
+```
 
 
 ### Removing members based on keys
@@ -79,8 +62,8 @@ AS T(Project, Members);
 
 | Project | Members |
 | --- | --- |
-| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Stan=Dev } |
-| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } |
+| Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Stan=Dev } |
+| DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
 
 
 ### Removing members based on values
@@ -94,8 +77,8 @@ AS T(Project, Members);
 
 | Project | Members |
 | --- | --- |
-| Website | SqlMap<string, string>{ Chris=UX; Mallory=PM } |
-| DB | SqlMap<string, string>{ Ted=Test } |
+| Website | SqlMap{ Chris=UX; Mallory=PM } |
+| DB | SqlMap{ Ted=Test } |
 
 ### counting members
 
@@ -109,8 +92,8 @@ FROM @projectmembers;
 
 | Project | Members | Count |
 | --- | --- | --- |
-| Website | SqlMap<string, string>{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } | 5 |
-| DB | SqlMap<string, string>{ Chuck=Dev; Joe=Dev; Ted=Test } | 3 |
+| Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } | 5 |
+| DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } | 3 |
 
 ### Retrieving values
 ```
