@@ -51,7 +51,7 @@ new SqlMap<string,string> { }
 ```
 
 
-### Removing members based on keys
+### Maps from Maps: Removing members based on keys
 
 ```
 @output =
@@ -65,13 +65,29 @@ new SqlMap<string,string> { }
 | Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Stan=Dev } |
 | DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
 
+Alternatively you can use the SqlMap.Create static method instead
+
+```
+@output =
+    SELECT Project,
+           SqlMap.Create(Members.Where(kv => kv.Key != "Mallory")) AS Members
+    FROM @projectmembers;
+```
+
+| Project | Members |
+| --- | --- |
+| Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Stan=Dev } |
+| DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
+
+
+
 
 ### Removing members based on values
 
 ```
 @output =
     SELECT Project,
-           new SqlMap<string,string>(Members.Where(kv => kv.Value != "Dev")) AS Members
+           SqlMap.Create(Members.Where(kv => kv.Value != "Dev")) AS Members
     FROM @projectmembers;
 ```
 
