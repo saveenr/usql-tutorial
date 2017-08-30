@@ -80,6 +80,34 @@ Alternatively you can use the SqlMap.Create static method instead
 | DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
 
 
+### Combining rows into maps with MAP_AGG
+
+```
+@projectmembers = 
+    SELECT *
+    FROM
+    ( VALUES
+        ( "Website","Mallory", "PM" ), 
+        ( "Website","Bob", "Dev" ),
+        ( "Website","Alice", "Dev" ) ,
+        ( "Website","Stan", "Dev" ) ,
+        ( "Website","Chris", "UX" ) ,
+        ( "DB", "Ted", "Test" ), 
+        ( "DB", "Joe", "Dev" ) ,
+        ( "DB", "Chuck", "Dev" ) 
+    )
+AS T(Project, Employee, Role);
+
+@projectmembers =
+    SELECT Project,
+           MAP_AGG<string, string>(Employee, Role) AS Members
+    FROM @projectmembers_raw
+    GROUP BY Project;    
+```
+| Project | Members |
+| --- | --- |
+| DB | SqlMap{ Chuck=Dev; Joe=Dev; Ted=Test } |
+| Website | SqlMap{ Alice=Dev; Bob=Dev; Chris=UX; Mallory=PM; Stan=Dev } |
 
 
 ### Removing members based on values
