@@ -23,12 +23,13 @@ ADLA Account
       |--Assemblies
 ```
 
-* Every ADLA account has a single U-SQL Catalog. The catalog cannot be deleted.
-* Each U-SQL Catalog contains one or more U-SQL Databases. Every catalog has a `master` database that cannot be deleted.
-* Each U-SQL Database can contain code and data. 
+* Every ADLA account has a single U-SQL catalog. The catalog cannot be deleted.
+* Each U-SQL catalog contains one or more U-SQL Databases. 
+* Every catalog has a `master` database that cannot be deleted.
+* Each U-SQL database can contain code and data. 
 * Data is stored in the form of U-SQL tables. 
-* U-SQL code is stored in a database in the form of Views, Table-valued functions, Procedures. 
-* .NET code is stored in the database in the form on assemblies.
+* U-SQL code is stored in a database in the form of views, table-valued functions, procedures. 
+* .NET code \(.NET Assemblies\) is stored in the database in the form of U-SQL assemblies.
 
 
 
