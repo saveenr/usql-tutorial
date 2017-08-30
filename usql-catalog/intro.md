@@ -2,7 +2,7 @@
 
 The U-SQL Catalog is the way U-SQL organizes data and code for re-use and sharing.
 
-## The U-SQL Catalog metadata system
+## Catalog organization
 
 ```
 ADLA Account
