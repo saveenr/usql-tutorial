@@ -9,7 +9,7 @@ Many common scenarios for U-SQL developers require constructing a RowSet made up
 * Using SELECT to map integers to DateTimes
 * Using CREATE TABLE to create a table directly from a RowSet. This is sometimes called "CREATE TABLE AS SELECT" and often abbreviated as "CTAS".
 
-First, we'll begin by using the VALUES statement to create a simple RowSet of integers from 0 to 
+First, we'll begin by using the VALUES statement to create a simple RowSet of integers from 0 to
 
 ```
 @numbers_10 = 
@@ -27,7 +27,8 @@ First, we'll begin by using the VALUES statement to create a simple RowSet of in
           (9)
     ) AS T(Value);
 ```
-This technique is simple. However, it's disadvantages are: (1) the script will need to manually list all the numbers (2) there is an upper limit on the number of items allowed in VALUES in a U-SQL script. Currently that limit is 10,000 items.
+
+This technique is simple. However, it's disadvantages are: \(1\) the script will need to manually list all the numbers \(2\) there is an upper limit on the number of items allowed in VALUES in a U-SQL script. Currently that limit is 10,000 items.
 
 The CROSS JOIN statement helps us generate larger lists of numbers easily. In the following snippet, CROSS JOIN is used to generate 100 integers from 0 to 99.
 
@@ -122,5 +123,6 @@ Now retrieving any desired range is simple by using SELECT on the table followed
     FROM MyDB.dbo.Numbers_10000
     WHERE Value >=1 AND Value <= 87;
 ```
+
 
 
