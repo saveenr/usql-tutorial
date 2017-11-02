@@ -3,5 +3,5 @@
 If the assembly you want is in another ADLA account, and you have access to that assembly you can reference it as shown below.
 
 ```
-REFERENCE SYSTEM ASSEMBLY [Account][DBName].[AssemblyName];
+REFERENCE ASSEMBLY [Account][DBName].[AssemblyName];
 ```
