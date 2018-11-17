@@ -13,7 +13,7 @@ CREATE ASSEMBLY MyDB.OrdersLibAsm
 Below is the standard syntax for referencing an assembly that is in the U-SQL catalog.
  
 ```
-REFERENCE SYSTEM ASSEMBLY [DBName].[AssemblyName];
+REFERENCE ASSEMBLY [DBName].[AssemblyName];
 ```
 
 
