@@ -88,7 +88,7 @@ This is a good opportunity to explore a common use of the **HAVING** operator. W
     SUM(Duration) AS TotalDuration
   FROM @searchlog
   GROUP BY Region
-  HAVING TotalDuration > 200;
+  HAVING SUM(Duration) > 200;
 ```
 
 | en-fr | 241 |
